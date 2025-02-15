@@ -14,7 +14,7 @@ html, body {
     margin: 0;
 }
 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) { */
     body {
         background-color: #FEF6E4; /* 背景色を変更 */
         font-size: 5vw; /* ビューポート幅に基づいたフォントサイズ */
@@ -60,12 +60,12 @@ html, body {
 
     
 
-}
+/* } */
 
 /* タブレットやウェブサイト用のスタイル */
 @media (min-width: 481px) and (max-width: 1023px) {
     body {
-        background-color: lightgreen; /* 背景色を変更 */
+        background-color: #FEF6E4; /* 背景色を変更 */
         font-size: 2.5vw; /* ビューポート幅に基づいたフォントサイズ */
     }
 
@@ -78,7 +78,7 @@ html, body {
 /* ウェブサイト用のスタイル（デスクトップ） */
 @media (min-width: 1024px) {
     body {
-        background-color: lightyellow; /* 背景色を変更 */
+        background-color: #FEF6E4; /* 背景色を変更 */
         font-size: 1.5vw; /* ビューポート幅に基づいたフォントサイズ */
     }
 

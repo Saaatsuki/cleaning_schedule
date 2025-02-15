@@ -52,10 +52,18 @@ document.addEventListener('DOMContentLoaded', function () {
             areaDiv.innerHTML = `<h6>${item.cleanArea}</h6>`;
             areaMenu.appendChild(areaDiv);
 
+            const memClassDiv = document.createElement('div');
+            memClassDiv.classList.add('mem-coun');
+            memClassDiv.classList.add(`me-box`);
+            memClassDiv.innerHTML = `<h6>${item.membersCount}</h6>`;
+            areaMenu.appendChild(memClassDiv);
+
+            
+            
             const memCountDiv = document.createElement('div');
-            memCountDiv.classList.add('mem-coun');
-            memCountDiv.classList.add(`me-box`);
-            memCountDiv.innerHTML = `<h6>${item.membersCount}</h6>`;
+            memCountDiv.classList.add('me-box');
+            memCountDiv.classList.add(`me-class`);
+            memCountDiv.innerHTML = `<h6>${item.class}</h6>`;
             areaMenu.appendChild(memCountDiv);
 
             areaSub.appendChild(areaMenu);

@@ -21,6 +21,8 @@ img {
 .date {
     color: white;
     margin-bottom: 5%;
+    display: flex;
+    justify-content: center;
 }
 
 .area-lists {
@@ -43,6 +45,10 @@ img {
 
 .mem-coun {
     background-color: #F582AE;
+}
+
+.me-class {
+    background-color: #8BD3DD;
 }
 
 .me-box {
