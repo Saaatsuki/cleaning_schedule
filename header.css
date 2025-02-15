@@ -42,7 +42,7 @@ html, body {
 
     .menu-logo {
         margin-left:5%;
-        height: 40%;
+        width:  40px;
         aspect-ratio: 1 / 1; 
         display: grid;
         grid-template-rows: 1fr 1fr 1fr;

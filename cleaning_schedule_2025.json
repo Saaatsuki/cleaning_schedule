@@ -1,180 +1,346 @@
 {
-  "Daily_Cleaning_Schedule": [
+  "cleanInfo": [
     {
       "date": "2025-02-14",
       "groupId": "1",
-      "members": ["김 지훈", "박 세린", "이 민지", "김 수빈"],
-      "membersCount": 4,
+      "members": [
+        {"student_number": "2025-010", "name": "한 세영", "cleanCount": 1, "profileImage": "im10.png"},
+        {"student_number": "2025-003", "name": "김 태희", "cleanCount": 1, "profileImage": "im03.png"},
+        {"student_number": "2025-029", "name": "정 하윤", "cleanCount": 1, "profileImage": "im29.png"},
+        {"student_number": "2025-006", "name": "박 세린", "cleanCount": 1, "profileImage": "im06.png"},
+        {"student_number": "2025-012", "name": "임 지훈", "cleanCount": 1, "profileImage": "im12.png"},
+        {"student_number": "2025-027", "name": "장 세희", "cleanCount": 1, "profileImage": "im27.png"}
+      ],
+      "membersCount": 6,
       "cleanArea": "창조관 405호",
       "class": "2027_A"
     },
     {
       "date": "2025-02-14",
       "groupId": "2",
-      "members": ["정 다은", "임 지훈", "한 유진", "김 태희", "이 소영"],
-      "membersCount": 5,
-      "cleanArea": "창조관 406호",
+      "members": [
+        {"student_number": "2025-019", "name": "김 수빈", "cleanCount": 1, "profileImage": "im19.png"},
+        {"student_number": "2025-004", "name": "김 유리", "cleanCount": 1, "profileImage": "im04.png"}
+      ],
+      "membersCount": 2,
+      "cleanArea": "가습기",
       "class": "2027_A"
     },
     {
-      "date": "2025-02-14",
+      "date": "2025-02-15",
       "groupId": "3",
-      "members": ["박 지수", "김 유리", "장 세희", "이 수정"],
-      "membersCount": 4,
-      "cleanArea": "창조관 407호",
+      "members": [
+        {"student_number": "2025-014", "name": "이 수정", "cleanCount": 1, "profileImage": "im14.png"},
+        {"student_number": "2025-022", "name": "김 태희", "cleanCount": 1, "profileImage": "im22.png"}
+      ],
+      "membersCount": 2,
+      "cleanArea": "화장실",
       "class": "2027_A"
     },
     {
-      "date": "2025-02-21",
+      "date": "2025-02-15",
       "groupId": "4",
-      "members": ["김 지훈", "박 세린", "이 민지", "김 수빈", "정 다은"],
-      "membersCount": 5,
-      "cleanArea": "창조관 405호",
+      "members": [
+        {"student_number": "2025-017", "name": "김 수빈", "cleanCount": 1, "profileImage": "im17.png"},
+        {"student_number": "2025-028", "name": "김 유리", "cleanCount": 1, "profileImage": "im28.png"}
+      ],
+      "membersCount": 2,
+      "cleanArea": "가습기",
       "class": "2027_A"
     },
     {
-      "date": "2025-02-21",
+      "date": "2025-02-22",
       "groupId": "5",
-      "members": ["임 지훈", "한 유진", "김 태희", "이 소영"],
-      "membersCount": 4,
-      "cleanArea": "창조관 406호",
+      "members": [
+        {"student_number": "2025-021", "name": "임 지훈", "cleanCount": 1, "profileImage": "im21.png"},
+        {"student_number": "2025-025", "name": "이 진수", "cleanCount": 1, "profileImage": "im25.png"},
+        {"student_number": "2025-026", "name": "장 세희", "cleanCount": 1, "profileImage": "im26.png"},
+        {"student_number": "2025-013", "name": "이 민지", "cleanCount": 1, "profileImage": "im13.png"},
+        {"student_number": "2025-019", "name": "김 수빈", "cleanCount": 1, "profileImage": "im19.png"},
+        {"student_number": "2025-022", "name": "김 태희", "cleanCount": 1, "profileImage": "im22.png"}
+      ],
+      "membersCount": 6,
+      "cleanArea": "창조관 405호",
       "class": "2027_A"
     },
     {
-      "date": "2025-02-21",
+      "date": "2025-02-22",
       "groupId": "6",
-      "members": ["김 유리", "장 세희", "이 수정", "박 지수", "김 태희"],
-      "membersCount": 5,
-      "cleanArea": "창조관 407호",
+      "members": [
+        {"student_number": "2025-016", "name": "한 유진", "cleanCount": 1, "profileImage": "im16.png"},
+        {"student_number": "2025-027", "name": "장 세희", "cleanCount": 1, "profileImage": "im27.png"}
+      ],
+      "membersCount": 2,
+      "cleanArea": "가습기",
       "class": "2027_A"
     },
     {
-      "date": "2025-02-28",
+      "date": "2025-02-22",
       "groupId": "7",
-      "members": ["김 지훈", "박 세린", "이 민지", "김 수빈"],
-      "membersCount": 4,
-      "cleanArea": "창조관 405호",
+      "members": [
+        {"student_number": "2025-014", "name": "이 수정", "cleanCount": 1, "profileImage": "im14.png"},
+        {"student_number": "2025-012", "name": "임 지훈", "cleanCount": 1, "profileImage": "im12.png"}
+      ],
+      "membersCount": 2,
+      "cleanArea": "화장실",
       "class": "2027_A"
     },
     {
-      "date": "2025-02-28",
+      "date": "2025-03-07",
       "groupId": "8",
-      "members": ["정 다은", "임 지훈", "한 유진", "김 태희", "이 소영"],
-      "membersCount": 5,
-      "cleanArea": "창조관 406호",
+      "members": [
+        {"student_number": "2025-017", "name": "김 수빈", "cleanCount": 1, "profileImage": "im17.png"},
+        {"student_number": "2025-022", "name": "김 태희", "cleanCount": 1, "profileImage": "im22.png"}
+      ],
+      "membersCount": 2,
+      "cleanArea": "가습기",
       "class": "2027_A"
     },
     {
-      "date": "2025-02-28",
+      "date": "2025-03-16",
       "groupId": "9",
-      "members": ["김 유리", "장 세희", "이 수정", "박 지수"],
-      "membersCount": 4,
-      "cleanArea": "창조관 407호",
+      "members": [
+        {"student_number": "2025-019", "name": "김 수빈", "cleanCount": 1, "profileImage": "im19.png"},
+        {"student_number": "2025-025", "name": "이 진수", "cleanCount": 1, "profileImage": "im25.png"}
+      ],
+      "membersCount": 2,
+      "cleanArea": "화장실",
       "class": "2027_A"
     },
     {
-      "date": "2025-03-07",
+      "date": "2025-03-16",
       "groupId": "10",
-      "members": ["김 지훈", "박 세린", "이 민지", "김 수빈"],
-      "membersCount": 4,
+      "members": [
+        {"student_number": "2025-010", "name": "한 세영", "cleanCount": 1, "profileImage": "im10.png"},
+        {"student_number": "2025-027", "name": "장 세희", "cleanCount": 1, "profileImage": "im27.png"}
+      ],
+      "membersCount": 2,
+      "cleanArea": "가습기",
+      "class": "2027_A"
+    },
+    {
+      "date": "2025-03-23",
+      "groupId": "11",
+      "members": [
+        {"student_number": "2025-004", "name": "김 유리", "cleanCount": 1, "profileImage": "im04.png"},
+        {"student_number": "2025-025", "name": "이 진수", "cleanCount": 1, "profileImage": "im25.png"}
+      ],
+      "membersCount": 2,
+      "cleanArea": "화장실",
+      "class": "2027_A"
+    },
+    {
+      "date": "2025-03-30",
+      "groupId": "12",
+      "members": [
+        {"student_number": "2025-006", "name": "박 세린", "cleanCount": 1, "profileImage": "im06.png"},
+        {"student_number": "2025-029", "name": "정 하윤", "cleanCount": 1, "profileImage": "im29.png"}
+      ],
+      "membersCount": 2,
+      "cleanArea": "가습기",
+      "class": "2027_A"
+    },
+    {
+      "date": "2025-03-30",
+      "groupId": "13",
+      "members": [
+        {"student_number": "2025-013", "name": "이 민지", "cleanCount": 1, "profileImage": "im13.png"},
+        {"student_number": "2025-019", "name": "김 수빈", "cleanCount": 1, "profileImage": "im19.png"}
+      ],
+      "membersCount": 2,
+      "cleanArea": "화장실",
+      "class": "2027_A"
+    },
+    {
+      "date": "2025-04-02",
+      "groupId": "14",
+      "members": [
+        {"student_number": "2025-027", "name": "장 세희", "cleanCount": 1, "profileImage": "im27.png"},
+        {"student_number": "2025-012", "name": "임 지훈", "cleanCount": 1, "profileImage": "im12.png"}
+      ],
+      "membersCount": 2,
+      "cleanArea": "가습기",
+      "class": "2027_A"
+    },
+    {
+      "date": "2025-04-02",
+      "groupId": "15",
+      "members": [
+        {"student_number": "2025-010", "name": "한 세영", "cleanCount": 1, "profileImage": "im10.png"},
+        {"student_number": "2025-019", "name": "김 수빈", "cleanCount": 1, "profileImage": "im19.png"}
+      ],
+      "membersCount": 2,
+      "cleanArea": "화장실",
+      "class": "2027_A"
+    },
+    {
+      "date": "2025-04-06",
+      "groupId": "16",
+      "members": [
+        {"student_number": "2025-021", "name": "임 지훈", "cleanCount": 1, "profileImage": "im06.png"},
+        {"student_number": "2025-029", "name": "정 하윤", "cleanCount": 1, "profileImage": "im04.png"},
+        {"student_number": "2025-027", "name": "장 세희", "cleanCount": 1, "profileImage": "im07.png"}
+      ],
+      "membersCount": 3,
       "cleanArea": "창조관 405호",
       "class": "2027_A"
     },
     {
-      "date": "2025-03-07",
-      "groupId": "11",
-      "members": ["정 다은", "임 지훈", "한 유진", "김 태희"],
-      "membersCount": 4,
-      "cleanArea": "창조관 406호",
+      "date": "2025-04-06",
+      "groupId": "17",
+      "members": [
+        {"student_number": "2025-014", "name": "이 수정", "cleanCount": 1, "profileImage": "im10.png"},
+        {"student_number": "2025-017", "name": "김 수빈", "cleanCount": 1, "profileImage": "im08.png"}
+      ],
+      "membersCount": 2,
+      "cleanArea": "가습기",
       "class": "2027_A"
     },
     {
-      "date": "2025-03-07",
-      "groupId": "12",
-      "members": ["김 유리", "장 세희", "이 수정", "박 지수", "김 태희"],
-      "membersCount": 5,
-      "cleanArea": "창조관 407호",
+      "date": "2025-04-06",
+      "groupId": "18",
+      "members": [
+        {"student_number": "2025-019", "name": "김 수빈", "cleanCount": 1, "profileImage": "im08.png"},
+        {"student_number": "2025-013", "name": "이 민지", "cleanCount": 1, "profileImage": "im12.png"}
+      ],
+      "membersCount": 2,
+      "cleanArea": "화장실",
       "class": "2027_A"
-    }
-  ],
-  "Profile": [
-    {
-      "name": "김 지훈",
-      "profileImage": "https://example.com/kimjihoon.jpg",
-      "bio": "책을 좋아하는 조용한 성격의 학생. 청소할 때도 꼼꼼하게 한다.",
-      "cleanCount": 5
     },
     {
-      "name": "박 세린",
-      "profileImage": "https://example.com/parkserin.jpg",
-      "bio": "상냥하고 친절한 성격. 항상 밝은 에너지를 나누며 청소를 한다.",
-      "cleanCount": 3
+      "date": "2025-04-13",
+      "groupId": "19",
+      "members": [
+        {"student_number": "2025-006", "name": "박 세린", "cleanCount": 1, "profileImage": "im05.png"},
+        {"student_number": "2025-004", "name": "김 유리", "cleanCount": 1, "profileImage": "im09.png"},
+        {"student_number": "2025-022", "name": "김 태희", "cleanCount": 1, "profileImage": "im03.png"}
+      ],
+      "membersCount": 3,
+      "cleanArea": "창조관 405호",
+      "class": "2027_A"
     },
     {
-      "name": "이 민지",
-      "profileImage": "https://example.com/lee_minji.jpg",
-      "bio": "창의적이고 적극적인 성격. 친구들과 함께 청소를 하며 즐겁게 시간을 보낸다.",
-      "cleanCount": 2
+      "date": "2025-04-13",
+      "groupId": "20",
+      "members": [
+        {"student_number": "2025-017", "name": "김 수빈", "cleanCount": 1, "profileImage": "im08.png"},
+        {"student_number": "2025-029", "name": "정 하윤", "cleanCount": 1, "profileImage": "im04.png"}
+      ],
+      "membersCount": 2,
+      "cleanArea": "가습기",
+      "class": "2027_A"
     },
     {
-      "name": "김 수빈",
-      "profileImage": "https://example.com/kimsoobin.jpg",
-      "bio": "열정적인 학생. 항상 최선을 다해 청소하며 노력하는 모습이 돋보인다.",
-      "cleanCount": 4
+      "date": "2025-04-13",
+      "groupId": "21",
+      "members": [
+        {"student_number": "2025-021", "name": "임 지훈", "cleanCount": 1, "profileImage": "im06.png"},
+        {"student_number": "2025-010", "name": "한 세영", "cleanCount": 1, "profileImage": "im02.png"}
+      ],
+      "membersCount": 2,
+      "cleanArea": "화장실",
+      "class": "2027_A"
     },
     {
-      "name": "정 다은",
-      "profileImage": "https://example.com/jungdaeun.jpg",
-      "bio": "차분하고 신중한 성격. 청소는 항상 체계적이고 정리정돈을 잘 한다.",
-      "cleanCount": 1
+      "date": "2025-04-20",
+      "groupId": "22",
+      "members": [
+        {"student_number": "2025-012", "name": "임 지훈", "cleanCount": 1, "profileImage": "im06.png"},
+        {"student_number": "2025-004", "name": "김 유리", "cleanCount": 1, "profileImage": "im09.png"},
+        {"student_number": "2025-022", "name": "김 태희", "cleanCount": 1, "profileImage": "im03.png"}
+      ],
+      "membersCount": 3,
+      "cleanArea": "창조관 405호",
+      "class": "2027_A"
     },
     {
-      "name": "임 지훈",
-      "profileImage": "https://example.com/imjihoon.jpg",
-      "bio": "친구들을 잘 챙기고, 긍정적인 에너지를 주는 성격. 청소는 빠르고 효율적으로 한다.",
-      "cleanCount": 3
+      "date": "2025-04-20",
+      "groupId": "23",
+      "members": [
+        {"student_number": "2025-027", "name": "장 세희", "cleanCount": 1, "profileImage": "im07.png"},
+        {"student_number": "2025-014", "name": "이 수정", "cleanCount": 1, "profileImage": "im10.png"}
+      ],
+      "membersCount": 2,
+      "cleanArea": "가습기",
+      "class": "2027_A"
     },
     {
-      "name": "한 유진",
-      "profileImage": "https://example.com/hanyujin.jpg",
-      "bio": "밝고 활발한 성격. 청소는 항상 즐겁게 한다.",
-      "cleanCount": 2
+      "date": "2025-04-20",
+      "groupId": "24",
+      "members": [
+        {"student_number": "2025-017", "name": "김 수빈", "cleanCount": 1, "profileImage": "im08.png"},
+        {"student_number": "2025-022", "name": "김 태희", "cleanCount": 1, "profileImage": "im03.png"}
+      ],
+      "membersCount": 2,
+      "cleanArea": "화장실",
+      "class": "2027_A"
     },
     {
-      "name": "김 태희",
-      "profileImage": "https://example.com/kimtaehee.jpg",
-      "bio": "친구들과 함께 있을 때 가장 행복한 성격. 청소도 즐겁게 한다.",
-      "cleanCount": 2
+      "date": "2025-04-27",
+      "groupId": "25",
+      "members": [
+        {"student_number": "2025-021", "name": "임 지훈", "cleanCount": 1, "profileImage": "im06.png"},
+        {"student_number": "2025-010", "name": "한 세영", "cleanCount": 1, "profileImage": "im02.png"},
+        {"student_number": "2025-025", "name": "이 진수", "cleanCount": 1, "profileImage": "im11.png"}
+      ],
+      "membersCount": 3,
+      "cleanArea": "창조관 405호",
+      "class": "2027_A"
     },
     {
-      "name": "이 소영",
-      "profileImage": "https://example.com/leesoyoung.jpg",
-      "bio": "책을 좋아하고 조용한 성격. 청소는 철저하게 하며, 시간 관리도 잘 한다.",
-      "cleanCount": 1
+      "date": "2025-04-27",
+      "groupId": "26",
+      "members": [
+        {"student_number": "2025-004", "name": "김 유리", "cleanCount": 1, "profileImage": "im09.png"},
+        {"student_number": "2025-022", "name": "김 태희", "cleanCount": 1, "profileImage": "im03.png"}
+      ],
+      "membersCount": 2,
+      "cleanArea": "가습기",
+      "class": "2027_A"
     },
     {
-      "name": "김 유리",
-      "profileImage": "https://example.com/kimeuri.jpg",
-      "bio": "친절하고 세심한 성격. 청소할 때도 차분하고 신중하게 한다.",
-      "cleanCount": 3
+      "date": "2025-04-27",
+      "groupId": "27",
+      "members": [
+        {"student_number": "2025-027", "name": "장 세희", "cleanCount": 1, "profileImage": "im07.png"},
+        {"student_number": "2025-025", "name": "이 진수", "cleanCount": 1, "profileImage": "im11.png"}
+      ],
+      "membersCount": 2,
+      "cleanArea": "화장실",
+      "class": "2027_A"
     },
     {
-      "name": "장 세희",
-      "profileImage": "https://example.com/jangsehee.jpg",
-      "bio": "밝고 에너지 넘치는 성격. 친구들을 이끌며 청소하는 것을 좋아한다.",
-      "cleanCount": 4
+      "date": "2025-05-04",
+      "groupId": "28",
+      "members": [
+        {"student_number": "2025-029", "name": "정 하윤", "cleanCount": 1, "profileImage": "im04.png"},
+        {"student_number": "2025-017", "name": "김 수빈", "cleanCount": 1, "profileImage": "im08.png"}
+      ],
+      "membersCount": 2,
+      "cleanArea": "가습기",
+      "class": "2027_A"
     },
     {
-      "name": "이 수정",
-      "profileImage": "https://example.com/leesujeong.jpg",
-      "bio": "상냥하고 침착한 성격. 청소는 언제나 차분하게 하며, 깔끔하게 마무리한다.",
-      "cleanCount": 2
+      "date": "2025-05-04",
+      "groupId": "29",
+      "members": [
+        {"student_number": "2025-019", "name": "김 수빈", "cleanCount": 1, "profileImage": "im08.png"},
+        {"student_number": "2025-027", "name": "장 세희", "cleanCount": 1, "profileImage": "im07.png"}
+      ],
+      "membersCount": 2,
+      "cleanArea": "화장실",
+      "class": "2027_A"
     },
     {
-      "name": "박 지수",
-      "profileImage": "https://example.com/parkjisu.jpg",
-      "bio": "친구들과 함께 있을 때 즐거워하며, 청소도 동료들과 함께하는 것을 좋아한다.",
-      "cleanCount": 1
+      "date": "2025-05-04",
+      "groupId": "30",
+      "members": [
+        {"student_number": "2025-013", "name": "이 민지", "cleanCount": 1, "profileImage": "im12.png"},
+        {"student_number": "2025-025", "name": "이 진수", "cleanCount": 1, "profileImage": "im11.png"}
+      ],
+      "membersCount": 2,
+      "cleanArea": "가습기",
+      "class": "2027_A"
     }
   ]
 }
