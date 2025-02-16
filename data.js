@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error("データが空です。");
             return;
         }
+        const header = document.querySelector(`header`);
+
+
     
         const main = document.querySelector('main'); // <main>タグを取得
     
@@ -78,6 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 const memImg = document.createElement('div');
                 memImg.classList.add('mem-img');
+                memImg.classList.add('mem-o');
                 memImg.innerHTML = `<img src="${member.profileImage}" />`;
                 memberDiv.appendChild(memImg);
 
@@ -93,6 +97,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 membersDiv.appendChild(memberDiv);
             });
+
+
+            // membersCountがmembers.lengthより多い場合、足りないメンバー分だけplus.pngを追加
+            const missingCount = item.membersCount - item.members.length;
+            for (let i = 0; i < missingCount; i++) {
+                const memberDiv = document.createElement('div');
+                memberDiv.classList.add('member');
+
+                const memImg = document.createElement('div');
+                memImg.classList.add('mem-img');
+                memImg.classList.add('mem-x');
+                memImg.innerHTML = `<img src="plus.png" />`; // ここでplus.pngを表示
+                memberDiv.appendChild(memImg);
+
+                const memName = document.createElement('div');
+                memName.classList.add('mem-name');
+                memName.classList.add('mem-x');
+                memName.innerHTML = `<h6>추가</h6>`; // メンバー名を「추가」に設定
+                memberDiv.appendChild(memName);
+                membersDiv.appendChild(memberDiv);
+            }
+                   
 
             areaSub.appendChild(membersDiv);
 

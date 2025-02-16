@@ -85,18 +85,25 @@ img {
 }
 
 
-.mem-img {
+.mem-o {
     border-radius: 3px;
     position: relative;
-
 }
 
 .mem-img img {
-    border: 3px solid #8BD3DD;
     border-radius: 50%;
     height: 72px;
     aspect-ratio: 1 / 1; 
 }
+
+.mem-o img {
+    border: 3px solid #8BD3DD;
+}
+
+.mem-x {
+    color: #ABA6A6 !important;
+}
+
 
 h6 {
     font-size: 70%;
