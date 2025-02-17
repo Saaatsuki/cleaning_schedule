@@ -91,7 +91,7 @@
         {"student_number": "2025-017", "name": "김 수빈", "cleanCount": 1, "profileImage": "im17.png"},
         {"student_number": "2025-022", "name": "김 태희", "cleanCount": 1, "profileImage": "im22.png"}
       ],
-      "membersCount": 2,
+      "membersCount": 3,
       "cleanArea": "가습기",
       "class": "2027_A"
     },
@@ -331,7 +331,7 @@
       "class": "2027_A"
     },
     {
-      "date": "2025-05-04",
+      "date": "2025-05-06",
       "groupId": "30",
       "members": [
         {"student_number": "2025-013", "name": "이 민지", "cleanCount": 1, "profileImage": "im12.png"},
@@ -346,7 +346,7 @@
       "groupId": "31",
       "members": [
         {"student_number": "2025-013", "name": "이 민지", "cleanCount": 1, "profileImage": "im12.png"},
-        {"student_number": "2025-007", "name": "정 수상상 ", "cleanCount": 1, "profileImage": "im07.png"}
+        {"student_number": "2025-007", "name": "정 수상 ", "cleanCount": 1, "profileImage": "im07.png"}
       ],
       "membersCount": 2,
       "cleanArea": "가습기",
@@ -364,6 +364,28 @@
       "membersCount": 3,
       "cleanArea": "가습기",
       "class": "2027_A"
+    },
+    {
+      "date": "2025-05-20",
+      "groupId": "33",
+      "members": [
+        {"student_number": "2025-020", "name": "상 소영", "cleanCount": 1, "profileImage": "im20.png"}
+
+      ],
+      "membersCount": 3,
+      "cleanArea": "가습기",
+      "class": "2027_A"
+    },
+    {
+      "date": "2025-05-22",
+      "groupId": "33",
+      "members": [
+        {"student_number": "2025-001", "name": "오 민수", "cleanCount": 1, "profileImage": "im01.png"}
+
+      ],
+      "membersCount": 3,
+      "cleanArea": "가습기",
+      "class": "2027_A"
     }
   ],
   "Profile": [
@@ -373,6 +395,13 @@
       "manager":false,
       "cleanCount": 1, 
       "profileImage": "im1.png"
+    },
+    {
+      "name": "상 소영",
+      "student_number":"2025-020",
+      "manager":false,
+      "cleanCount": 1, 
+      "profileImage": "im20.png"
     }
   ]
 

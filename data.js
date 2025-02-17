@@ -1,3 +1,6 @@
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
     fetch('http://localhost:3000/cleanInfo')  // サーバーからデータを取得
     .then(response => response.json())  // JSON形式に変換
@@ -9,10 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.error("データが空です。");
             return;
         }
-        const header = document.querySelector(`header`);
 
-
-    
         const main = document.querySelector('main'); // <main>タグを取得
     
         // 各データを繰り返し処理して表示
@@ -85,15 +85,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 memImg.innerHTML = `<img src="${member.profileImage}" />`;
                 memberDiv.appendChild(memImg);
 
+                const cleanCount = document.createElement('div');
+                cleanCount.classList.add('clean-coun');
+                cleanCount.innerHTML = `<p>${member.cleanCount}</p>`;
+                memImg.appendChild(cleanCount);
+
                 const memName = document.createElement('div');
                 memName.classList.add('mem-name');
                 memName.innerHTML = `<h6>${member.name}</h6>`;
                 memberDiv.appendChild(memName);
 
-                const cleanCount = document.createElement('div');
-                cleanCount.classList.add('clean-coun');
-                cleanCount.innerHTML = `<p>${member.cleanCount}</p>`;
-                memberDiv.appendChild(cleanCount);
+
 
                 membersDiv.appendChild(memberDiv);
             });
