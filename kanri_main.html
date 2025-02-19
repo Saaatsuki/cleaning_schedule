@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clean Plan</title>
+    <title>Kanri Clean Plan</title>
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="base.css">
     <link rel="stylesheet" href="menu.css">
-    <link rel="stylesheet" href="calender.css">
-    <script src="data.js"></script>
+    <script src="kanri_data.js"></script>
     <script src="header.js"></script>
 </head>
 <body>
@@ -27,16 +26,6 @@
         </div>
     </header>
     <main>
-        <div class="search-calendar">
-            <div class="search-calendar-img">
-                <img src="search_calendar.png" alt="search calendar" />
-            </div>
-        </div>
-        <div id="calendar" class="container_calendar"></div>
-        
-
-        
-
         <!-- メニューシャッター -->
         <div class="menu-content">
             <div class="menu-list">
@@ -52,21 +41,22 @@
     
             <div class="kirikae">
                 <div class="card">
-                    <div class="swich gakusei front" id="goToAdminPage">
-                        <img src="gakusei.png.png" alt="学生">
-                    </div>
-                    <div class="swich kanri back">
+                    <div class="swich kanri front"  id="goToStudentPage">
                         <img src="kanri.png" alt="管理">
+                    </div>
+                    <div class="swich gakusei back">
+                        <img src="gakusei.png.png" alt="学生">
                     </div>
                 </div>
             </div>
             
             <script>
                 // imgタグにイベントリスナーを追加
-                document.getElementById("goToAdminPage").addEventListener("click", function() {
-                    window.location.href = "kanri_main.html";  // 管理ページに遷移
+                document.getElementById("goToStudentPage").addEventListener("click", function() {
+                    window.location.href = "main.html";  // 学生ページに遷移
                 });
             </script>
+            
         </div>
     </main>
 </body>
