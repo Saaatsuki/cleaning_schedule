@@ -59,29 +59,32 @@
     transform: translateY(0); /* 上から下に降りてくる */
 }
 
+
 /* カレンダーが閉じるとき */
 .container_calendar:not(.active) {
     transition: transform 2.0s ease;
-    transform: translateY(-100%); /* 上に戻る */
+    transform: translateY(-110%); 
 }
 
-/* カレンダーがアクティブになった際、ボックスのアニメーション */
-.container_calendar.active ~ .box-list {
-    transition: transform 2.0s ease;
-    transform: translateY(0); /* ボックスも下にスライドしてくる */
-}
-
-/* ボックスがカレンダーが閉じた際に元に戻る */
-.container_calendar:not(.active) ~ .box-list {
-    transition: transform 2.0s ease;
-    transform: translateY(0%); /* 上に隠れる */
-}
 
 /* ボックスのスタイル */
-/* .box-list {
+.box-list {
     transition: transform 2.0s ease;
-    transform: translateY(-100%); 
-} */
+    transform: translateY(-100%); /* 初期状態では画面外 */
+}
+
+/* カレンダーがアクティブなときにボックスもアクティブに */
+.container_calendar.active ~ .box-list {
+    transition: transform 2.0s ease;
+    transform: translateY(0); /* ボックスを下に表示 */
+}
+
+/* カレンダーが閉じるときにボックスも閉じる */
+.container_calendar:not(.active) ~ .box-list {
+    transition: transform 2.0s ease;
+    transform: translateY(-0%); /* ボックスを非表示に */
+}
+
 
 
 
@@ -227,8 +230,8 @@
 }
 
 .month-list>div>div:hover {
-    background-color: #f5a623;
-    color: #f8fbff;
+    background-color: #7e7d7d;
+    color: #ffe3ee;
     transform: scale(0.9);
     transition: all 0.2s ease-in-out;
 }

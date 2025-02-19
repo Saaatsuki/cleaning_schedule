@@ -20,6 +20,10 @@ img {
     box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
 }
 
+.box:hover {
+    background-color: #1f3a86;
+}
+
 .date {
     color: white;
     margin-bottom: 5%;
