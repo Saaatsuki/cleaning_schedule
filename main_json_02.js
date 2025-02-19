@@ -203,100 +203,106 @@ document.addEventListener('DOMContentLoaded', function () {
   const calendar1 = document.querySelector('.container_calendar');
   document.querySelector('.search-calendar').addEventListener('click', function () {
     const boxList = document.querySelector('.box-list');
-    
+
     // カレンダーが表示されていなければ表示する
     if (calendar1.style.display === 'none' || calendar1.style.display === '') {
-        calendar1.style.display = 'block';
-        setTimeout(() => {
-            calendar1.classList.add('active'); // フェードイン
-            boxList.classList.add('active');  // ボックスも同時に表示
-        }, 20);
+      calendar1.style.display = 'block';
+      setTimeout(() => {
+          calendar1.classList.add('active'); // フェードイン
+          boxList.classList.add('active');  // ボックスも同時に表示
+      }, 20);
     } else {
-        calendar1.classList.remove('active'); // カレンダーを非表示
-        setTimeout(() => {
-            calendar1.style.display = 'none';
-            boxList.classList.remove('active'); // ボックスも非表示
-        }, 2000);
+      calendar1.classList.remove('active'); // カレンダーを非表示
+      boxList.classList.remove('active');  // ボックスも非表示
+
+      // アニメーションが終わるのを待ってから display: none にする
+      setTimeout(() => {
+          calendar1.style.display = 'none';
+      }, 2100); // 2.0秒 + 100ms の余裕を持たせる
     }
+
   });  
 
 
   fetch('http://localhost:3000/cleanInfo')
   .then(response => response.json())
   .then(data => {
-      console.log("取得したデータ:", data);
-  
-      if (!Array.isArray(data) || data.length === 0) {
-          console.error("データが空です。");
-          return;
+    console.log("取得したデータ:", data.data);
+
+    if (!Array.isArray(data.data) || data.data.length === 0) {
+      console.error("データが空です。");
+      return;
+    }
+
+    const boxList = document.querySelector(`.box-list`);
+    boxList.classList.add(`box-list`);
+    let currentDate = ``;
+    let box = null; // 現在のボックスを保持する変数
+
+    data.data.forEach(item => {
+      const date = new Date(item.date);
+      const dayNames = ["일", "월", "화", "수", "목", "금", "토"];
+      const formattedDate = `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일 ${dayNames[date.getDay()]}요일`;
+
+      // 日付が変わったら新しいボックスを作成
+      if (formattedDate !== currentDate) {
+        currentDate = formattedDate;
+        box = document.createElement('div');
+        box.classList.add('box');
+
+        const dateElement = document.createElement('div');
+        dateElement.classList.add('date');
+        dateElement.innerHTML = `<h5>${formattedDate}</h5>`;
+        box.appendChild(dateElement);
+        boxList.appendChild(box);
       }
 
-      const boxList = document.querySelector(`.box-list`);
-      boxList.classList.add(`box-list`);
-      let currentDate = ``;
-
-      data.forEach(item => {
-        const date = new Date(item.date);
-        const dayNames = ["일", "월", "화", "수", "목", "금", "토"];
-        const formattedDate = `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일 ${dayNames[date.getDay()]}요일`;   
-        
-        if (formattedDate !== currentDate) {
-          currentDate = formattedDate;
-          const box = document.createElement('div');
-          box.classList.add('box');
-          
-          const dateElement = document.createElement('div');
-          dateElement.classList.add('date');
-          dateElement.innerHTML = `<h5>${formattedDate}</h5>`;
-          box.appendChild(dateElement);
-          boxList.appendChild(box);
-      }        
-      const areaSub = document.createElement('div');
-      areaSub.classList.add('area-sub');
-      
-      areaSub.innerHTML = `
-        <div class="all-sw">
-          <div class="area-menu">
-            <div class="area me-box">
-              <h6>${item.cleanArea}</h6>
-            </div>
-            <div class="mem-coun me-box">
-              <h6>${item.membersCount}</h6>
-            </div>
-            <div class="me-box me-class">
-              <h6>${item.class}</h6>
-            </div>
-          </div>
-          <div class="me-box me-edit">
-            <div class="card">
-              <div class="front">
-                <h6><img src="pen.png" alt="pen icon"></h6>
+      // areaSub を作成して box に追加
+      if (box) {
+        const areaSub = document.createElement('div');
+        areaSub.classList.add('area-sub');
+        areaSub.innerHTML = `
+          <div class="all-sw">
+            <div class="area-menu">
+              <div class="area me-box">
+                <h6>${item.cleanArea}</h6>
               </div>
-              <div class="back">
-                <h6>EDIT</h6>
+              <div class="mem-coun me-box">
+                <h6>${item.membersCount}</h6>
+              </div>
+              <div class="me-box me-class">
+                <h6>${item.class}</h6>
+              </div>
+            </div>
+            <div class="me-box me-edit">
+              <div class="card">
+                <div class="front">
+                  <h6><img src="pen.png" alt="pen icon"></h6>
+                </div>
+                <div class="back">
+                  <h6>EDIT</h6>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      `;
-      
-      const membersHTML = item.members.map(member => {
-        return `
-          <div class="member">
-            <div class="mem-img mem-o">
-              <img src="${member.profileImage}" />
-              <div class="clean-coun">
-                <p>${member.cleanCount}</p>
+          <div class="members">
+            ${item.members.map(member => `
+              <div class="member">
+                <div class="mem-img mem-o">
+                  <img src="${member.profileImage}" />
+                  <div class="clean-coun">
+                    <p>${member.cleaningCount}</p>
+                  </div>
+                </div>
+                <div class="mem-name">
+                  <h6>${member.givenName} ${member.firstName}</h6>
+                </div>
               </div>
-            </div>
-            <div class="mem-name">
-              <h6>${member.name}</h6>
-            </div>
+            `).join('')}
           </div>
         `;
-      }).join('');
-      
-      areaSub.innerHTML += `<div class="members">${membersHTML}</div>`;
-    }); 
-  });    
+        box.appendChild(areaSub); 
+      }
+    });
+  });
 });

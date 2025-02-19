@@ -60,31 +60,6 @@
 }
 
 
-/* カレンダーが閉じるとき */
-.container_calendar:not(.active) {
-    transition: transform 2.0s ease;
-    transform: translateY(-110%); 
-}
-
-
-/* ボックスのスタイル */
-.box-list {
-    transition: transform 2.0s ease;
-    transform: translateY(-100%); /* 初期状態では画面外 */
-}
-
-/* カレンダーがアクティブなときにボックスもアクティブに */
-.container_calendar.active ~ .box-list {
-    transition: transform 2.0s ease;
-    transform: translateY(0); /* ボックスを下に表示 */
-}
-
-/* カレンダーが閉じるときにボックスも閉じる */
-.container_calendar:not(.active) ~ .box-list {
-    transition: transform 2.0s ease;
-    transform: translateY(-0%); /* ボックスを非表示に */
-}
-
 
 
 

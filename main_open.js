@@ -1,4 +1,4 @@
-fetch('{{spring}}/api/clean')
+fetch('http://localhost:8080/api/clean')
   .then(response => response.json())  // JSONデータをパース
   .then(data => {
     if (data.success) {
