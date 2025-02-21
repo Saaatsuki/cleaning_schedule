@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
-    fetch('http://localhost:3000/Profile')
+    fetch('http://localhost:3000/cleanInfo')
     .then(response => response.json())
     .then(data => {
+        data = data.data
         console.log("取得したデータ:", data);
 
         if (!Array.isArray(data) || data.length === 0) {
@@ -13,9 +14,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const profileNameDiv = document.querySelector('div.Profole-name');
         const profileImageDiv = document.querySelector('div.profile-img');
         
-        const profile = data[1]; // 最初のプロフィール
-        const name = profile.name;
-        const studentNumber = profile.student_number;
+        const profile = data[0].members[1]; // 最初のプロフィール
+        const name = profile.givenName + ` ` + profile.firstName;
+        const studentNumber = profile.studentNumber;
         const profileImage = profile.profileImage;
 
         profileNameDiv.querySelector('.pro-name h3').textContent = name;

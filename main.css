@@ -15,6 +15,7 @@ img {
 .box {
     margin-top: 20px;
     background-color: #172C66;
+    transition: background-color 2s ease;
     border-radius: 10px;
     padding: 10px;
     box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
@@ -25,10 +26,6 @@ img {
     background-color: #1f3a86;
 }
 
-.box:hover::after {
-    transition: all 2s ease;
-    background-color: #172C66;
-}
 
 .date {
     color: white;

@@ -257,6 +257,60 @@ document.addEventListener('DOMContentLoaded', function () {
         boxList.appendChild(box);
       }
 
+      // const members = item.members.map(member => `
+      //     <div class="member">
+      //       <div class="mem-img mem-o">
+      //         <img src="${member.profileImage}" />
+      //         <div class="clean-coun">
+      //           <p>${member.cleaningCount}</p>
+      //         </div>
+      //       </div>
+      //       <div class="mem-name">
+      //         <h6>${member.givenName} ${member.firstName}</h6>
+      //       </div>       
+      //     </div>
+      //   `).join('');
+
+        const members = (item) => {
+          let addNuguCount = item.membersCount - item.members.length;
+          const addNugu = `  
+          <div class="member">
+            <div class="mem-img mem-x">
+              <img src="plus.png" />
+            </div>
+            <div class="mem-name">
+              <h6>추가</h6>
+            </div>       
+          </div>
+        `;
+        
+          let membersHtml = item.members.map(member => `
+            <div class="member">
+              <div class="mem-img mem-o">
+                <img src="${member.profileImage}" />
+                <div class="clean-coun">
+                  <p>${member.cleaningCount}</p>
+                </div>
+              </div>
+              <div class="mem-name">
+                <h6>${member.givenName} ${member.firstName}</h6>
+              </div>       
+            </div>
+          `).join('');
+        
+          membersHtml += addNugu.repeat(addNuguCount);
+          
+          return membersHtml;
+        }
+      
+
+      console.log(members(item));
+
+
+
+      let addNuguCount = item.membersCount - item.members.length
+      console.log(addNuguCount);
+
       // areaSub を作成して box に追加
       if (box) {
         const areaSub = document.createElement('div');
@@ -286,19 +340,7 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
           </div>
           <div class="members">
-            ${item.members.map(member => `
-              <div class="member">
-                <div class="mem-img mem-o">
-                  <img src="${member.profileImage}" />
-                  <div class="clean-coun">
-                    <p>${member.cleaningCount}</p>
-                  </div>
-                </div>
-                <div class="mem-name">
-                  <h6>${member.givenName} ${member.firstName}</h6>
-                </div>
-              </div>
-            `).join('')}
+            ${members(item)}
           </div>
         `;
         box.appendChild(areaSub); 
