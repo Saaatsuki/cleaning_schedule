@@ -1,7 +1,7 @@
 .search-calendar {
-    width: 17%;
+    width: 80px;
     background: white;
-    padding: 3.8%;
+    padding: 20px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
