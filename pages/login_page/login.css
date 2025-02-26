@@ -1,41 +1,45 @@
 body {
-    background-color: #172C66;
-    overflow: hidden;
-    font-family: 'Roboto', arial, sans-serif;
-    font-size: 5vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;   
+  background-color: #172C66;
+  overflow: hidden;
+  font-family: 'Roboto', arial, sans-serif;
+  font-size: 5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;   
 }
 
 
 
 
 .bg-img {
-    /* position: absolute;  */
-    top: 20.8vh; 
-    left: -6vh; 
-    opacity: 0.7;
-    animation: fadeInOut 3s infinite alternate ease-in-out;
-    width: 100%;
-    z-index: 3;
+  /* position: absolute;  */
+  top: 20.8vh; 
+  left: -6vh; 
+  opacity: 0.7;
+  animation: fadeInOut 3s infinite alternate ease-in-out;
+  width: 100%;
+  z-index: 3;
 
+}
+
+.bg-img .hana {
+  transform: scaleX(-1);
 }
 
 .bg-img img {
-    width: 250px;
+  width: 250px;
 }
 
 @keyframes fadeInOut {
-    0% {
-        opacity: 0.2; 
-    }
-    100% {
-        opacity: 1; 
-    }
+  0% {
+      opacity: 0.2; 
+  }
+  100% {
+      opacity: 1; 
+  }
 }
 
 /* .google_login {
@@ -47,31 +51,30 @@ body {
 } */
 
 .gsi-material-button {
-    /* position: relative; */
-    background-color: WHITE;
-    box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.3);
-    background-image: none;
-    border: 1px solid #747775;
-    border-radius: 10px;
-    box-sizing: border-box;
-    color: #172C66;
-    cursor: pointer;
-    height: 60px;
-    letter-spacing: 0.25px;
-    outline: none;
-    overflow: hidden;
-    padding: 0 12px;
-    text-align: center;
-    transition: box-shadow 0.3s ease-in-out, transform 0.1s ease-in-out;
-    white-space: nowrap;
-    width: 45%;
-    max-width: 400px;
-    min-width: min-content;
-    z-index: 2;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    align-content: ;
+  /* position: relative; */
+  background-color: WHITE;
+  box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.3);
+  background-image: none;
+  border: 1px solid #747775;
+  border-radius: 10px;
+  box-sizing: border-box;
+  color: #172C66;
+  cursor: pointer;
+  height: 60px;
+  letter-spacing: 0.25px;
+  outline: none;
+  overflow: hidden;
+  padding: 0 12px;
+  text-align: center;
+  transition: box-shadow 0.3s ease-in-out, transform 0.1s ease-in-out;
+  white-space: nowrap;
+  width: 45%;
+  max-width: 400px;
+  min-width: min-content;
+  z-index: 2;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
 }
   
   .gsi-material-button .gsi-material-button-icon {
