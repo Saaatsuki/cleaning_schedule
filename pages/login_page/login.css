@@ -58,8 +58,8 @@ body {
 
 .gsi-material-button {
   /* position: relative; */
-  background-color: WHITE;
-  box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.3);
+  background-color: #202124;
+  box-shadow: inset 3px 3px 3px rgba(255, 255, 255, 0.3);
   background-image: none;
   border: 1px solid #747775;
   border-radius: 10px;
@@ -150,13 +150,13 @@ body {
   
 /* ホバー時の影のアニメーション */
 .gsi-material-button:hover {
-  box-shadow: inset 6px 6px 6px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 6px 6px 6px rgba(255, 255, 255, 0.5);
   transform: scale(1.05);
 }
 
 /* クリック時の波紋エフェクト */
 .gsi-material-button:active {
-  box-shadow: inset 10px 10px 10px rgba(0, 0, 0, 0.7);
+  box-shadow: inset 10px 10px 10px rgba(255, 255, 255, 0.7);
   transform: scale(0.95);
 }
 
@@ -180,3 +180,7 @@ body {
   transform: translate(-50%, -50%) scale(4);
   opacity: 1;
 }
+
+/* .g_id_signin {
+  border: none !important;
+} */
