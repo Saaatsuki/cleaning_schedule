@@ -7,7 +7,7 @@ function loadGoogleAuth() {
 
     google.accounts.id.renderButton(
         document.getElementById("google-login-btn"),
-        { theme: "filled_black", size: "x-large" , shape: "rectangular"}
+        { theme: "filled_black", size: "x-large" , shape: "rectangular" }
     );
     
     // 枠線を消す
@@ -15,7 +15,6 @@ function loadGoogleAuth() {
         document.querySelector(".g_id_signin").style.border = "none";
         document.querySelector(".g_id_signin").style.boxShadow = "none";
     }, 100);
-    
 
     google.accounts.id.prompt(); // 自動的にログインを促す
 }
@@ -34,6 +33,9 @@ function handleCredentialResponse(response) {
     .then(data => {
         console.log("Login successful", data);
         alert("Login Successful!");
+
+        // リダイレクト処理（ログイン成功後）
+        window.location.href = "/dashboard";  // リダイレクト先URLを指定
     })
     .catch(error => console.error("Error during login:", error));
 }
