@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // const members = item.members.map(member => `
       //     <div class="member">
       //       <div class="mem-img mem-o">
-      //         <img src="${member.profileImage}" />
+      //         <img src="../../img/${member.profileImage}" />
       //         <div class="clean-coun">
       //           <p>${member.cleaningCount}</p>
       //         </div>
@@ -276,7 +276,7 @@ document.addEventListener('DOMContentLoaded', function () {
           const addNugu = `  
           <div class="member">
             <div class="mem-img mem-x">
-              <img src="plus.png" />
+              <img src="../../img/plus.png" />
             </div>
             <div class="mem-name">
               <h6>추가</h6>
@@ -287,7 +287,7 @@ document.addEventListener('DOMContentLoaded', function () {
           let membersHtml = item.members.map(member => `
             <div class="member">
               <div class="mem-img mem-o">
-                <img src="${member.profileImage}" />
+                <img src="../../img/${member.profileImage}" />
                 <div class="clean-coun">
                   <p>${member.cleaningCount}</p>
                 </div>
@@ -331,7 +331,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="me-box me-edit">
               <div class="card">
                 <div class="front">
-                  <h6><img src="pen.png" alt="pen icon"></h6>
+                  <h6><img src="../../img/../../img/pen.png" alt="pen icon"></h6>
                 </div>
                 <div class="back">
                   <h6>EDIT</h6>
