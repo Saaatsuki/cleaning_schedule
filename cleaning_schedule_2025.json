@@ -12,7 +12,7 @@
             "givenName": "한",
             "firstName": "세영",
             "cleanRole": "MEMBER",
-            "profileImage": "../../img/../../img/im10.png",
+            "profileImage": "../../img/../../img/profile/../../img/profile/im10.png",
             "cleaningCount": 1
           },
           {
@@ -20,7 +20,7 @@
             "givenName": "김",
             "firstName": "민수",
             "cleanRole": "MEMBER",
-            "profileImage": "../../img/im03.png",
+            "profileImage": "../../img/../../img/profile/im03.png",
             "cleaningCount": 1
           },
           {
@@ -28,7 +28,7 @@
             "givenName": "정",
             "firstName": "하윤",
             "cleanRole": "MEMBER",
-            "profileImage": "../../img/im29.png",
+            "profileImage": "../../img/../../img/profile/im29.png",
             "cleaningCount": 1
           },
           {
@@ -36,7 +36,7 @@
             "givenName": "박",
             "firstName": "세린",
             "cleanRole": "MEMBER",
-            "profileImage": "../../img/im06.png",
+            "profileImage": "../../img/../../img/profile/im06.png",
             "cleaningCount": 1
           },
           {
@@ -44,7 +44,7 @@
             "givenName": "장",
             "firstName": "세희",
             "cleanRole": "MEMBER",
-            "profileImage": "../../img/im27.png",
+            "profileImage": "../../img/../../img/profile/im27.png",
             "cleaningCount": 1
           }
         ],
@@ -62,7 +62,7 @@
             "givenName": "홍",
             "firstName": "영준",
             "cleanRole": "MEMBER",
-            "profileImage": "../../img/im19.png",
+            "profileImage": "../../img/../../img/profile/im19.png",
             "cleaningCount": 1
           },
           {
@@ -70,7 +70,7 @@
             "givenName": "김",
             "firstName": "민아",
             "cleanRole": "MEMBER",
-            "profileImage": "../../img/im04.png",
+            "profileImage": "../../img/../../img/profile/im04.png",
             "cleaningCount": 1
           }
         ],
@@ -88,7 +88,7 @@
             "givenName": "이",
             "firstName": "수정",
             "cleanRole": "MEMBER",
-            "profileImage": "../../img/im14.png",
+            "profileImage": "../../img/../../img/profile/im14.png",
             "cleaningCount": 1
           },
           {
@@ -96,7 +96,7 @@
             "givenName": "김",
             "firstName": "태희",
             "cleanRole": "MEMBER",
-            "profileImage": "../../img/im22.png",
+            "profileImage": "../../img/../../img/profile/im22.png",
             "cleaningCount": 1
           }
         ],
@@ -114,7 +114,7 @@
             "givenName": "김",
             "firstName": "수빈",
             "cleanRole": "MEMBER",
-            "profileImage": "../../img/im17.png",
+            "profileImage": "../../img/../../img/profile/im17.png",
             "cleaningCount": 1
           },
           {
@@ -122,7 +122,7 @@
             "givenName": "김",
             "firstName": "유리",
             "cleanRole": "MEMBER",
-            "profileImage": "../../img/im28.png",
+            "profileImage": "../../img/../../img/profile/im28.png",
             "cleaningCount": 1
           }
         ],
@@ -140,7 +140,7 @@
             "givenName": "임",
             "firstName": "지훈",
             "cleanRole": "MEMBER",
-            "profileImage": "../../img/im21.png",
+            "profileImage": "../../img/../../img/profile/im21.png",
             "cleaningCount": 1
           },
           {
@@ -148,7 +148,7 @@
             "givenName": "이",
             "firstName": "진수",
             "cleanRole": "MEMBER",
-            "profileImage": "../../img/im25.png",
+            "profileImage": "../../img/../../img/profile/im25.png",
             "cleaningCount": 1
           },
           {
@@ -156,7 +156,7 @@
             "givenName": "장",
             "firstName": "세희",
             "cleanRole": "MEMBER",
-            "profileImage": "../../img/im26.png",
+            "profileImage": "../../img/../../img/profile/im26.png",
             "cleaningCount": 1
           },
           {
@@ -164,7 +164,7 @@
             "givenName": "이",
             "firstName": "민지",
             "cleanRole": "MEMBER",
-            "profileImage": "../../img/im13.png",
+            "profileImage": "../../img/../../img/profile/profile/im13.png",
             "cleaningCount": 1
           },
           {
@@ -172,7 +172,7 @@
             "givenName": "홍",
             "firstName": "영준",
             "cleanRole": "MEMBER",
-            "profileImage": "../../img/im19.png",
+            "profileImage": "../../img/../../img/profile/im19.png",
             "cleaningCount": 1
           },
           {
@@ -180,7 +180,7 @@
             "givenName": "김",
             "firstName": "태희",
             "cleanRole": "MEMBER",
-            "profileImage": "../../img/im22.png",
+            "profileImage": "../../img/../../img/profile/im22.png",
             "cleaningCount": 1
           }
         ],
@@ -198,7 +198,7 @@
             "givenName": "한",
             "firstName": "유진",
             "cleanRole": "MEMBER",
-            "profileImage": "../../img/im16.png",
+            "profileImage": "../../img/../../img/profile/im16.png",
             "cleaningCount": 1
           },
           {
@@ -206,7 +206,7 @@
             "givenName": "장",
             "firstName": "세희",
             "cleanRole": "MEMBER",
-            "profileImage": "../../img/im27.png",
+            "profileImage": "../../img/../../img/profile/im27.png",
             "cleaningCount": 1
           }
         ],
@@ -224,7 +224,7 @@
             "givenName": "이",
             "firstName": "수정",
             "cleanRole": "MEMBER",
-            "profileImage": "../../img/im14.png",
+            "profileImage": "../../img/../../img/profile/im14.png",
             "cleaningCount": 1
           },
           {
@@ -232,7 +232,7 @@
             "givenName": "임",
             "firstName": "채령",
             "cleanRole": "MEMBER",
-            "profileImage": "../../img/im12.png",
+            "profileImage": "../../img/../../img/profile/im12.png",
             "cleaningCount": 1
           }
         ],
