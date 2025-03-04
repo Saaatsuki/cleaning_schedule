@@ -234,6 +234,8 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
+    setProfileImages(data.data);    
+
     const boxList = document.querySelector(`.box-list`);
     boxList.classList.add(`box-list`);
     let currentDate = ``;
@@ -287,7 +289,7 @@ document.addEventListener('DOMContentLoaded', function () {
           let membersHtml = item.members.map(member => `
             <div class="member">
               <div class="mem-img mem-o">
-                <img src="../../img/${member.profileImage}" />
+                <img src="${member.profileImage}" />
                 <div class="clean-coun">
                   <p>${member.cleaningCount}</p>
                 </div>
@@ -346,5 +348,32 @@ document.addEventListener('DOMContentLoaded', function () {
         box.appendChild(areaSub); 
       }
     });
-  });
+  })
+  .catch(error => console.error('エラーが発生しました:', error));  // エラーハンドリング
+
+  function setProfileImages(data) {
+    data.forEach(group => {
+        group.members.forEach(member => {
+            if (member.profileImage === null) {
+                let lastTwoDigits = member.studentNumber.slice(-2);
+                
+                // 画像URLを文字列として設定
+                member.profileImage = `https://raw.githubusercontent.com/Saaatsuki/cleaning_schedule/main/img/profile/im${lastTwoDigits}.png`;
+
+                const img = new Image();
+                img.onload = () => {
+                    console.log('画像が正常に読み込まれました:', img.src);
+                };
+                img.onerror = () => {
+                    console.error('画像読み込みエラー:', img.src);
+                    // 画像が読み込めなかった場合は、デフォルト画像を使用
+                    member.profileImage = 'https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-hellokitty.png';
+                };
+                img.src = member.profileImage;
+            }
+        });
+    });
+}
+
+
 });
