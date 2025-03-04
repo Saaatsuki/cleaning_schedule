@@ -152,6 +152,8 @@ img {
     justify-items: center;
     align-items: center;
     position: relative;
+    white-space: nowrap; 
+    text-overflow: ellipsis;
 }
 
 .member h6 {

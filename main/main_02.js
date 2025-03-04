@@ -326,9 +326,9 @@ document.addEventListener('DOMContentLoaded', function () {
               <div class="mem-coun me-box">
                 <h6>${item.membersCount}</h6>
               </div>
-              <div class="me-box me-class">
+              <!-- <div class="me-box me-class">
                 <h6>${item.class}</h6>
-              </div>
+              </div> -->
             </div>
             <div class="me-box me-edit">
               <div class="card">
@@ -355,21 +355,33 @@ document.addEventListener('DOMContentLoaded', function () {
     // 使用済みの画像IDを管理するためのセット
     let usedImages = new Set();
 
+    // ローカルストレージから画像の割り当てを読み込み
+    let storedImages = JSON.parse(localStorage.getItem('profileImages')) || {};
+
     data.forEach(group => {
         group.members.forEach(member => {
             if (member.profileImage === null) {
-                let randomImageId;
+                // すでにローカルストレージに保存されている画像IDがあればそれを使う
+                if (storedImages[member.studentNumber]) {
+                    member.profileImage = storedImages[member.studentNumber];
+                } else {
+                    let randomImageId;
 
-                // まだ使用されていない画像IDをランダムに選ぶ
-                do {
-                    randomImageId = `im${String(Math.floor(Math.random() * 40) + 1).padStart(2, '0')}`; // 01~40まで
-                } while (usedImages.has(randomImageId));  // 重複しないように確認
+                    // まだ使用されていない画像IDをランダムに選ぶ
+                    do {
+                        randomImageId = `im${String(Math.floor(Math.random() * 40) + 1).padStart(2, '0')}`; // 01~40まで
+                    } while (usedImages.has(randomImageId));  // 重複しないように確認
 
-                // 画像IDをセットに追加して、次回の選択で使わないようにする
-                usedImages.add(randomImageId);
+                    // 画像IDをセットに追加して、次回の選択で使わないようにする
+                    usedImages.add(randomImageId);
 
-                // 画像URLを設定
-                member.profileImage = `https://raw.githubusercontent.com/Saaatsuki/cleaning_schedule/main/img/profile/${randomImageId}.png`;
+                    // 画像URLを設定
+                    member.profileImage = `https://raw.githubusercontent.com/Saaatsuki/cleaning_schedule/main/img/profile/${randomImageId}.png`;
+
+                    // ローカルストレージに保存
+                    storedImages[member.studentNumber] = member.profileImage;
+                    localStorage.setItem('profileImages', JSON.stringify(storedImages));
+                }
 
                 const img = new Image();
                 img.onload = () => {
@@ -385,6 +397,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 }
+
 
 
 
