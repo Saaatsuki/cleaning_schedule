@@ -352,13 +352,24 @@ document.addEventListener('DOMContentLoaded', function () {
   .catch(error => console.error('エラーが発生しました:', error));  // エラーハンドリング
 
   function setProfileImages(data) {
+    // 使用済みの画像IDを管理するためのセット
+    let usedImages = new Set();
+
     data.forEach(group => {
         group.members.forEach(member => {
             if (member.profileImage === null) {
-                let lastTwoDigits = member.studentNumber.slice(-2);
-                
-                // 画像URLを文字列として設定
-                member.profileImage = `https://raw.githubusercontent.com/Saaatsuki/cleaning_schedule/main/img/profile/im${lastTwoDigits}.png`;
+                let randomImageId;
+
+                // まだ使用されていない画像IDをランダムに選ぶ
+                do {
+                    randomImageId = `im${String(Math.floor(Math.random() * 40) + 1).padStart(2, '0')}`; // 01~40まで
+                } while (usedImages.has(randomImageId));  // 重複しないように確認
+
+                // 画像IDをセットに追加して、次回の選択で使わないようにする
+                usedImages.add(randomImageId);
+
+                // 画像URLを設定
+                member.profileImage = `https://raw.githubusercontent.com/Saaatsuki/cleaning_schedule/main/img/profile/${randomImageId}.png`;
 
                 const img = new Image();
                 img.onload = () => {
@@ -374,6 +385,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 }
+
 
 
 });
