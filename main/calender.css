@@ -46,7 +46,7 @@
     background-color: white;
     border-radius: 25px;
     overflow: hidden;
-    padding: 35px 50px 0px 50px;
+    padding: 20px;
     font-size: 0.8rem;
     z-index: 1000;
     transform: translateY(-100%); /* 初期状態では画面外 */
@@ -81,6 +81,7 @@
 
 .calendar-body {
     padding: 10px;
+
 }
 
 .calendar-week-days {
@@ -184,13 +185,20 @@
 .month-list {
     position: relative;
     left: 0;
-    top: -150px;
+    /* top: -200px;  */
+    bottom: 180px;
     background-color: #ffe3ee;
     color: #7e7d7d;
     display: grid;
     grid-template-columns: repeat(3, auto);
     gap: 5px;
     border-radius: 20px;
+}
+
+@media (max-width: 345px) {
+    .month-list {
+        font-size: 10px;
+    }
 }
 
 .month-list>div {
@@ -236,7 +244,7 @@
     font-family: Dubai Light, Century Gothic;
     position: relative;
     display: flex;
-    top: 50px;
+    bottom: -30px;
     justify-content: center;
     align-items: center;
     color: #172C66;
