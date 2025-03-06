@@ -24,11 +24,10 @@ function handleCredentialResponse(response) {
     console.log("Google ID Token:", response.credential);
     
     // 必要に応じてバックエンドにトークンを送信し、ユーザーを認証
-    fetch("http://210.101.236.158:8080/api/login", {
+    fetch("/auth/google-login", {
         method: "POST",
-        headers: { "Content-Type": "application/json",
-            "Authorization": `Bearer ${response.credetial}`
-         },
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token: response.credential })
     })
     .then(response => response.json())
     .then(data => {
