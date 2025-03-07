@@ -54,18 +54,18 @@ document.addEventListener('DOMContentLoaded', function () {
   };
   let calendar = document.querySelector('.calendar');
   const month_names = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
+    '01',
+    '02',
+    '03',
+    '04',
+    '05',
+    '06',
+    '07',
+    '08',
+    '09',
+    '10',
+    '11',
+    '12',
     ];
   let month_picker = document.querySelector('#month-picker');
   const dayTextFormate = document.querySelector('.day-text-formate');
@@ -126,9 +126,51 @@ document.addEventListener('DOMContentLoaded', function () {
           day.classList.add('current-date');
         }
       }
+
+      day.onclick = () => {
+        const clickedDate = day.innerHTML;
+        const clickedMonth = month_names[month];
+        const clickedYear = year;
+    
+        const formattedDate = `${clickedYear}년 ${clickedMonth}월 ${clickedDate}일`;
+    
+        const boxId = `${clickedYear}${clickedMonth}${clickedDate}`;
+    
+        const targetBox = document.getElementById(boxId);
+    
+        if (targetBox) {
+            // スクロールさせる
+            targetBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+            // ボックスが見つからない場合、モーダルアラートを表示
+            const alertMessage = document.getElementById('alertMessage');
+            alertMessage.innerText = '선택한 날짜에 해당하는 박스가 없습니다。';
+            openModal();
+        }
+    };
+    
+    // モーダルを開く関数
+    function openModal() {
+        const modal = document.getElementById('modalAlert');
+        modal.style.display = 'block';
+    }
+    
+    // モーダルを閉じる関数
+    function closeModal() {
+        const modal = document.getElementById('modalAlert');
+        modal.style.display = 'none';
+    }
+    
+    // 閉じるボタンにイベントリスナーを追加
+    document.getElementById('closeBtn').addEventListener('click', closeModal);
+    
+      
+      
+      
       calendar_days.appendChild(day);
     }
   };
+  
   
   let month_list = calendar.querySelector('.month-list');
   month_names.forEach((e, index) => {
@@ -251,6 +293,9 @@ document.addEventListener('DOMContentLoaded', function () {
         currentDate = formattedDate;
         box = document.createElement('div');
         box.classList.add('box');
+        box.id = `${date.getFullYear()}${(date.getMonth() + 1).toString().padStart(2,'0')}${date.getDate()}`;
+
+        
 
         const dateElement = document.createElement('div');
         dateElement.classList.add('date');

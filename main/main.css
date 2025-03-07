@@ -234,3 +234,41 @@ h6 {
 .clean-coun p {
     font-weight: 1000;
 }
+
+
+/* モーダルアラートのスタイル */
+.modal-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 2px solid #172C66;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    display: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .modal-alert p {
+    font-size: 16px;
+    color: #172C66;
+  }
+  
+  .modal-alert .close-btn {
+    background-color: #F582AE;
+    border: none;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  .modal-alert .close-btn:hover {
+    background-color: #f57291;
+  }
+  
