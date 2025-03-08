@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             // ボックスが見つからない場合、モーダルアラートを表示
             const alertMessage = document.getElementById('alertMessage');
-            alertMessage.innerText = '선택한 날짜에 해당하는 박스가 없습니다。';
+            alertMessage.innerText = '선택한 날짜에는 청소 일정이 없습니다.';
             openModal();
         }
     };
@@ -163,10 +163,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     // 閉じるボタンにイベントリスナーを追加
     document.getElementById('closeBtn').addEventListener('click', closeModal);
-    
-      
-      
-      
+
       calendar_days.appendChild(day);
     }
   };
