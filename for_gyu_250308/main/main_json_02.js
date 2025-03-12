@@ -54,18 +54,18 @@ document.addEventListener('DOMContentLoaded', function () {
   };
   let calendar = document.querySelector('.calendar');
   const month_names = [
-    '01',
-    '02',
-    '03',
-    '04',
-    '05',
-    '06',
-    '07',
-    '08',
-    '09',
-    '10',
-    '11',
-    '12',
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
     ];
   let month_picker = document.querySelector('#month-picker');
   const dayTextFormate = document.querySelector('.day-text-formate');
@@ -126,48 +126,9 @@ document.addEventListener('DOMContentLoaded', function () {
           day.classList.add('current-date');
         }
       }
-
-      day.onclick = () => {
-        const clickedDate = day.innerHTML;
-        const clickedMonth = month_names[month];
-        const clickedYear = year;
-    
-        const formattedDate = `${clickedYear}년 ${clickedMonth}월 ${clickedDate}일`;
-    
-        const boxId = `${clickedYear}${clickedMonth}${clickedDate.padStart(2,'0')}`;
-    
-        const targetBox = document.getElementById(boxId);
-    
-        if (targetBox) {
-            // スクロールさせる
-            targetBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        } else {
-            // ボックスが見つからない場合、モーダルアラートを表示
-            const alertMessage = document.getElementById('alertMessage');
-            alertMessage.innerText = '선택한 날짜에는 청소 일정이 없습니다.';
-            openModal();
-        }
-    };
-    
-    // モーダルを開く関数
-    function openModal() {
-        const modal = document.getElementById('modalAlert');
-        modal.style.display = 'block';
-    }
-    
-    // モーダルを閉じる関数
-    function closeModal() {
-        const modal = document.getElementById('modalAlert');
-        modal.style.display = 'none';
-    }
-    
-    // 閉じるボタンにイベントリスナーを追加
-    document.getElementById('closeBtn').addEventListener('click', closeModal);
-
       calendar_days.appendChild(day);
     }
   };
-  
   
   let month_list = calendar.querySelector('.month-list');
   month_names.forEach((e, index) => {
@@ -263,7 +224,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });  
 
 
-  fetch('http://210.101.236.158:8080/api/clean/all?classId=1')
+  fetch('http://localhost:3000/cleanInfo')
   .then(response => response.json())
   .then(data => {
     console.log("取得したデータ:", data.data);
@@ -272,8 +233,6 @@ document.addEventListener('DOMContentLoaded', function () {
       console.error("データが空です。");
       return;
     }
-
-    setProfileImages(data.data);    
 
     const boxList = document.querySelector(`.box-list`);
     boxList.classList.add(`box-list`);
@@ -290,9 +249,6 @@ document.addEventListener('DOMContentLoaded', function () {
         currentDate = formattedDate;
         box = document.createElement('div');
         box.classList.add('box');
-        box.id = `${date.getFullYear()}${(date.getMonth() + 1).toString().padStart(2,'0')}${date.getDate().toString().padStart(2,'0')}`;
-
-        
 
         const dateElement = document.createElement('div');
         dateElement.classList.add('date');
@@ -331,13 +287,13 @@ document.addEventListener('DOMContentLoaded', function () {
           let membersHtml = item.members.map(member => `
             <div class="member">
               <div class="mem-img mem-o">
-                <img src="${member.profileImage}" />
+                <img src="../../img/${member.profileImage}" />
                 <div class="clean-coun">
                   <p>${member.cleaningCount}</p>
                 </div>
               </div>
               <div class="mem-name">
-                <h6>${member.familyName} ${member.givenName}</h6>
+                <h6>${member.givenName} ${member.firstName}</h6>
               </div>       
             </div>
           `).join('');
@@ -368,9 +324,9 @@ document.addEventListener('DOMContentLoaded', function () {
               <div class="mem-coun me-box">
                 <h6>${item.membersCount}</h6>
               </div>
-              <!-- <div class="me-box me-class">
+              <div class="me-box me-class">
                 <h6>${item.class}</h6>
-              </div> -->
+              </div>
             </div>
             <div class="me-box me-edit">
               <div class="card">
@@ -390,57 +346,5 @@ document.addEventListener('DOMContentLoaded', function () {
         box.appendChild(areaSub); 
       }
     });
-  })
-  .catch(error => console.error('エラーが発生しました:', error));  // エラーハンドリング
-
-  function setProfileImages(data) {
-    // 使用済みの画像IDを管理するためのセット
-    let usedImages = new Set();
-
-    // ローカルストレージから画像の割り当てを読み込み
-    let storedImages = JSON.parse(localStorage.getItem('profileImages')) || {};
-
-    data.forEach(group => {
-        group.members.forEach(member => {
-            if (member.profileImage === null) {
-                // すでにローカルストレージに保存されている画像IDがあればそれを使う
-                if (storedImages[member.studentNumber]) {
-                    member.profileImage = storedImages[member.studentNumber];
-                } else {
-                    let randomImageId;
-
-                    // まだ使用されていない画像IDをランダムに選ぶ
-                    do {
-                        randomImageId = `im${String(Math.floor(Math.random() * 40) + 1).padStart(2, '0')}`; // 01~40まで
-                    } while (usedImages.has(randomImageId));  // 重複しないように確認
-
-                    // 画像IDをセットに追加して、次回の選択で使わないようにする
-                    usedImages.add(randomImageId);
-
-                    // 画像URLを設定
-                    member.profileImage = `https://raw.githubusercontent.com/Saaatsuki/cleaning_schedule/main/img/profile/${randomImageId}.png`;
-
-                    // ローカルストレージに保存
-                    storedImages[member.studentNumber] = member.profileImage;
-                    localStorage.setItem('profileImages', JSON.stringify(storedImages));
-                }
-
-                const img = new Image();
-                img.onload = () => {
-                    console.log('画像が正常に読み込まれました:', img.src);
-                };
-                img.onerror = () => {
-                    console.error('画像読み込みエラー:', img.src);
-                    // 画像が読み込めなかった場合は、デフォルト画像を使用
-                    member.profileImage = 'https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-hellokitty.png';
-                };
-                img.src = member.profileImage;
-            }
-        });
-    });
-}
-
-
-
-
+  });
 });
