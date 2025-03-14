@@ -20,25 +20,47 @@ function loadGoogleAuth() {
 }
 
 // Googleログインのコールバック関数
-function handleCredentialResponse(response) {
+// function handleCredentialResponse(response) {
+//     console.log("Google ID Token:", response.credential);
+    
+//     // 必要に応じてバックエンドにトークンを送信し、ユーザーを認証
+//     fetch("http://210.101.236.158:8080/api/login", {
+//         method: "POST",
+//         headers: { "Content-Type": "application/json",
+//             "Authorization": `Bearer ${response.credetial}`
+//          },
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//         console.log("Login successful", data);
+//         alert("Login Successful!");
+
+//         // リダイレクト処理（ログイン成功後）
+//         window.location.href = "/dashboard";  // リダイレクト先URLを指定
+//     })
+//     .catch(error => console.error("Error during login:", error));
+// }
+
+// Googleログインのコールバック関数
+async function handleCredentialResponse(response) {
     console.log("Google ID Token:", response.credential);
     
     // 必要に応じてバックエンドにトークンを送信し、ユーザーを認証
-    fetch("http://210.101.236.158:8080/api/login", {
+    const res = await fetch("http://210.101.236.158:8080/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json",
             "Authorization": `Bearer ${response.credetial}`
          },
     })
-    .then(response => response.json())
-    .then(data => {
+    const data = res.json()
+
+    return data
+    
         console.log("Login successful", data);
         alert("Login Successful!");
 
         // リダイレクト処理（ログイン成功後）
         window.location.href = "/dashboard";  // リダイレクト先URLを指定
-    })
-    .catch(error => console.error("Error during login:", error));
 }
 
 // Google APIのスクリプトを動的に追加
