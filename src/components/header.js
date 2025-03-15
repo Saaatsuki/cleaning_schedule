@@ -1,8 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
-    fetch('http://localhost:3000/cleanInfo')
+    // ① まず `header.html` を読み込む
+    fetch('./header.html')
+    .then(response => response.text())
+    .then(headerHTML => {
+        document.body.insertAdjacentHTML('afterbegin', headerHTML); // body の最初に追加
+        return fetch('http://localhost:3000/cleanInfo'); // ② `cleanInfo` のデータを取得
+    })
     .then(response => response.json())
     .then(data => {
-        data = data.data
+        data = data.data;
         console.log("取得したデータ:", data);
 
         if (!Array.isArray(data) || data.length === 0) {
@@ -10,10 +16,10 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        const header = document.querySelector('header');
+        // ③ ヘッダー内のプロファイル情報を更新
         const profileNameDiv = document.querySelector('div.Profole-name');
         const profileImageDiv = document.querySelector('div.profile-img');
-        
+
         const profile = data[0].members[1]; // 最初のプロフィール
         const name = profile.givenName + ` ` + profile.firstName;
         const studentNumber = profile.studentNumber;
@@ -27,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
         profileImageDiv.innerHTML = '';
         profileImageDiv.appendChild(imgElement);
 
+        // ④ メニューアイコン（.menu-logo）の処理
         const menuLogo = document.querySelector('.menu-logo');
         for (let i = 0; i < 3; i++) {
             const sq = document.createElement('div');
@@ -46,17 +53,14 @@ document.addEventListener('DOMContentLoaded', function () {
     
         menuLogo.addEventListener('click', function () {
             console.log("メニューアイコンがクリックされました！");
-
+            
+            // アニメーション処理
             const imgEle = document.querySelector('.menu-bg-img img');
             const menu = document.querySelector('.menu');
-            imgEle.classList.add('animate1'); // アニメーション開始
-            menu.classList.add('animate2');   // メニューアニメーション開始            
-
-            // imgEle.classList.remove('animate1');
-            // menu.classList.remove('animate2');
-            // void imgEle.offsetWidth;
-            // void menu.offsetWidth;
-
+            imgEle.classList.add('animate1');
+            menu.classList.add('animate2');
+        
+            // メニュー開閉処理
             if (menuContent.classList.contains('open')) {
                 menuLogo.classList.remove('menu-open');
                 menuContent.classList.remove('open');
@@ -71,22 +75,27 @@ document.addEventListener('DOMContentLoaded', function () {
                 menuContent.classList.remove('close');
                 sessionStorage.setItem('menuOpen', 'true');
                 console.log("メニューを開きました！");
-
+                
+                // ここで `menu.html` に遷移
+                window.location.href = 'menu.html';
             }
         });
+
+        // ⑤ ヘッダーの高さに応じて `main` の `margin-top` を調整
+        function adjustMargin() {
+            const header = document.querySelector("header");
+            const main = document.querySelector("main");
+            if (header && main) {
+                const headerHeight = header.offsetHeight; // ヘッダーの高さを取得
+                main.style.marginTop = `${headerHeight + 15}px`; // 余白を追加
+            }
+        }
+        
+        adjustMargin();
+        window.onresize = adjustMargin; // ウィンドウサイズ変更時も調整
+
     })
     .catch(error => {
         console.error("データ取得時のエラー:", error);
     });
-
-    function adjustMargin() {
-        const header = document.querySelector("header");
-        const main = document.querySelector("main");
-        const headerHeight = header.offsetHeight; // ヘッダーの高さを取得
-        main.style.marginTop = `${headerHeight + 15}px`; // 余白を追加
-    }
-    
-    window.onload = adjustMargin;
-    window.onresize = adjustMargin; // ウィンドウサイズ変更時も調整
-
 });
