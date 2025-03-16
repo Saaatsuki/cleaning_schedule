@@ -9,21 +9,49 @@
 </head>
 <body>
     <main>
-        <div class="menu-list">
-            <div class="menu">
-                <div class="menu-logo"><img src="logo/pro.png" /></div>
-                <div class="menu-ti">Profile</div>
+        <!-- メニューシャッター -->
+        <div class="menu-content">
+            <div class="menu-list">
+                <div class="menu">
+                    <div class="menu-lo"><img src="logo/pro.png" /></div>
+                    <div class="menu-ti">프로필 설정</div>
+                </div>
+                <div class="menu">
+                    <div class="menu-lo"><img src="logo/hoki.png" /></div>
+                    <div class="menu-ti">청소 당번 현황</div>
+                </div>
+                <div class="menu">
+                    <div class="menu-lo"><img src="logo/rireki.png" /></div>
+                    <div class="menu-ti">청소 당번 이력</div>
+                </div>
             </div>
-            <div class="menu">
-                <div class="menu-logo"><img src="" /></div>
-                <div class="menu-ti">Profile</div>
+    
+            <div class="menu-bg-img">
+                <div class="bg-img mopp"><img src="../../img/mopp.png" /></div>
+                <div class="bg-img zokin"><img src="../../img/zokin.png" /></div>
             </div>
-            <div class="menu">
-                <div class="menu-logo"><img src="" /></div>
-                <div class="menu-ti">Profile</div>
+    
+            <div class="kirikae">
+                <div class="card">
+                    <div class="swich gakusei front" id="goToAdminPage">
+                        <img src="../../img/gakusei.png.png" alt="学生">
+                    </div>
+                    <div class="swich kanri back">
+                        <img src="../../img/kanri.png" alt="管理">
+                    </div>
+                </div>
             </div>
+            
+            <script>
+                // imgタグにイベントリスナーを追加
+                document.getElementById("goToAdminPage").addEventListener("click", function() {
+                    window.location.href = "kanri_main.html";  // 管理ページに遷移
+                });
+            </script>
         </div>
     </main>
 
+    <!-- JavaScriptの読み込みを `body` の最後に移動 -->
+    <script src="header.js"></script>
 </body>
 </html>

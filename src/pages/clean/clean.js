@@ -320,7 +320,7 @@ document.addEventListener('DOMContentLoaded', function () {
           const addNugu = `  
           <div class="member">
             <div class="mem-img mem-x">
-              <img src="../../img/plus.png" />
+              <img src="../../../img/plus.png" />
             </div>
             <div class="mem-name">
               <h6>추가</h6>
