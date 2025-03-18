@@ -53,6 +53,12 @@ document.addEventListener('DOMContentLoaded', function () {
     
         menuLogo.addEventListener('click', function () {
             console.log("メニューアイコンがクリックされました！");
+            
+            // アニメーション処理
+            const imgEle = document.querySelector('.menu-bg-img img');
+            const menu = document.querySelector('.menu');
+            imgEle.classList.add('animate1');
+            menu.classList.add('animate2');
         
             // メニュー開閉処理
             if (menuContent.classList.contains('open')) {
@@ -69,9 +75,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 menuContent.classList.remove('close');
                 sessionStorage.setItem('menuOpen', 'true');
                 console.log("メニューを開きました！");
+                
             }
         });
-        
 
         // ⑤ ヘッダーの高さに応じて `main` の `margin-top` を調整
         function adjustMargin() {
