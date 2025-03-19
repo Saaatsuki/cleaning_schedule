@@ -7,61 +7,54 @@ function loadGoogleAuth() {
 
     google.accounts.id.renderButton(
         document.getElementById("google-login-btn"),
-        { theme: "filled_black", size: "x-large" , shape: "rectangular" }
+        { theme: "filled_black", size: "x-large", shape: "rectangular" }
     );
-    
-    // 枠線を消す
+
+    // 枠線を消す処理（要素が存在するか確認）
     setTimeout(() => {
-        document.querySelector(".g_id_signin").style.border = "none";
-        document.querySelector(".g_id_signin").style.boxShadow = "none";
+        const signinBtn = document.querySelector(".g_id_signin");
+        if (signinBtn) {
+            signinBtn.style.border = "none";
+            signinBtn.style.boxShadow = "none";
+        }
     }, 100);
 
     google.accounts.id.prompt(); // 自動的にログインを促す
 }
 
-// Googleログインのコールバック関数
-// function handleCredentialResponse(response) {
-//     console.log("Google ID Token:", response.credential);
-    
-//     // 必要に応じてバックエンドにトークンを送信し、ユーザーを認証
-//     fetch("http://210.101.236.158:8080/api/login", {
-//         method: "POST",
-//         headers: { "Content-Type": "application/json",
-//             "Authorization": `Bearer ${response.credetial}`
-//          },
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//         console.log("Login successful", data);
-//         alert("Login Successful!");
+const API_URL = "http://210.101.236.158:8080/api/login"; // APIのエンドポイント
 
-//         // リダイレクト処理（ログイン成功後）
-//         window.location.href = "/dashboard";  // リダイレクト先URLを指定
-//     })
-//     .catch(error => console.error("Error during login:", error));
-// }
-
-// Googleログインのコールバック関数
 async function handleCredentialResponse(response) {
     console.log("Google ID Token:", response.credential);
-    
-    // 必要に応じてバックエンドにトークンを送信し、ユーザーを認証
-    const res = await fetch("http://210.101.236.158:8080/api/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json",
-            "Authorization": `Bearer ${response.credetial}`
-         },
-    })
-    const data = res.json()
 
-    return data
-    
+    try {
+        const res = await fetch(API_URL, {  
+            method: "POST",
+            headers: { 
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${response.credential}`
+            },
+            body: JSON.stringify({ token: response.credential }) // トークンをJSONで送信
+        });
+
+        if (!res.ok) {
+            throw new Error(`HTTP error! Status: ${res.status}`);
+        }
+
+        const data = await res.json();
         console.log("Login successful", data);
         alert("Login Successful!");
 
-        // リダイレクト処理（ログイン成功後）
-        window.location.href = "/dashboard";  // リダイレクト先URLを指定
+
+        window.location.href = "../loading/loading.html";  
+
+    } catch (error) {
+        console.error("Login failed:", error);
+        alert("Login failed. Please try again.");
+    }
 }
+http://127.0.0.1:5501/src/graph.html
+
 
 // Google APIのスクリプトを動的に追加
 (function () {
