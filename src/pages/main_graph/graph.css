@@ -2,5 +2,9 @@ main {
     width: 100%;
     height: 89%;
     padding: 3%;
-    margin-top: header(height) + 20px;
+    /* margin-top: header(height) + 100px; */
+}
+
+.mainpage {
+    margin-top: 100px;
 }

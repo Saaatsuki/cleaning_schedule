@@ -1,99 +1,114 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // ① まず `header.html` を読み込む
-    fetch('./header.html')
-    .then(response => response.text())
-    .then(headerHTML => {
-        document.body.insertAdjacentHTML('afterbegin', headerHTML); // body の最初に追加
-        return fetch('http://localhost:3000/cleanInfo'); // ② `cleanInfo` のデータを取得
-    })
-    .then(response => response.json())
-    .then(data => {
-        data = data.data;
-        console.log("取得したデータ:", data);
+    // ① ヘッダーの内容を動的に作成
+    const headerHTML = `
+        <header>
+            <div class="profile-img">
+                <img src="https://img.icons8.com/?size=100&id=z-JBA_KtSkxG&format=png&color=000000"/>
+            </div>
+            <div class="Profole-name">
+                <div class="pro-name"><h3>${sessionStorage.getItem('familyName') || 'GUEST'} ${sessionStorage.getItem('givenName') || ''}</h3></div>
+                <div class="pro-school_number"><h5>${sessionStorage.getItem('studentNumber') || 'Guest Student'}</h5></div>
+            </div>
+            <div class="menu-logo">
+                <div class="sq"></div>
+                <div class="sq"></div>
+                <div class="sq"></div>
+            </div>
+        </header>
+    `;
 
-        if (!Array.isArray(data) || data.length === 0) {
-            console.error("データが空です。");
-            return;
-        }
+    // ヘッダーをページの先頭に挿入
+    document.body.insertAdjacentHTML('afterbegin', headerHTML);
 
-        // ③ ヘッダー内のプロファイル情報を更新
-        const profileNameDiv = document.querySelector('div.Profole-name');
-        const profileImageDiv = document.querySelector('div.profile-img');
+    // ② セッションストレージから情報を取得
+    const familyName = sessionStorage.getItem('familyName');
+    const givenName = sessionStorage.getItem('givenName');
+    const studentNumber = sessionStorage.getItem('studentNumber');
+    const profileImage = sessionStorage.getItem('profileImage');
 
-        const profile = data[0].members[1]; // 最初のプロフィール
-        const name = profile.givenName + ` ` + profile.firstName;
-        const studentNumber = profile.studentNumber;
-        const profileImage = profile.profileImage;
-
-        profileNameDiv.querySelector('.pro-name h3').textContent = name;
-        profileNameDiv.querySelector('.pro-school_number h5').textContent = studentNumber;
-
-        const imgElement = document.createElement('img');
-        imgElement.src = profileImage;
-        profileImageDiv.innerHTML = '';
-        profileImageDiv.appendChild(imgElement);
-
-        // ④ メニューアイコン（.menu-logo）の処理
-        const menuLogo = document.querySelector('.menu-logo');
-        for (let i = 0; i < 3; i++) {
-            const sq = document.createElement('div');
-            sq.classList.add('sq');
-            menuLogo.appendChild(sq);
-        }
-
-        const menuContent = document.querySelector('.menu-content');
-        const menuList = document.querySelector('.menu-list');
-        menuList.classList.add(`menu-list`);
+    if (!givenName || !familyName || !studentNumber || !profileImage) {
+        console.error("セッションから情報を取得できませんでした。");
+        // 必要に応じてUIにエラーメッセージを表示
+        return;
+    }
     
-        if (sessionStorage.getItem('menuOpen') === 'true') {
+    // データが存在する場合にセッションストレージを更新する
+    if (!familyName || !givenName) {
+        sessionStorage.setItem('familyName', '김');  // 例: '김' として更新
+        sessionStorage.setItem('givenName', '규민');  // 例: '규민' として更新
+    }
+
+    // ③ ヘッダー内のプロファイル情報を更新
+    const profileNameDiv = document.querySelector('.Profole-name');
+    const profileImageDiv = document.querySelector('.profile-img');
+
+    // 名前を動的に表示
+    profileNameDiv.querySelector('.pro-name h3').textContent = `${familyName} ${givenName}`;
+    profileNameDiv.querySelector('.pro-school_number h5').textContent = studentNumber;
+
+    const imgElement = document.createElement('img');
+    imgElement.src = profileImage;
+    profileImageDiv.innerHTML = '';
+    profileImageDiv.appendChild(imgElement);
+
+    // ④ メニューアイコン（.menu-logo）の処理
+    const menuLogo = document.querySelector('.menu-logo');
+    for (let i = 0; i < 3; i++) {
+        const sq = document.createElement('div');
+        sq.classList.add('sq');
+        menuLogo.appendChild(sq);
+    }
+
+    const menuContent = document.querySelector('.menu-content');
+    const menuList = document.querySelector('.menu-list');
+    menuList.classList.add('menu-list');
+
+    if (sessionStorage.getItem('menuOpen') === 'true') {
+        menuLogo.classList.add('menu-open');
+        menuContent.classList.add('open');
+        menuList.classList.add('open');
+    }
+
+    menuLogo.addEventListener('click', function () {
+        console.log("メニューアイコンがクリックされました！");
+
+        // アニメーション処理
+        const imgEle = document.querySelector('.menu-bg-img img');
+        const menu = document.querySelector('.menu');
+        imgEle.classList.add('animate1');
+        menu.classList.add('animate2');
+    
+        // メニュー開閉処理
+        if (menuContent.classList.contains('open')) {
+            menuLogo.classList.remove('menu-open');
+            menuContent.classList.remove('open');
+            menuList.classList.remove('open');
+            menuContent.classList.add('close');
+            sessionStorage.setItem('menuOpen', 'false');
+            console.log("メニューを閉じました！");
+        } else {
             menuLogo.classList.add('menu-open');
             menuContent.classList.add('open');
             menuList.classList.add('open');
+            menuContent.classList.remove('close');
+            sessionStorage.setItem('menuOpen', 'true');
+            console.log("メニューを開きました！");
         }
-    
-        menuLogo.addEventListener('click', function () {
-            console.log("メニューアイコンがクリックされました！");
-            
-            // アニメーション処理
-            const imgEle = document.querySelector('.menu-bg-img img');
-            const menu = document.querySelector('.menu');
-            imgEle.classList.add('animate1');
-            menu.classList.add('animate2');
-        
-            // メニュー開閉処理
-            if (menuContent.classList.contains('open')) {
-                menuLogo.classList.remove('menu-open');
-                menuContent.classList.remove('open');
-                menuList.classList.remove('open');
-                menuContent.classList.add('close');
-                sessionStorage.setItem('menuOpen', 'false');
-                console.log("メニューを閉じました！");
-            } else {
-                menuLogo.classList.add('menu-open');
-                menuContent.classList.add('open');
-                menuList.classList.add('open');
-                menuContent.classList.remove('close');
-                sessionStorage.setItem('menuOpen', 'true');
-                console.log("メニューを開きました！");
-                
-            }
-        });
-
-        // ⑤ ヘッダーの高さに応じて `main` の `margin-top` を調整
-        function adjustMargin() {
-            const header = document.querySelector("header");
-            const main = document.querySelector("main");
-            if (header && main) {
-                const headerHeight = header.offsetHeight; // ヘッダーの高さを取得
-                main.style.marginTop = `${headerHeight + 15}px`; // 余白を追加
-            }
-        }
-        
-        adjustMargin();
-        window.onresize = adjustMargin; // ウィンドウサイズ変更時も調整
-
-    })
-    .catch(error => {
-        console.error("データ取得時のエラー:", error);
     });
+
+    // ⑤ ヘッダーの高さに応じて main の margin-top を調整
+    function adjustMargin() {
+        const header = document.querySelector("header");
+        const main = document.querySelector("main");
+        if (header && main) {
+            const headerHeight = header.offsetHeight; // ヘッダーの高さを取得
+            main.style.marginTop = `${headerHeight + 15}px`; // 余白を追加
+        }
+    }
+
+    adjustMargin();
+    window.onresize = adjustMargin; // ウィンドウサイズ変更時も調整
+})
+.catch(error => {
+    console.error("データ取得時のエラー:", error);
 });

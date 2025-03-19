@@ -24,10 +24,12 @@ function loadGoogleAuth() {
 
 const API_URL = "http://210.101.236.158:8080/api/login"; // APIのエンドポイント
 
+// Google ID Tokenを使ってサーバーに認証リクエストを送信
 async function handleCredentialResponse(response) {
     console.log("Google ID Token:", response.credential);
 
     try {
+        // トークンをサーバーに送信して、認証を行う
         const res = await fetch(API_URL, {  
             method: "POST",
             headers: { 
@@ -43,18 +45,22 @@ async function handleCredentialResponse(response) {
 
         const data = await res.json();
         console.log("Login successful", data);
-        alert("Login Successful!");
 
+        // サーバーから返されたデータをセッションに保存
+        sessionStorage.setItem('studentNumber', data.data.studentNumber);
+        sessionStorage.setItem('familyName', data.data.familyName);
+        sessionStorage.setItem('givenName', data.data.givenName);
+        sessionStorage.setItem('profileImage', data.data.profileImage);
+        sessionStorage.setItem('token', data.data.token);
 
-        window.location.href = "../loading/loading.html";  
+        // ログイン成功後、メインページへ遷移
+        window.location.href = "../main_graph/graph.html";  
 
     } catch (error) {
         console.error("Login failed:", error);
         alert("Login failed. Please try again.");
     }
 }
-http://127.0.0.1:5501/src/graph.html
-
 
 // Google APIのスクリプトを動的に追加
 (function () {
