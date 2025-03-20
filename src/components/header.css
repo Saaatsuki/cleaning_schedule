@@ -138,6 +138,10 @@ main {
         border-radius: 50%;
     }
 
+    main {
+        margin-top: 120px;
+    }
+
     .profile-img {
         display: flex;
         justify-content: center;
@@ -162,7 +166,7 @@ main {
 
     header {
         width: 100%; /* 親要素に対して相対的にサイズを設定 */
-        height: 11%; /* 親要素の高さに対して11% */
+        height: 110px; /* 親要素の高さに対して11% */
         padding: 1%;
         background-color: #172C66;
         box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
@@ -189,7 +193,7 @@ main {
     .profile-img {
         display: flex;
         justify-content: center;
-        background-color: #50C878;
+        /* background-color: #50C878; */
         border-radius: 50px;
 
     }

@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () { 
     try {
         // ① ヘッダーの内容を動的に作成
         const headerHTML = `
@@ -21,29 +21,30 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
             </header>
         `;
+
         const menuHTML = `
             <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
 
             <div class="menu-container">
                 <div class="menu-content">
                     <div class="menu-list">
-                        <div class="menu">
-                            <div class="menu-li-logo"><dotlottie-player src="https://lottie.host/11163056-f791-4f59-ba0c-74e5efc5167b/3atUZbFIam.lottie" background="transparent" speed="1" style="width: 24px; height: 24px" loop autoplay></dotlottie-player></div>
+                
+                        <div class="menu" data-link="http://127.0.0.1:5501/src/pages/main/main.html">
+                            <div class="menu-li-logo"><img width="64" height="64" src="https://img.icons8.com/sf-black-filled/64/FFFFFF/home.png" alt="home"/></div>
                             <div class="menu-ti">HOME</div>
                         </div>
-                        <div class="menu">
+                        <div class="menu" data-link="http://127.0.0.1:5501/src/pages/profile/profile.html">
                             <div class="menu-li-logo"><img src="https://img.icons8.com/small/16/FFFFFF/admin-settings-male.png" alt="broom" /></div>
                             <div class="menu-ti">프로필 설정</div>
                         </div>            
-                        <div class="menu">
+                        <div class="menu" data-link="http://127.0.0.1:5501/src/pages/clean/clean.html">
                             <div class="menu-li-logo"><img src="https://img.icons8.com/ios/50/FFFFFF/broom.png" alt="broom" /></div>
                             <div class="menu-ti">청소 관리</div>
                         </div>
-                        <div class="menu">
+                        <div class="menu" data-link="http://127.0.0.1:5501/src/pages/graph/graph.html">
                             <div class="menu-li-logo"><img src="https://img.icons8.com/forma-light-filled-sharp/24/FFFFFF/combo-chart.png" alt="broom" /></div>
                             <div class="menu-ti">학교 시간 기록</div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -67,6 +68,17 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 menuContent.style.height = '0px'; // メニューを非表示
             }
+        });
+
+        // メニュー項目のクリックイベント処理
+        const menuItems = document.querySelectorAll('.menu');
+        menuItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const link = item.getAttribute('data-link');
+                if (link) {
+                    window.location.href = link; // リダイレクト
+                }
+            });
         });
 
         // ② セッションストレージから情報を取得
@@ -96,7 +108,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // プロフィール画像を設定（profileImageがnull, undefined, false, 空文字のいずれかの場合はデフォルト画像を使用）
         const imgElement = document.createElement('img');
-        // profileImageが無効な場合はデフォルト画像を設定
         if (!profileImage || profileImage === "false" || profileImage.trim() === "") {
             imgElement.src = 'https://img.icons8.com/color/96/test-account.png'; // デフォルト画像
         } else {
@@ -104,7 +115,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         profileImageDiv.innerHTML = ''; 
         profileImageDiv.appendChild(imgElement);
-
 
     } catch (error) {
         console.error("データ取得時のエラー:", error);
