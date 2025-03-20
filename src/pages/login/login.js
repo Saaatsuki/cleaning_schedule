@@ -54,7 +54,9 @@ async function handleCredentialResponse(response) {
         sessionStorage.setItem('token', data.data.token);
 
         // ログイン成功後、メインページへ遷移
-        window.location.href = "../main_graph/graph.html";  
+        // window.location.href = "../main_graph/graph.html";  
+        window.location.href = "../main/main.html";  
+
 
     } catch (error) {
         console.error("Login failed:", error);

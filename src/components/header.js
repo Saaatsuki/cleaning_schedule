@@ -1,114 +1,112 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // ① ヘッダーの内容を動的に作成
-    const headerHTML = `
-        <header>
-            <div class="profile-img">
-                <img src="https://img.icons8.com/?size=100&id=z-JBA_KtSkxG&format=png&color=000000"/>
+    try {
+        // ① ヘッダーの内容を動的に作成
+        const headerHTML = `
+            <header>
+                <div class="profile-img">
+                    <img src="https://img.icons8.com/color/96/test-account.png" alt="test-account"/>
+                </div>
+                <div class="Profole-name">
+                    <div class="pro-name"><h3>${sessionStorage.getItem('familyName') || 'GUEST'} ${sessionStorage.getItem('givenName') || ''}</h3></div>
+                    <div class="pro-school_number"><h5>${sessionStorage.getItem('studentNumber') || 'Guest Student'}</h5></div>
+                </div>
+                <div class="menu-logo">
+                    <button class="menu-lo" onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))" aria-label="Main Menu">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                            <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                            <path class="line line2" d="M 20,50 H 80" />
+                            <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                        </svg>
+                    </button>
+                </div>
+            </header>
+        `;
+        const menuHTML = `
+            <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+
+            <div class="menu-container">
+                <div class="menu-content">
+                    <div class="menu-list">
+                        <div class="menu">
+                            <div class="menu-li-logo"><dotlottie-player src="https://lottie.host/11163056-f791-4f59-ba0c-74e5efc5167b/3atUZbFIam.lottie" background="transparent" speed="1" style="width: 24px; height: 24px" loop autoplay></dotlottie-player></div>
+                            <div class="menu-ti">HOME</div>
+                        </div>
+                        <div class="menu">
+                            <div class="menu-li-logo"><img src="https://img.icons8.com/small/16/FFFFFF/admin-settings-male.png" alt="broom" /></div>
+                            <div class="menu-ti">프로필 설정</div>
+                        </div>            
+                        <div class="menu">
+                            <div class="menu-li-logo"><img src="https://img.icons8.com/ios/50/FFFFFF/broom.png" alt="broom" /></div>
+                            <div class="menu-ti">청소 관리</div>
+                        </div>
+                        <div class="menu">
+                            <div class="menu-li-logo"><img src="https://img.icons8.com/forma-light-filled-sharp/24/FFFFFF/combo-chart.png" alt="broom" /></div>
+                            <div class="menu-ti">학교 시간 기록</div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-            <div class="Profole-name">
-                <div class="pro-name"><h3>${sessionStorage.getItem('familyName') || 'GUEST'} ${sessionStorage.getItem('givenName') || ''}</h3></div>
-                <div class="pro-school_number"><h5>${sessionStorage.getItem('studentNumber') || 'Guest Student'}</h5></div>
-            </div>
-            <div class="menu-logo">
-                <div class="sq"></div>
-                <div class="sq"></div>
-                <div class="sq"></div>
-            </div>
-        </header>
-    `;
+        `;
 
-    // ヘッダーをページの先頭に挿入
-    document.body.insertAdjacentHTML('afterbegin', headerHTML);
+        // `body` に追加
+        document.body.insertAdjacentHTML('afterbegin', headerHTML);
+        document.body.insertAdjacentHTML('beforeend', menuHTML);
 
-    // ② セッションストレージから情報を取得
-    const familyName = sessionStorage.getItem('familyName');
-    const givenName = sessionStorage.getItem('givenName');
-    const studentNumber = sessionStorage.getItem('studentNumber');
-    const profileImage = sessionStorage.getItem('profileImage');
-
-    if (!givenName || !familyName || !studentNumber || !profileImage) {
-        console.error("セッションから情報を取得できませんでした。");
-        // 必要に応じてUIにエラーメッセージを表示
-        return;
-    }
-    
-    // データが存在する場合にセッションストレージを更新する
-    if (!familyName || !givenName) {
-        sessionStorage.setItem('familyName', '김');  // 例: '김' として更新
-        sessionStorage.setItem('givenName', '규민');  // 例: '규민' として更新
-    }
-
-    // ③ ヘッダー内のプロファイル情報を更新
-    const profileNameDiv = document.querySelector('.Profole-name');
-    const profileImageDiv = document.querySelector('.profile-img');
-
-    // 名前を動的に表示
-    profileNameDiv.querySelector('.pro-name h3').textContent = `${familyName} ${givenName}`;
-    profileNameDiv.querySelector('.pro-school_number h5').textContent = studentNumber;
-
-    const imgElement = document.createElement('img');
-    imgElement.src = profileImage;
-    profileImageDiv.innerHTML = '';
-    profileImageDiv.appendChild(imgElement);
-
-    // ④ メニューアイコン（.menu-logo）の処理
-    const menuLogo = document.querySelector('.menu-logo');
-    for (let i = 0; i < 3; i++) {
-        const sq = document.createElement('div');
-        sq.classList.add('sq');
-        menuLogo.appendChild(sq);
-    }
-
-    const menuContent = document.querySelector('.menu-content');
-    const menuList = document.querySelector('.menu-list');
-    menuList.classList.add('menu-list');
-
-    if (sessionStorage.getItem('menuOpen') === 'true') {
-        menuLogo.classList.add('menu-open');
-        menuContent.classList.add('open');
-        menuList.classList.add('open');
-    }
-
-    menuLogo.addEventListener('click', function () {
-        console.log("メニューアイコンがクリックされました！");
-
-        // アニメーション処理
-        const imgEle = document.querySelector('.menu-bg-img img');
-        const menu = document.querySelector('.menu');
-        imgEle.classList.add('animate1');
-        menu.classList.add('animate2');
-    
         // メニュー開閉処理
-        if (menuContent.classList.contains('open')) {
-            menuLogo.classList.remove('menu-open');
-            menuContent.classList.remove('open');
-            menuList.classList.remove('open');
-            menuContent.classList.add('close');
-            sessionStorage.setItem('menuOpen', 'false');
-            console.log("メニューを閉じました！");
+        const menuLogo = document.querySelector('.menu-logo');
+        const menuContent = document.querySelector('.menu-content');
+
+        menuContent.style.height = '0px';
+        menuContent.style.overflow = 'hidden';
+        menuContent.style.transition = 'height 0.3s ease-in-out';
+
+        menuLogo.addEventListener('click', function () {
+            if (menuContent.style.height === '0px' || menuContent.style.height === '') {
+                menuContent.style.height = menuContent.scrollHeight + 'px'; // メニューを表示
+            } else {
+                menuContent.style.height = '0px'; // メニューを非表示
+            }
+        });
+
+        // ② セッションストレージから情報を取得
+        const familyName = sessionStorage.getItem('familyName');
+        const givenName = sessionStorage.getItem('givenName');
+        const studentNumber = sessionStorage.getItem('studentNumber');
+        const profileImage = sessionStorage.getItem('profileImage');
+
+        if (!givenName || !familyName || !studentNumber) {
+            console.error("セッションから情報を取得できませんでした。");
+            return;
+        }
+        
+        // データが存在しない場合、デフォルトの名前を設定
+        if (!familyName || !givenName) {
+            sessionStorage.setItem('familyName', '홍');  
+            sessionStorage.setItem('givenName', '길동동');  
+        }
+
+        // ③ ヘッダー内のプロファイル情報を更新
+        const profileNameDiv = document.querySelector('.Profole-name');
+        const profileImageDiv = document.querySelector('.profile-img');
+
+        // 名前を動的に表示
+        profileNameDiv.querySelector('.pro-name h3').textContent = `${familyName} ${givenName}`;
+        profileNameDiv.querySelector('.pro-school_number h5').textContent = studentNumber;
+
+        // プロフィール画像を設定（profileImageがnull, undefined, false, 空文字のいずれかの場合はデフォルト画像を使用）
+        const imgElement = document.createElement('img');
+        // profileImageが無効な場合はデフォルト画像を設定
+        if (!profileImage || profileImage === "false" || profileImage.trim() === "") {
+            imgElement.src = 'https://img.icons8.com/color/96/test-account.png'; // デフォルト画像
         } else {
-            menuLogo.classList.add('menu-open');
-            menuContent.classList.add('open');
-            menuList.classList.add('open');
-            menuContent.classList.remove('close');
-            sessionStorage.setItem('menuOpen', 'true');
-            console.log("メニューを開きました！");
+            imgElement.src = profileImage;
         }
-    });
+        profileImageDiv.innerHTML = ''; 
+        profileImageDiv.appendChild(imgElement);
 
-    // ⑤ ヘッダーの高さに応じて main の margin-top を調整
-    function adjustMargin() {
-        const header = document.querySelector("header");
-        const main = document.querySelector("main");
-        if (header && main) {
-            const headerHeight = header.offsetHeight; // ヘッダーの高さを取得
-            main.style.marginTop = `${headerHeight + 15}px`; // 余白を追加
-        }
+
+    } catch (error) {
+        console.error("データ取得時のエラー:", error);
     }
-
-    adjustMargin();
-    window.onresize = adjustMargin; // ウィンドウサイズ変更時も調整
-})
-.catch(error => {
-    console.error("データ取得時のエラー:", error);
 });

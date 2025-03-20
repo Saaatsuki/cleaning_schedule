@@ -301,20 +301,6 @@ document.addEventListener('DOMContentLoaded', function () {
         boxList.appendChild(box);
       }
 
-      // const members = item.members.map(member => `
-      //     <div class="member">
-      //       <div class="mem-img mem-o">
-      //         <img src="../../img/${member.profileImage}" />
-      //         <div class="clean-coun">
-      //           <p>${member.cleaningCount}</p>
-      //         </div>
-      //       </div>
-      //       <div class="mem-name">
-      //         <h6>${member.givenName} ${member.firstName}</h6>
-      //       </div>       
-      //     </div>
-      //   `).join('');
-
         const members = (item) => {
           let addNuguCount = item.membersCount - item.members.length;
           const addNugu = `  
@@ -438,9 +424,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
-}
-
-
-
+  }
 
 });
