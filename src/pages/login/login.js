@@ -44,7 +44,7 @@ async function handleCredentialResponse(response) {
         }
 
         const data = await res.json();
-        console.log("Login successful", data);
+        console.log("로그인 성공하셨춥니다✨(≧◡≦)💖", data);
 
         // サーバーから返されたデータをセッションに保存
         sessionStorage.setItem('studentNumber', data.data.studentNumber);

@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function () { 
     try {
         // ① ヘッダーの内容を動的に作成

@@ -1,0 +1,191 @@
+* {
+    box-sizing: border-box !important;
+    max-width: 100%;
+}
+
+body {
+    width: 100vw;
+}
+
+main {
+    box-sizing: border-box;
+    padding: 0 4%;
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+
+/* 検索バーのスタイル */
+.search-container {
+    width: 100%;
+    margin-bottom: 10px;
+    aspect-ratio: 8/1;
+    background-color: #172C66;  /* ボックスの背景色 */
+    border-radius: 10px;
+    padding: 3%;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+    transition: background-color 2s ease; 
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    justify-items: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-container > :nth-child(2) {
+    justify-items: flex-end;
+}
+
+
+.search-container:hover {
+    background-color: #1f3a86;  /* ホバー時の色 */
+}
+
+.search-container input {
+    height: 100%;
+    border: none;
+    border-radius: 5px;
+    width: 90%;  
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.search-container button {
+    height: 100%;
+    aspect-ratio: 1/1;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-container button:hover {
+    background-color: #f57291;  /* ボタンのホバー時 */
+}
+
+.search-container .serch-btn button {
+    background-color: #F582AE;  
+}
+
+.search-container .calender-btn button {
+    background-color: #f5a623;
+}
+
+.search-container .icon {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100;
+}
+
+
+
+
+.calendar_serch { 
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px; 
+}
+
+.calendar-container {
+    padding: 5%;
+    width: 100%;
+    max-width: 800px;
+    background-color: #172C66; 
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.5s ease;
+}
+
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white; 
+}
+
+
+button {
+    background-color: #4CAF50; 
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049; /* ホバー時にボタンの色を変化 */
+}
+
+/* カレンダーの日付グリッド */
+.calendar-grid {
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    text-align: center;
+    margin: 0 20px;
+}
+
+
+.calendar-grid div {
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    width: 100%;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.calendar-grid div:hover {
+    background-color: #dde4ff; /* ホバー時に背景色変更 */
+    transform: scale(1.05); /* ホバー時に少し拡大 */
+}
+
+/* カレンダーの日付詳細 */
+.calendar-detail {
+    margin-top: 20px;
+    background-color: #f8f8f8;
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.calendar-detail h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.calendar-detail p {
+    font-size: 1rem;
+    color: #172C66;
+}
