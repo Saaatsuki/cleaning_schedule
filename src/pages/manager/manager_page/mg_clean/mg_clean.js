@@ -292,39 +292,46 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll('.mem-menu_p p').forEach(button => {
         if (button.textContent.trim() === '당번 삭제') {  // 「当番削除」ボタンのみ
             button.addEventListener('click', function () {
-                const memberElement = this.closest('.member');  // 削除対象のメンバー
-                const groupId = memberElement.getAttribute('data-group-id'); // `data-group-id` を持っているとする
-                const studentNumber = memberElement.getAttribute('data-student-number'); // `data-student-number` を持っているとする
-
-                if (!groupId || !studentNumber) {
-                    alert('削除情報が不足しています。');
-                    return;
+                const result = window.confirm("정말 삭제해도 괜찮으세요？");
+                if (result) {
+                    const memberElement = this.closest('.member');  // 削除対象のメンバー
+                    const groupId = memberElement.getAttribute('data-group-id'); // `data-group-id` を持っているとする
+                    const studentNumber = memberElement.getAttribute('data-student-number'); // `data-student-number` を持っているとする
+    
+                    if (!groupId || !studentNumber) {
+                        alert('削除情報が不足しています。');
+                        return;
+                    }
+    
+                    const apiUrl = `http://210.101.236.158:8081/api/clean/manager/groups/${groupId}/members`;
+                    const token = sessionStorage.getItem('token'); 
+    
+                    fetch(apiUrl, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: JSON.stringify({ studentNumber: studentNumber })
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            alert('削除成功');
+                            memberElement.remove(); // UI から削除
+                        } else {
+                            return response.json().then(err => {
+                                throw new Error(err.message || '削除に失敗しました');
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        alert('エラー: ' + error.message);
+                    });
+                } else {
+                    // ユーザーが「NO」を選んだ場合
+                    alert("삭제는 취소합니다!!!!");
                 }
 
-                const apiUrl = `http://210.101.236.158:8081/api/clean/manager/groups/${groupId}/members`;
-                const token = sessionStorage.getItem('token'); 
-
-                fetch(apiUrl, {
-                    method: 'DELETE',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
-                    },
-                    body: JSON.stringify({ studentNumber: studentNumber })
-                })
-                .then(response => {
-                    if (response.ok) {
-                        alert('削除成功');
-                        memberElement.remove(); // UI から削除
-                    } else {
-                        return response.json().then(err => {
-                            throw new Error(err.message || '削除に失敗しました');
-                        });
-                    }
-                })
-                .catch(error => {
-                    alert('エラー: ' + error.message);
-                });
             });
         }
     });
