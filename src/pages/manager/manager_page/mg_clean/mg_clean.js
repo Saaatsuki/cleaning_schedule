@@ -82,11 +82,6 @@ function showDateDetail(day) {
     }
 }
 
-// // 日付の詳細を表示する関数
-// function showDateDetail(day) {
-//     const dateDetail = document.getElementById('date-detail');
-//     dateDetail.innerText = `${currentDate.getFullYear()}년 ${currentDate.getMonth() + 1}월 ${day}일\n상세 정보를 추가할 수 있습니다.`;
-// }
 
 // ページがロードされたときにカレンダーを生成
 generateCalendar();
@@ -166,7 +161,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const formattedDate = `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일 ${dayNames[date.getDay()]}요일`;
         
             return `
-              <div class="member">
+              <div class="member" data-group-id=${item.groupId} data-student-number=${member.studentNumber}>
                 <div class="mem-img mem-o">
                   <img class="mem-o_img" src="${member.profileImage}" />
                   <div class="clean-coun">
@@ -274,13 +269,9 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll('.mem-img.mem-o').forEach((memImg) => {
         memImg.addEventListener('click', (event) => {
             console.log("イメージがクリックされました。");
-            const member = event.target.closest('.member');
+            const member = event.target.closest('.member'); 
             const menu = member.querySelector('.member-menu');
 
-            // 位置を設定
-            // const memberRect = member.getBoundingClientRect();
-            // menu.style.top = `${memberRect.top - 30}px`;  // memberの斜め上に
-            // menu.style.left = `${memberRect.left + memberRect.width - 30}px`;  // memberの右に
 
             // メニューの表示切り替え（アニメーション）
             if (menu.style.display === 'none' || menu.style.display === '') {
@@ -311,11 +302,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
                 const apiUrl = `http://210.101.236.158:8081/api/clean/manager/groups/${groupId}/members`;
+                const token = sessionStorage.getItem('token'); 
 
                 fetch(apiUrl, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
                     },
                     body: JSON.stringify({ studentNumber: studentNumber })
                 })
@@ -408,37 +401,4 @@ document.addEventListener("DOMContentLoaded", function () {
     /////////↑Box表示////////////////////////////////////////////////////////////////
 
 });
-
-
-
-// console.log(imgs);
-
-
-// // メンバー画像クリック時に吹き出しメニューを表示する
-// document.querySelectorAll('.mem-o_img').forEach((memImg) => {
-//     console.log("selected imgage element");
-    
-//     console.log(memImg);
-    
-//     memImg.addEventListener('click', (event) => {
-//         console.log("メンバー画像クリック");
-
-//         // イベント伝播を停止して、documentのクリックイベントが発火しないようにする
-//         event.stopPropagation();
-
-//         // すでに他のメニューが表示されている場合は非表示にする
-//         const currentMenu = document.querySelector('.member-menu');
-//         if (currentMenu && currentMenu !== event.target.closest('.member').querySelector('.member-menu')) {
-//             currentMenu.style.display = 'none';
-//         }
-
-//         // 吹き出しメニューを取得し、表示/非表示を切り替え
-//         const menu = event.target.closest('.member').querySelector('.member-menu'); // mem-img の親要素に対してメニューを取得
-//         if (menu) {
-//             menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-//         }
-//     });
-// });
-
-
 
