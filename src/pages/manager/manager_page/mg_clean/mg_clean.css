@@ -226,7 +226,9 @@ h2 {
     transition: height 0.4s ease-in-out;
 }
 
-
+.box-list {
+    padding-bottom: 30px !important;
+}
 
 /* ボックスデザイン */
 .box {
@@ -298,7 +300,7 @@ h2 {
 .me-edit {
     background-color: #f5a623;
     perspective: 1000px;  /* 3D効果を与える */
-    transition: transform 0.6s;  /* 回転アニメーション */
+    transition: transform 0.6s; 
 
 }
 
@@ -503,3 +505,99 @@ h6 {
 }
 
 
+/* 吹き出しメニュー */
+.member-menu {
+    background-color: white;
+    width: 300px; 
+    display: none; 
+    position: fixed; /* 画面に固定 */
+    top: 50%; /* 上から50% */
+    left: 50%; /* 左から50% */
+    transform: translate(-50%, -50%) scale(0.8); 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 10px; 
+    z-index: 5000; 
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease; 
+} 
+
+
+.member-menu.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* メニュー内の項目 */
+.member-menu p {
+    cursor: pointer; 
+    font-size: 15px; 
+    padding: 5px 0;
+    transition: background-color 0.2s ease, padding-left 0.2s ease; 
+}
+
+/* メニュー項目にマウスオーバー時 */
+.mem-menu p:hover {
+    background-color: #f0f0f0; 
+    padding-left: 10px; 
+}
+
+/* メニュー内の項目が非表示の状態 */
+.member-menu p.hidden {
+    display: none; 
+}
+
+/* クリック時にメニューが消えるアニメーション */
+.member-menu p {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mem-menu {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.mem-menu img  {
+    width: 30px;
+
+}
+  
+.mem-menu_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.member-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.member-info img {
+    width: 80px;
+    aspect-ratio: 1/1;
+    border-radius: 50px;
+}
+
+.member-info p {
+    padding: 1% 3%;
+    background-color: #f5a623;
+    border-radius: 5px;
+    color: white;
+}

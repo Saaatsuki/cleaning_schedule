@@ -114,55 +114,55 @@ document.addEventListener('DOMContentLoaded', function () {
   
     for (let i = 0; i <= days_of_month[month] + first_day.getDay() - 1; i++) {
   
-      let day = document.createElement('div');
-  
-      if (i >= first_day.getDay()) {
-        day.innerHTML = i - first_day.getDay() + 1;
-  
-        if (i - first_day.getDay() + 1 === currentDate.getDate() &&
-          year === currentDate.getFullYear() &&
-          month === currentDate.getMonth()
-        ) {
-          day.classList.add('current-date');
+        let day = document.createElement('div');
+    
+        if (i >= first_day.getDay()) {
+          day.innerHTML = i - first_day.getDay() + 1;
+    
+          if (i - first_day.getDay() + 1 === currentDate.getDate() &&
+            year === currentDate.getFullYear() &&
+            month === currentDate.getMonth()
+          ) {
+            day.classList.add('current-date');
+          }
         }
-      }
 
-      day.onclick = () => {
-        const clickedDate = day.innerHTML;
-        const clickedMonth = month_names[month];
-        const clickedYear = year;
-    
-        const formattedDate = `${clickedYear}년 ${clickedMonth}월 ${clickedDate}일`;
-    
-        const boxId = `${clickedYear}${clickedMonth}${clickedDate.padStart(2,'0')}`;
-    
-        const targetBox = document.getElementById(boxId);
-    
-        if (targetBox) {
-            // スクロールさせる
-            targetBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        } else {
-            // ボックスが見つからない場合、モーダルアラートを表示
-            const alertMessage = document.getElementById('alertMessage');
-            alertMessage.innerText = '선택한 날짜에는 청소 일정이 없습니다.';
-            openModal();
-        }
-    };
-    
-    // モーダルを開く関数
-    function openModal() {
-        const modal = document.getElementById('modalAlert');
-        modal.style.display = 'block';
-    }
-    
-    // モーダルを閉じる関数
-    function closeModal() {
-        const modal = document.getElementById('modalAlert');
-        modal.style.display = 'none';
-    }
-    
-    // 閉じるボタンにイベントリスナーを追加
-    document.getElementById('closeBtn').addEventListener('click', closeModal);
+        day.onclick = () => {
+          const clickedDate = day.innerHTML;
+          const clickedMonth = month_names[month];
+          const clickedYear = year;
+      
+          const formattedDate = `${clickedYear}년 ${clickedMonth}월 ${clickedDate}일`;
+      
+          const boxId = `${clickedYear}${clickedMonth}${clickedDate.padStart(2,'0')}`;
+      
+          const targetBox = document.getElementById(boxId);
+      
+          if (targetBox) {
+              // スクロールさせる
+              targetBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+              // ボックスが見つからない場合、モーダルアラートを表示
+              const alertMessage = document.getElementById('alertMessage');
+              alertMessage.innerText = '선택한 날짜에는 청소 일정이 없습니다.';
+              openModal();
+          }
+      };
+      
+      // モーダルを開く関数
+      function openModal() {
+          const modal = document.getElementById('modalAlert');
+          modal.style.display = 'block';
+      }
+      
+      // モーダルを閉じる関数
+      function closeModal() {
+          const modal = document.getElementById('modalAlert');
+          modal.style.display = 'none';
+      }
+      
+      // 閉じるボタンにイベントリスナーを追加
+      document.getElementById('closeBtn').addEventListener('click', closeModal);
 
       calendar_days.appendChild(day);
     }
@@ -263,7 +263,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });  
 
 
-  fetch('http://210.101.236.158:8080/api/clean/all?classId=1')
+  fetch('http://210.101.236.158:8081/api/clean/all?classId=1')
   .then(response => response.json())
   .then(data => {
     console.log("取得したデータ:", data.data);

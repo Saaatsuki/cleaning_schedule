@@ -22,7 +22,7 @@ function loadGoogleAuth() {
     google.accounts.id.prompt(); // 自動的にログインを促す
 }
 
-const API_URL = "http://210.101.236.158:8080/api/login"; // APIのエンドポイント
+const API_URL = "http://210.101.236.158:8081/api/login"; // APIのエンドポイント
 
 // Google ID Tokenを使ってサーバーに認証リクエストを送信
 async function handleCredentialResponse(response) {

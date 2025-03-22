@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     ////////////////////////////////////////////////////////////////
     /////box表示
-    fetch('http://210.101.236.158:8080/api/clean/all?classId=1')
+    fetch('http://210.101.236.158:8081/api/clean/all?classId=1')
     .then(response => response.json())
     .then(data => {
       console.log("取得したデータ:", data.data);
@@ -156,20 +156,70 @@ document.addEventListener("DOMContentLoaded", function () {
               </div>       
             </div>
           `;
+
+          console.log("create");
           
-            let membersHtml = item.members.map(member => `
+          
+          let membersHtml = item.members.map(member => {
+            const date = new Date(item.date);
+            const dayNames = ["일", "월", "화", "수", "목", "금", "토"];
+            const formattedDate = `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일 ${dayNames[date.getDay()]}요일`;
+        
+            return `
               <div class="member">
                 <div class="mem-img mem-o">
-                  <img src="${member.profileImage}" />
+                  <img class="mem-o_img" src="${member.profileImage}" />
                   <div class="clean-coun">
                     <p>${member.cleaningCount}</p>
                   </div>
                 </div>
                 <div class="mem-name">
                   <h6>${member.familyName} ${member.givenName}</h6>
-                </div>       
+                </div>
+                <!-- 吹き出しメニュー -->
+                <div class="member-menu">
+                    <div class="member-info">
+                        <img src="${member.profileImage}" alt="Member Image">
+                        <h6>${member.familyName} ${member.givenName}</h6>
+                        <p>${formattedDate}</p>
+                    </div>
+                    <div class="mem-menu">
+                        <div class="mem-menu_img">
+                            <img src="https://img.icons8.com/pulsar-color/48/user-female-circle.png" alt="user-female-circle"/>
+                        </div>
+                        <div class="mem-menu_p">
+                            <p>프로필 보기</p>
+                        </div>
+                    </div>
+                    <div class="mem-menu">
+                        <div class="mem-menu_img">
+                            <img src="https://img.icons8.com/pulsar-color/48/broom.png" alt="broom"/>
+                        </div>
+                        <div class="mem-menu_p">
+                            <p>청소 기록</p>
+                        </div>
+                    </div>
+                    <div class="mem-menu">
+                        <div class="mem-menu_img">
+                            <img src="https://img.icons8.com/pulsar-color/48/delete.png" alt="delete"/>
+                        </div>
+                        <div class="mem-menu_p">
+                            <p>당번 삭제</p>
+                        </div>
+                    </div>
+                    <div class="mem-menu">
+                        <div class="mem-menu_img">
+                            <img src="https://img.icons8.com/pulsar-color/48/change.png" alt="change"/>
+                        </div>
+                        <div class="mem-menu_p">
+                            <p>교환하기</p>
+                        </div>
+                    </div>
+                </div>
               </div>
-            `).join('');
+            `;
+        }).join('');
+        
           
             membersHtml += addNugu.repeat(addNuguCount);
             
@@ -177,7 +227,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         
   
-        console.log(members(item));
+        // console.log(members(item));
   
   
   
@@ -219,6 +269,93 @@ document.addEventListener("DOMContentLoaded", function () {
           box.appendChild(areaSub); 
         }
       });
+
+    // メンバー画像クリック時に吹き出しメニューを表示
+    document.querySelectorAll('.mem-img.mem-o').forEach((memImg) => {
+        memImg.addEventListener('click', (event) => {
+            console.log("イメージがクリックされました。");
+            const member = event.target.closest('.member');
+            const menu = member.querySelector('.member-menu');
+
+            // 位置を設定
+            // const memberRect = member.getBoundingClientRect();
+            // menu.style.top = `${memberRect.top - 30}px`;  // memberの斜め上に
+            // menu.style.left = `${memberRect.left + memberRect.width - 30}px`;  // memberの右に
+
+            // メニューの表示切り替え（アニメーション）
+            if (menu.style.display === 'none' || menu.style.display === '') {
+                menu.style.display = 'block';
+                setTimeout(() => {
+                    menu.classList.add('show'); // アニメーションを有効にする
+                }, 10);
+            } else {
+                menu.classList.remove('show'); // アニメーションを無効にして閉じる
+                setTimeout(() => {
+                    menu.style.display = 'none'; // アニメーション後に非表示
+                }, 300);
+            }
+        });
+    });
+
+    // "당번 삭제" ボタンがクリックされたときの処理
+    document.querySelectorAll('.mem-menu_p p').forEach(button => {
+        if (button.textContent.trim() === '당번 삭제') {  // 「当番削除」ボタンのみ
+            button.addEventListener('click', function () {
+                const memberElement = this.closest('.member');  // 削除対象のメンバー
+                const groupId = memberElement.getAttribute('data-group-id'); // `data-group-id` を持っているとする
+                const studentNumber = memberElement.getAttribute('data-student-number'); // `data-student-number` を持っているとする
+
+                if (!groupId || !studentNumber) {
+                    alert('削除情報が不足しています。');
+                    return;
+                }
+
+                const apiUrl = `http://210.101.236.158:8081/api/clean/manager/groups/${groupId}/members`;
+
+                fetch(apiUrl, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ studentNumber: studentNumber })
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert('削除成功');
+                        memberElement.remove(); // UI から削除
+                    } else {
+                        return response.json().then(err => {
+                            throw new Error(err.message || '削除に失敗しました');
+                        });
+                    }
+                })
+                .catch(error => {
+                    alert('エラー: ' + error.message);
+                });
+            });
+        }
+    });
+    
+
+    // 吹き出しメニューの外側をクリックしたときに閉じる処理
+    document.addEventListener('click', (event) => {
+        console.log("外側がクリックされました。");
+
+        const isMenuClick = event.target.closest('.member-menu');
+        const isMemImgClick = event.target.closest('.mem-img.mem-o');
+    
+        if (!isMenuClick && !isMemImgClick) {
+            document.querySelectorAll('.member-menu').forEach((menu) => {
+                menu.classList.remove('show'); // メニューをアニメーションで閉じる
+                setTimeout(() => {
+                    menu.style.display = 'none'; // アニメーション後に非表示
+                }, 300);
+            });
+        }
+    });
+
+
+      
     })
     .catch(error => console.error('エラーが発生しました:', error));  // エラーハンドリング
   
@@ -271,4 +408,37 @@ document.addEventListener("DOMContentLoaded", function () {
     /////////↑Box表示////////////////////////////////////////////////////////////////
 
 });
+
+
+
+// console.log(imgs);
+
+
+// // メンバー画像クリック時に吹き出しメニューを表示する
+// document.querySelectorAll('.mem-o_img').forEach((memImg) => {
+//     console.log("selected imgage element");
+    
+//     console.log(memImg);
+    
+//     memImg.addEventListener('click', (event) => {
+//         console.log("メンバー画像クリック");
+
+//         // イベント伝播を停止して、documentのクリックイベントが発火しないようにする
+//         event.stopPropagation();
+
+//         // すでに他のメニューが表示されている場合は非表示にする
+//         const currentMenu = document.querySelector('.member-menu');
+//         if (currentMenu && currentMenu !== event.target.closest('.member').querySelector('.member-menu')) {
+//             currentMenu.style.display = 'none';
+//         }
+
+//         // 吹き出しメニューを取得し、表示/非表示を切り替え
+//         const menu = event.target.closest('.member').querySelector('.member-menu'); // mem-img の親要素に対してメニューを取得
+//         if (menu) {
+//             menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+//         }
+//     });
+// });
+
+
 

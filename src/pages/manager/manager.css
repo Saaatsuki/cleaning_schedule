@@ -57,6 +57,7 @@ main {
     /* border: 2px solid #ffcc00; */
     border-radius: 10px;
     display: inline-block;
+    color: #172C66;
 }
 
 .action-button {
