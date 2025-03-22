@@ -3,3 +3,4 @@ document.querySelectorAll('.action-button').forEach(button => {
         window.location.href = this.getAttribute('data-link');
     });
 });
+

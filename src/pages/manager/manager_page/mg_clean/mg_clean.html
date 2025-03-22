@@ -13,15 +13,17 @@
         <div class="serch">
             <div class="name_serch">
                 <div class="search-container">
-                    <button>
-                        <span class="icon calender-btn">
+                    <div class="icon calender-btn">
+                        <button>
                             <img src="https://img.icons8.com/windows/32/FFFFFF/calendar.png" alt="検索アイコン"> 
-                    </button>
+                        </button>
+                    </div>    
                     <input type="text" placeholder="이름으로 검색...">
-                    <button>
-                        <span class="icon serch-btn">
+                    <div class="icon serch-btn">
+                        <button>
                             <img src="https://img.icons8.com/pastel-glyph/128/FFFFFF/search--v2.png" alt="検索アイコン"> 
-                    </button>
+                        </button>
+                    </div>       
                 </div>
             </div>
             <div class="calendar_serch">
@@ -34,13 +36,21 @@
                     <div class="calendar-grid" id="calendar-grid">
                         <!-- Calendar grid will be populated by JS -->
                     </div>
-                    <div class="calendar-detail" id="calendar-detail">
+                    <!-- <div class="calendar-detail" id="calendar-detail">
                         <h3>日付詳細</h3>
                         <p id="date-detail"></p>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
+        <div id="modalAlert" class="modal-alert">
+            <p id="alertMessage">選択した日付に対応するボックスはありません。</p>
+            <div class="image"><dotlottie-player src="https://lottie.host/c7c2e3c2-8d84-4515-b70e-310adc867ffb/GdW4WDj1xE.lottie" background="transparent" speed="1" style="width: 100px; height: 100px" loop autoplay></dotlottie-player></div>
+            <button id="closeBtn" class="close-btn">닫아버리기</button>
+        </div>
+
+        <div class="box-list"></div>
+
     </main>
     <script src="mg_clean.js"></script>
     <script src="../../../../components/header.js"></script>

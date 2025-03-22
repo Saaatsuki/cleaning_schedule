@@ -306,7 +306,7 @@ document.addEventListener('DOMContentLoaded', function () {
           const addNugu = `  
           <div class="member">
             <div class="mem-img mem-x">
-              <img src="../../../img/plus.png" />
+              <img src="http://127.0.0.1:5501/img/plus.png" />
             </div>
             <div class="mem-name">
               <h6>추가</h6>
@@ -361,7 +361,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="me-box me-edit">
               <div class="card">
                 <div class="front">
-                  <h6><img src="../../img/../../img/pen.png" alt="pen icon"></h6>
+                  <h6><img src="http://127.0.0.1:5501/img/pen.png" alt="pen icon"></h6>
                 </div>
                 <div class="back">
                   <h6>EDIT</h6>

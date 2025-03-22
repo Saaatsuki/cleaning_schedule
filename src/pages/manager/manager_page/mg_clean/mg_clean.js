@@ -26,6 +26,7 @@ function generateCalendar() {
     weekdays.forEach(day => {
         const dayCell = document.createElement('div');
         dayCell.innerText = day;
+        dayCell.classList.add('week-day');
         calendarGrid.appendChild(dayCell);
     });
 
@@ -51,13 +52,223 @@ function generateCalendar() {
         dateCell.onclick = () => showDateDetail(day);
         calendarGrid.appendChild(dateCell);
     }
+
+
 }
 
-// 日付の詳細を表示する関数
+
 function showDateDetail(day) {
-    const dateDetail = document.getElementById('date-detail');
-    dateDetail.innerText = `${currentDate.getFullYear()}년 ${currentDate.getMonth() + 1}월 ${day}일\n상세 정보를 추가할 수 있습니다.`;
+    // alert(`${currentDate.getFullYear()}년 ${currentDate.getMonth() + 1}월 ${day}일`);
+
+    // クリックした日付の月、年を取得
+    const clickedDate = day;
+    const clickedMonth = currentDate.getMonth() + 1; // 現在の月を取得
+    const clickedYear = currentDate.getFullYear(); // 現在の年を取得
+
+    // 日付を2桁にパディングしてboxIdを生成
+    const boxId = `${clickedYear}${String(clickedMonth).padStart(2, '0')}${String(clickedDate).padStart(2, '0')}`;
+
+    const targetBox = document.getElementById(boxId);
+
+    if (targetBox) {
+        // スクロールさせる
+        targetBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else {
+        // ボックスが見つからない場合、モーダルアラートを表示
+        const alertMessage = document.getElementById('alertMessage');
+        alertMessage.innerText = '선택한 날짜에는 청소 일정이 없습니다.';
+        alert("선택한 날짜에는 청소 일정이 없습니다.")
+
+    }
 }
+
+// // 日付の詳細を表示する関数
+// function showDateDetail(day) {
+//     const dateDetail = document.getElementById('date-detail');
+//     dateDetail.innerText = `${currentDate.getFullYear()}년 ${currentDate.getMonth() + 1}월 ${day}일\n상세 정보를 추가할 수 있습니다.`;
+// }
 
 // ページがロードされたときにカレンダーを生成
 generateCalendar();
+
+document.addEventListener("DOMContentLoaded", function () {
+    //////calendar表示/非表示/////////////////////////////////////
+    const calendarBtn = document.querySelector(".calender-btn button");
+    const calendarSearch = document.querySelector(".calendar_serch");
+
+    calendarBtn.addEventListener("click", function () {
+        if (calendarSearch.style.height === "0px" || calendarSearch.style.height === "") {
+            // 本来の高さを取得
+            calendarSearch.style.height = calendarSearch.scrollHeight + "px";
+        } else {
+            calendarSearch.style.height = "0px";
+        }
+    });
+    ////////////////////////////////////////////////////////////////
+    /////box表示
+    fetch('http://210.101.236.158:8080/api/clean/all?classId=1')
+    .then(response => response.json())
+    .then(data => {
+      console.log("取得したデータ:", data.data);
+  
+      if (!Array.isArray(data.data) || data.data.length === 0) {
+        console.error("データが空です。");
+        return;
+      }
+  
+      setProfileImages(data.data);    
+  
+      const boxList = document.querySelector(`.box-list`);
+      boxList.classList.add(`box-list`);
+      let currentDate = ``;
+      let box = null; // 現在のボックスを保持する変数
+  
+      data.data.forEach(item => {
+        const date = new Date(item.date);
+        const dayNames = ["일", "월", "화", "수", "목", "금", "토"];
+        const formattedDate = `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일 ${dayNames[date.getDay()]}요일`;
+  
+        // 日付が変わったら新しいボックスを作成
+        if (formattedDate !== currentDate) {
+          currentDate = formattedDate;
+          box = document.createElement('div');
+          box.classList.add('box');
+          box.id = `${date.getFullYear()}${(date.getMonth() + 1).toString().padStart(2,'0')}${date.getDate().toString().padStart(2,'0')}`;
+  
+          
+  
+          const dateElement = document.createElement('div');
+          dateElement.classList.add('date');
+          dateElement.innerHTML = `<h5>${formattedDate}</h5>`;
+          box.appendChild(dateElement);
+          boxList.appendChild(box);
+        }
+  
+          const members = (item) => {
+            let addNuguCount = item.membersCount - item.members.length;
+            const addNugu = `  
+            <div class="member">
+              <div class="mem-img mem-x">
+                <img src="http://127.0.0.1:5501/img/plus.png" />
+              </div>
+              <div class="mem-name">
+                <h6>추가</h6>
+              </div>       
+            </div>
+          `;
+          
+            let membersHtml = item.members.map(member => `
+              <div class="member">
+                <div class="mem-img mem-o">
+                  <img src="${member.profileImage}" />
+                  <div class="clean-coun">
+                    <p>${member.cleaningCount}</p>
+                  </div>
+                </div>
+                <div class="mem-name">
+                  <h6>${member.familyName} ${member.givenName}</h6>
+                </div>       
+              </div>
+            `).join('');
+          
+            membersHtml += addNugu.repeat(addNuguCount);
+            
+            return membersHtml;
+          }
+        
+  
+        console.log(members(item));
+  
+  
+  
+        let addNuguCount = item.membersCount - item.members.length
+        console.log(addNuguCount);
+  
+        // areaSub を作成して box に追加
+        if (box) {
+          const areaSub = document.createElement('div');
+          areaSub.classList.add('area-sub');
+          areaSub.innerHTML = `
+            <div class="all-sw">
+              <div class="area-menu">
+                <div class="area me-box">
+                  <h6>${item.cleanArea}</h6>
+                </div>
+                <div class="mem-coun me-box">
+                  <h6>${item.membersCount}</h6>
+                </div>
+                <!-- <div class="me-box me-class">
+                  <h6>${item.class}</h6>
+                </div> -->
+              </div>
+              <div class="me-box me-edit">
+                <div class="card">
+                  <div class="front">
+                    <h6><img src="http://127.0.0.1:5501/img/pen.png" alt="pen icon"></h6>
+                  </div>
+                  <div class="back">
+                    <h6>EDIT</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="members">
+              ${members(item)}
+            </div>
+          `;
+          box.appendChild(areaSub); 
+        }
+      });
+    })
+    .catch(error => console.error('エラーが発生しました:', error));  // エラーハンドリング
+  
+    function setProfileImages(data) {
+      // 使用済みの画像IDを管理するためのセット
+      let usedImages = new Set();
+  
+      // ローカルストレージから画像の割り当てを読み込み
+      let storedImages = JSON.parse(localStorage.getItem('profileImages')) || {};
+  
+      data.forEach(group => {
+          group.members.forEach(member => {
+              if (member.profileImage === null) {
+                  // すでにローカルストレージに保存されている画像IDがあればそれを使う
+                  if (storedImages[member.studentNumber]) {
+                      member.profileImage = storedImages[member.studentNumber];
+                  } else {
+                      let randomImageId;
+  
+                      // まだ使用されていない画像IDをランダムに選ぶ
+                      do {
+                          randomImageId = `im${String(Math.floor(Math.random() * 40) + 1).padStart(2, '0')}`; // 01~40まで
+                      } while (usedImages.has(randomImageId));  // 重複しないように確認
+  
+                      // 画像IDをセットに追加して、次回の選択で使わないようにする
+                      usedImages.add(randomImageId);
+  
+                      // 画像URLを設定
+                      member.profileImage = `https://raw.githubusercontent.com/Saaatsuki/cleaning_schedule/main/img/profile/${randomImageId}.png`;
+  
+                      // ローカルストレージに保存
+                      storedImages[member.studentNumber] = member.profileImage;
+                      localStorage.setItem('profileImages', JSON.stringify(storedImages));
+                  }
+  
+                  const img = new Image();
+                  img.onload = () => {
+                      console.log('画像が正常に読み込まれました:', img.src);
+                  };
+                  img.onerror = () => {
+                      console.error('画像読み込みエラー:', img.src);
+                      // 画像が読み込めなかった場合は、デフォルト画像を使用
+                      member.profileImage = 'https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-hellokitty.png';
+                  };
+                  img.src = member.profileImage;
+              }
+          });
+      });
+    }
+    /////////↑Box表示////////////////////////////////////////////////////////////////
+
+});
+
