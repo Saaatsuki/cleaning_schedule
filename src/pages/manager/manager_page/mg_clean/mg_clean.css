@@ -14,7 +14,11 @@ main {
     margin-top: header(height) + 20px;
 }
 
-
+input::placeholder {
+    padding-left: 10px;
+    color: gray; 
+    font-size:100%; 
+}
 
 /* 検索バーのスタイル */
 .search-container {
@@ -600,4 +604,62 @@ h6 {
     background-color: #f5a623;
     border-radius: 5px;
     color: white;
+}
+
+/* 吹き出しメニュー */
+.add_menu {
+    background-color: white;
+    width: 300px;
+    display: none; 
+    position: fixed; /* 画面に固定 */
+    top: 50%; /* 上から50% */
+    left: 50%; /* 左から50% */
+    transform: translate(-50%, -50%) scale(0.8); 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    padding: 10px; 
+    z-index: 5000; 
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease; 
+}
+
+/* 吹き出しメニューが表示される際のスタイル */
+.add_menu.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1); /* 中央に表示 */
+}
+
+/* 各メニュー項目のスタイル */
+.add-data, .add_cleanArea, .add-input {
+    margin-bottom: 10px;
+}
+
+.add-btn {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-btn button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.add-btn_cancel button {
+    background-color: #f44336;
+}
+
+.add-btn_OK button {
+    background-color: #008CBA;
+}
+
+/* メニュー項目にホバー時のスタイル */
+.add_menu p:hover {
+    background-color: #f0f0f0;
+    padding-left: 10px;
 }

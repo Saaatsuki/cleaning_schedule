@@ -104,260 +104,235 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch('http://210.101.236.158:8081/api/clean/all?classId=1')
     .then(response => response.json())
     .then(data => {
-      console.log("取得したデータ:", data.data);
-  
-      if (!Array.isArray(data.data) || data.data.length === 0) {
-        console.error("データが空です。");
-        return;
-      }
-  
-      setProfileImages(data.data);    
-  
-      const boxList = document.querySelector(`.box-list`);
-      boxList.classList.add(`box-list`);
-      let currentDate = ``;
-      let box = null; // 現在のボックスを保持する変数
-  
-      data.data.forEach(item => {
-        const date = new Date(item.date);
-        const dayNames = ["일", "월", "화", "수", "목", "금", "토"];
-        const formattedDate = `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일 ${dayNames[date.getDay()]}요일`;
-  
-        // 日付が変わったら新しいボックスを作成
-        if (formattedDate !== currentDate) {
-          currentDate = formattedDate;
-          box = document.createElement('div');
-          box.classList.add('box');
-          box.id = `${date.getFullYear()}${(date.getMonth() + 1).toString().padStart(2,'0')}${date.getDate().toString().padStart(2,'0')}`;
-  
-          
-  
-          const dateElement = document.createElement('div');
-          dateElement.classList.add('date');
-          dateElement.innerHTML = `<h5>${formattedDate}</h5>`;
-          box.appendChild(dateElement);
-          boxList.appendChild(box);
+        console.log("取得したデータ:", data.data);
+    
+        if (!Array.isArray(data.data) || data.data.length === 0) {
+            console.error("データが空です。");
+            return;
         }
-  
-          const members = (item) => {
-            let addNuguCount = item.membersCount - item.members.length;
-            const addNugu = `  
-            <div class="member">
-              <div class="mem-img mem-x">
-                <img src="http://127.0.0.1:5501/img/plus.png" />
-              </div>
-              <div class="mem-name">
-                <h6>추가</h6>
-              </div>       
-            </div>
-          `;
-
-          console.log("create");
-          
-          
-          let membersHtml = item.members.map(member => {
+    
+        setProfileImages(data.data);    
+    
+        const boxList = document.querySelector(`.box-list`);
+        let currentDate = ``;
+        let box = null; // 現在のボックスを保持する変数
+    
+        data.data.forEach(item => {
             const date = new Date(item.date);
             const dayNames = ["일", "월", "화", "수", "목", "금", "토"];
             const formattedDate = `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일 ${dayNames[date.getDay()]}요일`;
-        
-            return `
-              <div class="member" data-group-id=${item.groupId} data-student-number=${member.studentNumber}>
-                <div class="mem-img mem-o">
-                  <img class="mem-o_img" src="${member.profileImage}" />
-                  <div class="clean-coun">
-                    <p>${member.cleaningCount}</p>
-                  </div>
-                </div>
-                <div class="mem-name">
-                  <h6>${member.familyName} ${member.givenName}</h6>
-                </div>
-                <!-- 吹き出しメニュー -->
-                <div class="member-menu">
-                    <div class="member-info">
-                        <img src="${member.profileImage}" alt="Member Image">
-                        <h6>${member.familyName} ${member.givenName}</h6>
-                        <p>${formattedDate}</p>
+    
+            // 日付が変わったら新しいボックスを作成
+            if (formattedDate !== currentDate) {
+                currentDate = formattedDate;
+                box = document.createElement('div');
+                box.classList.add('box');
+                box.id = `${date.getFullYear()}${(date.getMonth() + 1).toString().padStart(2,'0')}${date.getDate().toString().padStart(2,'0')}`;
+    
+                const dateElement = document.createElement('div');
+                dateElement.classList.add('date');
+                dateElement.innerHTML = `<h5>${formattedDate}</h5>`;
+                box.appendChild(dateElement);
+                boxList.appendChild(box);
+            }
+    
+            const members = (item) => {
+                let addNuguCount = item.membersCount - item.members.length;
+                const addNugu = `
+                <div class="member">
+                    <div class="mem-img mem-x">
+                        <img src="http://127.0.0.1:5501/img/plus.png" />
                     </div>
-                    <div class="mem-menu">
-                        <div class="mem-menu_img">
-                            <img src="https://img.icons8.com/pulsar-color/48/user-female-circle.png" alt="user-female-circle"/>
+                    <div class="mem-name">
+                        <h6>추가</h6>
+                    </div>    
+                    <!-- 吹き出しメニュー -->
+                    <div class="add_menu">
+                        <div class="add-data">
+                            <p>2025년 4월 11일 금요일</p>
                         </div>
-                        <div class="mem-menu_p">
-                            <p>프로필 보기</p>
+                        <div class="add_cleanArea">
+                            <p>강의실실</p>
+                        </div>
+                        <div class="add-input">
+                            <div class="schoolNumber">
+                                <input type="text">
+                            </div>
+                            <div class="add-btn">
+                                <div class="add-btn_cancel">
+                                    <button>취소</button>
+                                </div>
+                                <div class="add-btn_OK">
+                                    <button>학인</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                   
+                </div>
+                `;
+    
+                let membersHtml = item.members.map(member => {
+                    const date = new Date(item.date);
+                    const formattedDate = `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일 ${dayNames[date.getDay()]}요일`;
+    
+                    return `
+                    <div class="member" data-group-id=${item.groupId} data-student-number=${member.studentNumber}>
+                        <div class="mem-img mem-o">
+                            <img class="mem-o_img" src="${member.profileImage}" />
+                            <div class="clean-coun">
+                                <p>${member.cleaningCount}</p>
+                            </div>
+                        </div>
+                        <div class="mem-name">
+                            <h6>${member.familyName} ${member.givenName}</h6>
+                        </div>
+                        <!-- 吹き出しメニュー -->
+                        <div class="member-menu">
+                            <div class="member-info">
+                                <img src="${member.profileImage}" alt="Member Image">
+                                <h6>${member.familyName} ${member.givenName}</h6>
+                                <p>${formattedDate}</p>
+                            </div>
+                            <div class="mem-menu">
+                                <div class="mem-menu_img">
+                                    <img src="https://img.icons8.com/pulsar-color/48/user-female-circle.png" alt="user-female-circle"/>
+                                </div>
+                                <div class="mem-menu_p">
+                                    <p>프로필 보기</p>
+                                </div>
+                            </div>
+                            <div class="mem-menu">
+                                <div class="mem-menu_img">
+                                    <img src="https://img.icons8.com/pulsar-color/48/broom.png" alt="broom"/>
+                                </div>
+                                <div class="mem-menu_p">
+                                    <p>청소 기록</p>
+                                </div>
+                            </div>
+                            <div class="mem-menu">
+                                <div class="mem-menu_img">
+                                    <img src="https://img.icons8.com/pulsar-color/48/delete.png" alt="delete"/>
+                                </div>
+                                <div class="mem-menu_p">
+                                    <p>당번 삭제</p>
+                                </div>
+                            </div>
+                            <div class="mem-menu">
+                                <div class="mem-menu_img">
+                                    <img src="https://img.icons8.com/pulsar-color/48/change.png" alt="change"/>
+                                </div>
+                                <div class="mem-menu_p">
+                                    <p>교환하기</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="mem-menu">
-                        <div class="mem-menu_img">
-                            <img src="https://img.icons8.com/pulsar-color/48/broom.png" alt="broom"/>
+                    `;
+                }).join('');
+    
+                membersHtml += addNugu.repeat(addNuguCount);
+                return membersHtml;
+            }
+    
+            let addNuguCount = item.membersCount - item.members.length;
+    
+            if (box) {
+                const areaSub = document.createElement('div');
+                areaSub.classList.add('area-sub');
+                areaSub.innerHTML = `
+                    <div class="all-sw">
+                        <div class="area-menu">
+                            <div class="area me-box">
+                                <h6>${item.cleanArea}</h6>
+                            </div>
+                            <div class="mem-coun me-box">
+                                <h6>${item.membersCount}</h6>
+                            </div>
                         </div>
-                        <div class="mem-menu_p">
-                            <p>청소 기록</p>
+                        <div class="me-box me-edit">
+                            <div class="card">
+                                <div class="front">
+                                    <h6><img src="http://127.0.0.1:5501/img/pen.png" alt="pen icon"></h6>
+                                </div>
+                                <div class="back">
+                                    <h6>EDIT</h6>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="mem-menu">
-                        <div class="mem-menu_img">
-                            <img src="https://img.icons8.com/pulsar-color/48/delete.png" alt="delete"/>
-                        </div>
-                        <div class="mem-menu_p">
-                            <p>당번 삭제</p>
-                        </div>
+                    <div class="members">
+                        ${members(item)}
                     </div>
-                    <div class="mem-menu">
-                        <div class="mem-menu_img">
-                            <img src="https://img.icons8.com/pulsar-color/48/change.png" alt="change"/>
-                        </div>
-                        <div class="mem-menu_p">
-                            <p>교환하기</p>
-                        </div>
-                    </div>
-                </div>
-              </div>
-            `;
-        }).join('');
-        
-          
-            membersHtml += addNugu.repeat(addNuguCount);
-            
-            return membersHtml;
-          }
-        
-  
-        // console.log(members(item));
-  
-  
-  
-        let addNuguCount = item.membersCount - item.members.length
-        console.log(addNuguCount);
-  
-        // areaSub を作成して box に追加
-        if (box) {
-          const areaSub = document.createElement('div');
-          areaSub.classList.add('area-sub');
-          areaSub.innerHTML = `
-            <div class="all-sw">
-              <div class="area-menu">
-                <div class="area me-box">
-                  <h6>${item.cleanArea}</h6>
-                </div>
-                <div class="mem-coun me-box">
-                  <h6>${item.membersCount}</h6>
-                </div>
-                <!-- <div class="me-box me-class">
-                  <h6>${item.class}</h6>
-                </div> -->
-              </div>
-              <div class="me-box me-edit">
-                <div class="card">
-                  <div class="front">
-                    <h6><img src="http://127.0.0.1:5501/img/pen.png" alt="pen icon"></h6>
-                  </div>
-                  <div class="back">
-                    <h6>EDIT</h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="members">
-              ${members(item)}
-            </div>
-          `;
-          box.appendChild(areaSub); 
-        }
-      });
-
-    // メンバー画像クリック時に吹き出しメニューを表示
-    document.querySelectorAll('.mem-img.mem-o').forEach((memImg) => {
-        memImg.addEventListener('click', (event) => {
-            console.log("イメージがクリックされました。");
-            const member = event.target.closest('.member'); 
-            const menu = member.querySelector('.member-menu');
-
-
-            // メニューの表示切り替え（アニメーション）
+                `;
+                box.appendChild(areaSub);
+            }
+        });
+    
+        // 吹き出しメニューの表示/非表示を共通化
+        function toggleMenu(event, menuClass) {
+            const member = event.target.closest('.member');
+            const menu = member.querySelector(menuClass);
+    
             if (menu.style.display === 'none' || menu.style.display === '') {
                 menu.style.display = 'block';
                 setTimeout(() => {
-                    menu.classList.add('show'); // アニメーションを有効にする
+                    menu.classList.add('show');
                 }, 10);
             } else {
-                menu.classList.remove('show'); // アニメーションを無効にして閉じる
+                menu.classList.remove('show');
                 setTimeout(() => {
-                    menu.style.display = 'none'; // アニメーション後に非表示
+                    menu.style.display = 'none';
                 }, 300);
             }
+        }
+    
+        // メンバー画像クリック時に吹き出しメニューを表示
+        document.querySelectorAll('.mem-img.mem-o').forEach((memImg) => {
+            memImg.addEventListener('click', (event) => {
+                console.log("イメージがクリックされました。");
+                toggleMenu(event, '.member-menu');
+            });
         });
-    });
-
-    // "당번 삭제" ボタンがクリックされたときの処理
-    document.querySelectorAll('.mem-menu_p p').forEach(button => {
-        if (button.textContent.trim() === '당번 삭제') {  // 「当番削除」ボタンのみ
-            button.addEventListener('click', function () {
-                const result = window.confirm("정말 삭제해도 괜찮으세요？");
-                if (result) {
-                    const memberElement = this.closest('.member');  // 削除対象のメンバー
-                    const groupId = memberElement.getAttribute('data-group-id'); // `data-group-id` を持っているとする
-                    const studentNumber = memberElement.getAttribute('data-student-number'); // `data-student-number` を持っているとする
     
-                    if (!groupId || !studentNumber) {
-                        alert('削除情報が不足しています。');
-                        return;
+        // "mem-img mem-x" ボタンがクリックされたときにadd-menuを表示
+        document.querySelectorAll('.mem-img.mem-x').forEach((memImg) => {
+            memImg.addEventListener('click', (event) => {
+                console.log("mem-xがクリックされました。");
+                toggleMenu(event, '.add_menu');
+            });
+        });
+    
+        // 外側クリックでメニューを閉じる処理
+        document.addEventListener('click', (event) => {
+            const isMenuClick = event.target.closest('.add_menu') || event.target.closest('.member-menu');
+            const isMemImgClick = event.target.closest('.mem-img.mem-x') || event.target.closest('.mem-img.mem-o');
+    
+            if (!isMenuClick && !isMemImgClick) {
+                document.querySelectorAll('.add_menu, .member-menu').forEach((menu) => {
+                    menu.classList.remove('show');
+                    setTimeout(() => {
+                        menu.style.display = 'none';
+                    }, 300);
+                });
+            }
+        });
+    
+        // "당번 삭제" ボタンがクリックされたときの処理
+        document.querySelectorAll('.mem-menu_p p').forEach(button => {
+            if (button.textContent.trim() === '당번 삭제') {
+                button.addEventListener('click', function () {
+                    const result = confirm('당번을 삭제하시겠습니까?');
+                    if (result) {
+                        alert("삭제되었습니다.");
                     }
-    
-                    const apiUrl = `http://210.101.236.158:8081/api/clean/manager/groups/${groupId}/members`;
-                    const token = sessionStorage.getItem('token'); 
-    
-                    fetch(apiUrl, {
-                        method: 'DELETE',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': `Bearer ${token}`
-                        },
-                        body: JSON.stringify({ studentNumber: studentNumber })
-                    })
-                    .then(response => {
-                        if (response.ok) {
-                            alert('削除成功');
-                            memberElement.remove(); // UI から削除
-                        } else {
-                            return response.json().then(err => {
-                                throw new Error(err.message || '削除に失敗しました');
-                            });
-                        }
-                    })
-                    .catch(error => {
-                        alert('エラー: ' + error.message);
-                    });
-                } else {
-                    // ユーザーが「NO」を選んだ場合
-                    alert("삭제는 취소합니다!!!!");
-                }
-
-            });
-        }
-    });
-    
-
-    // 吹き出しメニューの外側をクリックしたときに閉じる処理
-    document.addEventListener('click', (event) => {
-        console.log("外側がクリックされました。");
-
-        const isMenuClick = event.target.closest('.member-menu');
-        const isMemImgClick = event.target.closest('.mem-img.mem-o');
-    
-        if (!isMenuClick && !isMemImgClick) {
-            document.querySelectorAll('.member-menu').forEach((menu) => {
-                menu.classList.remove('show'); // メニューをアニメーションで閉じる
-                setTimeout(() => {
-                    menu.style.display = 'none'; // アニメーション後に非表示
-                }, 300);
-            });
-        }
-    });
-
-
-      
+                });
+            }
+        });
     })
-    .catch(error => console.error('エラーが発生しました:', error));  // エラーハンドリング
+    .catch(error => {
+        console.error('データの取得中にエラーが発生しました:', error);
+    });
+    
   
     function setProfileImages(data) {
       // 使用済みの画像IDを管理するためのセット
