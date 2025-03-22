@@ -148,15 +148,22 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>    
                     <!-- 吹き出しメニュー -->
                     <div class="add_menu">
+                        <div class="add-img">
+                            <img src="http://127.0.0.1:5501/img/add_stu.gif" alt="add-user-male"/>
+                        </div>    
+                        <div class="add-title">
+                            <h4>학생 추가</h4> <!-- 追加する学生を選択 -->
+                        </div>
                         <div class="add-data">
                             <p>2025년 4월 11일 금요일</p>
                         </div>
                         <div class="add_cleanArea">
-                            <p>강의실실</p>
+                            <p>강의실</p>
                         </div>
                         <div class="add-input">
                             <div class="schoolNumber">
-                                <input type="text">
+                                <img src="https://img.icons8.com/pulsar-color/48/graduation-cap.png" alt="graduation-cap"/>
+                                <input type="text" placeholder="학번을 입력하세요">
                             </div>
                             <div class="add-btn">
                                 <div class="add-btn_cancel">
@@ -167,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 </div>
                             </div>
                         </div>
-                    </div>                   
+                    </div>                
                 </div>
                 `;
     
