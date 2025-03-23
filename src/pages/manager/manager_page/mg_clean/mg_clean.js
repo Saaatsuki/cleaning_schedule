@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const members = (item) => {
                 let addNuguCount = item.membersCount - item.members.length;
                 const addNugu = `
-                <div class="member">
+                <div class="member" data-group-id=${item.groupId} >
                     <div class="mem-img mem-x">
                         <img src="http://127.0.0.1:5501/img/plus.png" />
                     </div>
@@ -149,16 +149,16 @@ document.addEventListener("DOMContentLoaded", function () {
                     <!-- 吹き出しメニュー -->
                     <div class="add_menu">
                         <div class="add-img">
-                            <img src="http://127.0.0.1:5501/img/add_stu.gif" alt="add-user-male"/>
+                            <img src="https://furiirakun.com/wp/wp-content/uploads/2023/01/kaitensurutori.gif" alt="add-user-male"/>
                         </div>    
                         <div class="add-title">
                             <h4>학생 추가</h4> <!-- 追加する学生を選択 -->
                         </div>
                         <div class="add-data">
-                            <p>2025년 4월 11일 금요일</p>
+                            <p>${formattedDate}</p>
                         </div>
                         <div class="add_cleanArea">
-                            <p>강의실</p>
+                            <p>${item.cleanArea}</p>
                         </div>
                         <div class="add-input">
                             <div class="schoolNumber">
@@ -324,22 +324,131 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     
-        // "당번 삭제" ボタンがクリックされたときの処理
-        document.querySelectorAll('.mem-menu_p p').forEach(button => {
-            if (button.textContent.trim() === '당번 삭제') {
-                button.addEventListener('click', function () {
-                    const result = confirm('당번을 삭제하시겠습니까?');
-                    if (result) {
-                        alert("삭제되었습니다.");
+    // "당번 삭제" ボタンがクリックされたときの処理
+    document.querySelectorAll('.mem-menu_p p').forEach(button => {
+        if (button.textContent.trim() === '당번 삭제') {  // 「当番削除」ボタンのみ
+            button.addEventListener('click', function () {
+                const result = window.confirm("정말 삭제해도 괜찮으세요？");
+                if (result) {
+                    const memberElement = this.closest('.member');  // 削除対象のメンバー
+                    const groupId = memberElement.getAttribute('data-group-id'); // `data-group-id` を持っているとする
+                    const studentNumber = memberElement.getAttribute('data-student-number'); // `data-student-number` を持っているとする
+    
+                    if (!groupId || !studentNumber) {
+                        alert('削除情報が不足しています。');
+                        return;
                     }
-                });
-            }
+    
+                    const apiUrl = `http://210.101.236.158:8081/api/clean/manager/groups/${groupId}/members`;
+                    const token = sessionStorage.getItem('token'); 
+    
+                    fetch(apiUrl, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: JSON.stringify({ studentNumber: studentNumber })
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            alert('削除成功');
+                            memberElement.remove(); // UI から削除
+                        } else {
+                            return response.json().then(err => {
+                                throw new Error(err.message || '削除に失敗しました');
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        alert('エラー: ' + error.message);
+                    });
+                } else {
+                    // ユーザーが「NO」を選んだ場合
+                    alert("삭제는 취소합니다!!!!");
+                }
+
+            });
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".add-btn_OK button").forEach(button => {
+            button.addEventListener("click", async (event) => {
+                console.log("学生番号登録ボタンクリック");
+                const memberDiv = event.target.closest(".member");
+                if (!memberDiv) return;
+    
+                const groupId = memberDiv.getAttribute("data-group-id");
+                const inputField = memberDiv.querySelector(".schoolNumber input");
+                const studentNumber = inputField.value.trim(); // 入力された学番を取得
+    
+                if (!studentNumber) {
+                    alert("학번을 입력하세요"); // 空の場合の警告
+                    return;
+                }
+    
+                // セッションストレージからトークン取得
+                const token = sessionStorage.getItem('token');
+                if (!token) {
+                    alert("로그인이 필요합니다.");
+                    return;
+                }
+    
+                // APIリクエスト
+                const apiUrl = `http://210.101.236.158:8081/api/clean/manager/groups/${groupId}/members`;
+                const requestData = {
+                    studentNumber: studentNumber
+                };
+    
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer ${token}`
+                        },
+                        body: JSON.stringify(requestData)
+                    });
+    
+                    if (response.ok) {
+                        alert("학생이 추가되었습니다!");
+                        inputField.value = ""; 
+                    } else {
+                        const errorData = await response.json();
+                        alert(`오류 발생: ${errorData.message || "추가 실패"}`);
+                    }
+                } catch (error) {
+                    alert("네트워크 오류가 발생했습니다.");
+                    console.error("Error:", error);
+                }
+            });
         });
-    })
-    .catch(error => {
-        console.error('データの取得中にエラーが発生しました:', error);
     });
     
+    
+
+    // 吹き出しメニューの外側をクリックしたときに閉じる処理
+    // document.addEventListener('click', (event) => {
+    //     console.log("外側がクリックされました。");
+
+    //     const isMenuClick = event.target.closest('.member-menu');
+    //     const isMemImgClick = event.target.closest('.mem-img.mem-o');
+    
+    //     if (!isMenuClick && !isMemImgClick) {
+    //         document.querySelectorAll('.member-menu').forEach((menu) => {
+    //             menu.classList.remove('show'); // メニューをアニメーションで閉じる
+    //             setTimeout(() => {
+    //                 menu.style.display = 'none'; // アニメーション後に非表示
+    //             }, 300);
+    //         });
+    //     }
+    // });
+
+
+      
+    })
+    .catch(error => console.error('エラーが発生しました:', error));  // エラーハンドリング
   
     function setProfileImages(data) {
       // 使用済みの画像IDを管理するためのセット
@@ -390,4 +499,5 @@ document.addEventListener("DOMContentLoaded", function () {
     /////////↑Box表示////////////////////////////////////////////////////////////////
 
 });
+
 

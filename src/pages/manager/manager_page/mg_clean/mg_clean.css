@@ -597,6 +597,7 @@ h6 {
     width: 80px;
     aspect-ratio: 1/1;
     border-radius: 50px;
+
 }
 
 .member-info p {
@@ -632,32 +633,47 @@ h6 {
     transform: translate(-50%, -50%) scale(1); /* 中央に表示 */
 }
 
+.add-img {
+    display: flex;
+    justify-content: center;
+
+}
+
 
 
 .add-title {
+    display: flex;
+    justify-content: center;
     font-size: 18px;
     font-weight: bold;
-    color: #222;
+    color: #172C66;
     margin-bottom: 12px;
 }
 
 /* 日付と講義室 */
 .add-data, .add_cleanArea {
-    display: inline-block;
-    font-size: 14px;
-    color: white;
-    padding: 6px 12px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 6px;
-    margin: 5px;
+    color: #172C66;
+    font-weight: 500;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
 }
 
-.add-data {
-    background-color: #f5a623;
+
+
+
+/* ホバー時のアニメーション */
+.add-data:hover, .add_cleanArea:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
 
-.add_cleanArea {
-    background-color: #e8cb1f;
-}
+
+
 
 /* 入力欄 */
 .schoolNumber {
@@ -685,25 +701,35 @@ h6 {
 
 .schoolNumber input:focus {
     border-bottom: 2px solid #8bd3dd;
+    
 }
 
-/* 画像 */
-.add-img {
-    margin-bottom: 10px;
-}
 
 .add-img img {
+    margin-top: 10px;
     height: 75px;
+    background-color: #E8CB1F;
+    border-radius: 50px;
+    height: 75px;
+    aspect-ratio: 1/1;
 }
 
 /* ボタン */
 .add-btn {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     margin-top: 15px;
+    gap: 7px;
 }
 
-.add-btn_cancel, .add-btn_OK {
+.add-btn_cancel , .add-btn_OK {
+    height: 100%;
+    width: 100%;
+}
+
+.add-btn_cancel button, .add-btn_OK button{
+    height: 100%;
+    width: 100%;
     flex: 1;
     padding: 10px;
     border: none;
@@ -713,23 +739,39 @@ h6 {
     transition: 0.3s;
 }
 
-.add-btn_cancel   {
+.add-btn_cancel   button{
     background: #e0e0e0;
     color: #333;
     margin-right: 8px;
 }
 
-.add-btn_OK  {
+.add-btn_OK  button{
     background: #8bd3dd;
     color: white;
 }
 
-.add-btn_OK  :hover {
+.add-btn_OK  button:hover {
     background: #a9f2fc;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
 
-.add-btn_cancel  :hover {
+.add-btn_cancel  button:hover {
     background: #d6d6d6;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.add-btn_OK  button:active {
+    background: #a9f2fc;
+    transform: translateY(2px);
+    box-shadow: 2 4px 6px rgba(0, 0, 0, 0.0);
+}
+
+.add-btn_cancel  button:active {
+    background: #d6d6d6;
+    transform: translateY(2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.0);
 }
 
 /* 吹き出しの三角形部分
