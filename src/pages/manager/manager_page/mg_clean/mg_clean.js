@@ -429,21 +429,21 @@ document.addEventListener("DOMContentLoaded", function () {
     
 
     // 吹き出しメニューの外側をクリックしたときに閉じる処理
-    // document.addEventListener('click', (event) => {
-    //     console.log("外側がクリックされました。");
+    document.addEventListener('click', (event) => {
+        console.log("外側がクリックされました。");
 
-    //     const isMenuClick = event.target.closest('.member-menu');
-    //     const isMemImgClick = event.target.closest('.mem-img.mem-o');
+        const isMenuClick = event.target.closest('.member-menu');
+        const isMemImgClick = event.target.closest('.mem-img.mem-o');
     
-    //     if (!isMenuClick && !isMemImgClick) {
-    //         document.querySelectorAll('.member-menu').forEach((menu) => {
-    //             menu.classList.remove('show'); // メニューをアニメーションで閉じる
-    //             setTimeout(() => {
-    //                 menu.style.display = 'none'; // アニメーション後に非表示
-    //             }, 300);
-    //         });
-    //     }
-    // });
+        if (!isMenuClick && !isMemImgClick) {
+            document.querySelectorAll('.member-menu').forEach((menu) => {
+                menu.classList.remove('show'); // メニューをアニメーションで閉じる
+                setTimeout(() => {
+                    menu.style.display = 'none'; // アニメーション後に非表示
+                }, 300);
+            });
+        }
+    });
 
 
       
