@@ -594,6 +594,7 @@ h6 {
 }
 
 .member-info img {
+    margin-top: 15px;
     width: 80px;
     aspect-ratio: 1/1;
     border-radius: 50px;
@@ -757,7 +758,7 @@ h6 {
 }
 
 .add-btn_cancel  button:hover {
-    background: #d6d6d6;
+    background: #eeeeee;
     transform: translateY(-3px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
@@ -769,7 +770,7 @@ h6 {
 }
 
 .add-btn_cancel  button:active {
-    background: #d6d6d6;
+    background: #eeeeee;
     transform: translateY(2px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.0);
 }
