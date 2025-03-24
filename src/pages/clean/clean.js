@@ -1,429 +1,378 @@
-document.addEventListener('DOMContentLoaded', function () {
-  // カレンダーのHTMLをcontainer_calendarに動的に挿入
-  const classContainerCalendar = document.querySelector('#calendar');
-  classContainerCalendar.innerHTML = `
-    <div class="contianer">
-      <div class="calendar">
-        <div class="calendar-header">
-          <span class="month-picker" id="month-picker"> May </span>
-          <div class="year-picker" id="year-picker">
-            <span class="year-change" id="pre-year">
-              <pre><</pre>
-            </span>
-            <span id="year">2020 </span>
-            <span class="year-change" id="next-year">
-              <pre>></pre>
-            </span>
-          </div>
-        </div>
+// グローバル変数
+let currentDate = new Date();
 
-        <div class="calendar-body">
-          <div class="calendar-week-days">
-            <div>Sun</div>
-            <div>Mon</div>
-            <div>Tue</div>
-            <div>Wed</div>
-            <div>Thu</div>
-            <div>Fri</div>
-            <div>Sat</div>
-          </div>
-          <div class="calendar-days">
-          </div>
-        </div>
-        <div class="calendar-footer">
-        </div>
-        <div class="date-time-formate">
-          <div class="day-text-formate">TODAY</div>
-          <div class="date-time-value">
-            <div class="time-formate">01:41:20</div>
-            <div class="date-formate">03 - march - 2022</div>
-          </div>
-        </div>
-        <div class="month-list"></div>
-      </div>
-    </div>
-  `
-  const isLeapYear = (year) => {
-    return (
-      (year % 4 === 0 && year % 100 !== 0 && year % 400 !== 0) ||
-      (year % 100 === 0 && year % 400 === 0)
-    );
-  };
-  const getFebDays = (year) => {
-    return isLeapYear(year) ? 29 : 28;
-  };
-  let calendar = document.querySelector('.calendar');
-  const month_names = [
-    '01',
-    '02',
-    '03',
-    '04',
-    '05',
-    '06',
-    '07',
-    '08',
-    '09',
-    '10',
-    '11',
-    '12',
-    ];
-  let month_picker = document.querySelector('#month-picker');
-  const dayTextFormate = document.querySelector('.day-text-formate');
-  const timeFormate = document.querySelector('.time-formate');
-  const dateFormate = document.querySelector('.date-formate');
-  
-  month_picker.onclick = () => {
-    month_list.classList.remove('hideonce');
-    month_list.classList.remove('hide');
-    month_list.classList.add('show');
-    dayTextFormate.classList.remove('showtime');
-    dayTextFormate.classList.add('hidetime');
-    timeFormate.classList.remove('showtime');
-    timeFormate.classList.add('hideTime');
-    dateFormate.classList.remove('showtime');
-    dateFormate.classList.add('hideTime');
-  };
-  
-  const generateCalendar = (month, year) => {
-    let calendar_days = document.querySelector('.calendar-days');
-    calendar_days.innerHTML = '';
-    let calendar_header_year = document.querySelector('#year');
-    let days_of_month = [
-        31,
-        getFebDays(year),
-        31,
-        30,
-        31,
-        30,
-        31,
-        31,
-        30,
-        31,
-        30,
-        31,
-      ];
-  
-    let currentDate = new Date();
-  
-    month_picker.innerHTML = month_names[month];
-  
-    calendar_header_year.innerHTML = year;
-  
-    let first_day = new Date(year, month);
-  
-  
-    for (let i = 0; i <= days_of_month[month] + first_day.getDay() - 1; i++) {
-  
-        let day = document.createElement('div');
-    
-        if (i >= first_day.getDay()) {
-          day.innerHTML = i - first_day.getDay() + 1;
-    
-          if (i - first_day.getDay() + 1 === currentDate.getDate() &&
-            year === currentDate.getFullYear() &&
-            month === currentDate.getMonth()
-          ) {
-            day.classList.add('current-date');
-          }
-        }
+// 月を変更する関数
+function changeMonth(monthChange) {
+    currentDate.setMonth(currentDate.getMonth() + monthChange);
+    generateCalendar();
+}
 
-        day.onclick = () => {
-          const clickedDate = day.innerHTML;
-          const clickedMonth = month_names[month];
-          const clickedYear = year;
-      
-          const formattedDate = `${clickedYear}년 ${clickedMonth}월 ${clickedDate}일`;
-      
-          const boxId = `${clickedYear}${clickedMonth}${clickedDate.padStart(2,'0')}`;
-      
-          const targetBox = document.getElementById(boxId);
-      
-          if (targetBox) {
-              // スクロールさせる
-              targetBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          } else {
-              // ボックスが見つからない場合、モーダルアラートを表示
-              const alertMessage = document.getElementById('alertMessage');
-              alertMessage.innerText = '선택한 날짜에는 청소 일정이 없습니다.';
-              openModal();
-          }
-      };
-      
-      // モーダルを開く関数
-      function openModal() {
-          const modal = document.getElementById('modalAlert');
-          modal.style.display = 'block';
-      }
-      
-      // モーダルを閉じる関数
-      function closeModal() {
-          const modal = document.getElementById('modalAlert');
-          modal.style.display = 'none';
-      }
-      
-      // 閉じるボタンにイベントリスナーを追加
-      document.getElementById('closeBtn').addEventListener('click', closeModal);
+// カレンダーを生成する関数
+function generateCalendar() {
+    const monthName = document.getElementById('month-name');
+    const calendarGrid = document.getElementById('calendar-grid');
 
-      calendar_days.appendChild(day);
+    // 月名を表示（韓国語）
+    const monthNames = ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'];
+    monthName.innerText = `${monthNames[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
+
+    // カレンダーグリッドをクリア
+    calendarGrid.innerHTML = '';
+
+    // 曜日を表示（韓国語） - 月曜始まりに変更
+    const weekdays = ['월', '화', '수', '목', '금', '토', '일'];
+
+    // 曜日のヘッダーを追加
+    weekdays.forEach(day => {
+        const dayCell = document.createElement('div');
+        dayCell.innerText = day;
+        dayCell.classList.add('week-day');
+        calendarGrid.appendChild(dayCell);
+    });
+
+    // 現在の月の1日の曜日を取得
+    const firstDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+    const lastDateOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+    const totalDaysInMonth = lastDateOfMonth.getDate();
+    const firstDayOfWeek = firstDayOfMonth.getDay();
+
+    // 月曜始まりの調整 (日曜日を7に変更)
+    const adjustedFirstDayOfWeek = firstDayOfWeek === 0 ? 7 : firstDayOfWeek;
+
+    // 1日の前に空白を追加
+    for (let i = 0; i < adjustedFirstDayOfWeek - 1; i++) {
+        const emptyCell = document.createElement('div');
+        calendarGrid.appendChild(emptyCell);
     }
-  };
-  
-  
-  let month_list = calendar.querySelector('.month-list');
-  month_names.forEach((e, index) => {
-    let month = document.createElement('div');
-    month.innerHTML = `<div>${e}</div>`;
-  
-    month_list.append(month);
-    month.onclick = () => {
-      currentMonth.value = index;
-      generateCalendar(currentMonth.value, currentYear.value);
-      month_list.classList.replace('show', 'hide');
-      dayTextFormate.classList.remove('hideTime');
-      dayTextFormate.classList.add('showtime');
-      timeFormate.classList.remove('hideTime');
-      timeFormate.classList.add('showtime');
-      dateFormate.classList.remove('hideTime');
-      dateFormate.classList.add('showtime');
-    };
-  });
-  
-  (function() {
-    month_list.classList.add('hideonce');
-  })();
-  document.querySelector('#pre-year').onclick = () => {
-    --currentYear.value;
-    generateCalendar(currentMonth.value, currentYear.value);
-  };
-  document.querySelector('#next-year').onclick = () => {
-    ++currentYear.value;
-    generateCalendar(currentMonth.value, currentYear.value);
-  };
-  
-  let currentDate = new Date();
-  let currentMonth = { value: currentDate.getMonth() };
-  let currentYear = { value: currentDate.getFullYear() };
-  generateCalendar(currentMonth.value, currentYear.value);
-  
-  const todayShowTime = document.querySelector('.time-formate');
-  const todayShowDate = document.querySelector('.date-formate');
-  
-  const currshowDate = new Date();
-  const showCurrentDateOption = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    weekday: 'long',
-  };
-  const currentDateFormate = new Intl.DateTimeFormat(
-    'en-US',
-    showCurrentDateOption
-  ).format(currshowDate);
-  todayShowDate.textContent = currentDateFormate;
-  setInterval(() => {
-    const timer = new Date();
-    const option = {
-      hour: 'numeric',
-      minute: 'numeric',
-      second: 'numeric',
-    };
-    const formateTimer = new Intl.DateTimeFormat('en-us', option).format(timer);
-    let time = `${`${timer.getHours()}`.padStart(
-        2,
-        '0'
-      )}:${`${timer.getMinutes()}`.padStart(
-        2,
-        '0'
-      )}: ${`${timer.getSeconds()}`.padStart(2, '0')}`;
-    todayShowTime.textContent = formateTimer;
-  }, 1000);
-  // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
-  
-  const calendar1 = document.querySelector('.container_calendar');
-  document.querySelector('.search-calendar').addEventListener('click', function () {
-    const boxList = document.querySelector('.box-list');
 
-    // カレンダーが表示されていなければ表示する
-    if (calendar1.style.display === 'none' || calendar1.style.display === '') {
-      calendar1.style.display = 'block';
-      setTimeout(() => {
-          calendar1.classList.add('active'); // フェードイン
-          boxList.classList.add('active');  // ボックスも同時に表示
-      }, 20);
+    // 日付を埋める
+    for (let day = 1; day <= totalDaysInMonth; day++) {
+        const dateCell = document.createElement('div');
+        dateCell.innerText = day;
+        dateCell.onclick = () => showDateDetail(day);
+        calendarGrid.appendChild(dateCell);
+    }
+
+
+}
+
+
+function showDateDetail(day) {
+    // alert(`${currentDate.getFullYear()}년 ${currentDate.getMonth() + 1}월 ${day}일`);
+
+    // クリックした日付の月、年を取得
+    const clickedDate = day;
+    const clickedMonth = currentDate.getMonth() + 1; // 現在の月を取得
+    const clickedYear = currentDate.getFullYear(); // 現在の年を取得
+
+    // 日付を2桁にパディングしてboxIdを生成
+    const boxId = `${clickedYear}${String(clickedMonth).padStart(2, '0')}${String(clickedDate).padStart(2, '0')}`;
+
+    const targetBox = document.getElementById(boxId);
+
+    if (targetBox) {
+        // スクロールさせる
+        targetBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
     } else {
-      calendar1.classList.remove('active'); // カレンダーを非表示
-      boxList.classList.remove('active');  // ボックスも非表示
+        // ボックスが見つからない場合、モーダルアラートを表示
+        const alertMessage = document.getElementById('alertMessage');
+        alertMessage.innerText = '선택한 날짜에는 청소 일정이 없습니다.';
+        alert("선택한 날짜에는 청소 일정이 없습니다.")
 
-      // アニメーションが終わるのを待ってから display: none にする
-      setTimeout(() => {
-          calendar1.style.display = 'none';
-      }, 2100); // 2.0秒 + 100ms の余裕を持たせる
     }
+}
 
-  });  
 
+// ページがロードされたときにカレンダーを生成
+generateCalendar();
 
-  fetch('http://210.101.236.158:8081/api/clean/all?classId=1')
-  .then(response => response.json())
-  .then(data => {
-    console.log("取得したデータ:", data.data);
+document.addEventListener("DOMContentLoaded", function () {
+    //////calendar表示/非表示/////////////////////////////////////
+    const calendarBtn = document.querySelector(".calender-btn button");
+    const calendarSearch = document.querySelector(".calendar_serch");
 
-    if (!Array.isArray(data.data) || data.data.length === 0) {
-      console.error("データが空です。");
-      return;
-    }
-
-    setProfileImages(data.data);    
-
-    const boxList = document.querySelector(`.box-list`);
-    boxList.classList.add(`box-list`);
-    let currentDate = ``;
-    let box = null; // 現在のボックスを保持する変数
-
-    data.data.forEach(item => {
-      const date = new Date(item.date);
-      const dayNames = ["일", "월", "화", "수", "목", "금", "토"];
-      const formattedDate = `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일 ${dayNames[date.getDay()]}요일`;
-
-      // 日付が変わったら新しいボックスを作成
-      if (formattedDate !== currentDate) {
-        currentDate = formattedDate;
-        box = document.createElement('div');
-        box.classList.add('box');
-        box.id = `${date.getFullYear()}${(date.getMonth() + 1).toString().padStart(2,'0')}${date.getDate().toString().padStart(2,'0')}`;
-
-        
-
-        const dateElement = document.createElement('div');
-        dateElement.classList.add('date');
-        dateElement.innerHTML = `<h5>${formattedDate}</h5>`;
-        box.appendChild(dateElement);
-        boxList.appendChild(box);
-      }
-
-        const members = (item) => {
-          let addNuguCount = item.membersCount - item.members.length;
-          const addNugu = `  
-          <div class="member">
-            <div class="mem-img mem-x">
-              <img src="http://127.0.0.1:5501/img/plus.png" />
-            </div>
-            <div class="mem-name">
-              <h6>추가</h6>
-            </div>       
-          </div>
-        `;
-        
-          let membersHtml = item.members.map(member => `
-            <div class="member">
-              <div class="mem-img mem-o">
-                <img src="${member.profileImage}" />
-                <div class="clean-coun">
-                  <p>${member.cleaningCount}</p>
-                </div>
-              </div>
-              <div class="mem-name">
-                <h6>${member.familyName} ${member.givenName}</h6>
-              </div>       
-            </div>
-          `).join('');
-        
-          membersHtml += addNugu.repeat(addNuguCount);
-          
-          return membersHtml;
+    calendarBtn.addEventListener("click", function () {
+        if (calendarSearch.style.height === "0px" || calendarSearch.style.height === "") {
+            // 本来の高さを取得
+            calendarSearch.style.height = calendarSearch.scrollHeight + "px";
+        } else {
+            calendarSearch.style.height = "0px";
         }
-      
-
-      console.log(members(item));
-
-
-
-      let addNuguCount = item.membersCount - item.members.length
-      console.log(addNuguCount);
-
-      // areaSub を作成して box に追加
-      if (box) {
-        const areaSub = document.createElement('div');
-        areaSub.classList.add('area-sub');
-        areaSub.innerHTML = `
-          <div class="all-sw">
-            <div class="area-menu">
-              <div class="area me-box">
-                <h6>${item.cleanArea}</h6>
-              </div>
-              <div class="mem-coun me-box">
-                <h6>${item.membersCount}</h6>
-              </div>
-              <!-- <div class="me-box me-class">
-                <h6>${item.class}</h6>
-              </div> -->
-            </div>
-            <div class="me-box me-edit">
-              <div class="card">
-                <div class="front">
-                  <h6><img src="http://127.0.0.1:5501/img/pen.png" alt="pen icon"></h6>
-                </div>
-                <div class="back">
-                  <h6>EDIT</h6>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="members">
-            ${members(item)}
-          </div>
-        `;
-        box.appendChild(areaSub); 
-      }
     });
-  })
-  .catch(error => console.error('エラーが発生しました:', error));  // エラーハンドリング
-
-  function setProfileImages(data) {
-    // 使用済みの画像IDを管理するためのセット
-    let usedImages = new Set();
-
-    // ローカルストレージから画像の割り当てを読み込み
-    let storedImages = JSON.parse(localStorage.getItem('profileImages')) || {};
-
-    data.forEach(group => {
-        group.members.forEach(member => {
-            if (member.profileImage === null) {
-                // すでにローカルストレージに保存されている画像IDがあればそれを使う
-                if (storedImages[member.studentNumber]) {
-                    member.profileImage = storedImages[member.studentNumber];
-                } else {
-                    let randomImageId;
-
-                    // まだ使用されていない画像IDをランダムに選ぶ
-                    do {
-                        randomImageId = `im${String(Math.floor(Math.random() * 40) + 1).padStart(2, '0')}`; // 01~40まで
-                    } while (usedImages.has(randomImageId));  // 重複しないように確認
-
-                    // 画像IDをセットに追加して、次回の選択で使わないようにする
-                    usedImages.add(randomImageId);
-
-                    // 画像URLを設定
-                    member.profileImage = `https://raw.githubusercontent.com/Saaatsuki/cleaning_schedule/main/img/profile/${randomImageId}.png`;
-
-                    // ローカルストレージに保存
-                    storedImages[member.studentNumber] = member.profileImage;
-                    localStorage.setItem('profileImages', JSON.stringify(storedImages));
-                }
-
-                const img = new Image();
-                img.onload = () => {
-                    console.log('画像が正常に読み込まれました:', img.src);
-                };
-                img.onerror = () => {
-                    console.error('画像読み込みエラー:', img.src);
-                    // 画像が読み込めなかった場合は、デフォルト画像を使用
-                    member.profileImage = 'https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-hellokitty.png';
-                };
-                img.src = member.profileImage;
+    ////////////////////////////////////////////////////////////////
+    /////box表示
+    async function fetchData() {
+        try {
+            const response = await fetch('http://210.101.236.158:8081/api/clean/all?classId=1');
+            const data = await response.json();
+            console.log("取得したデータ:", data.data);
+        
+            if (!Array.isArray(data.data) || data.data.length === 0) {
+                console.error("データが空です。");
+                return;
             }
-        });
-    });
-  }
+        
+            setProfileImages(data.data);    
+        
+            const boxList = document.querySelector(`.box-list`);
+            let currentDate = ``;
+            let box = null; // 現在のボックスを保持する変数
+        
+            data.data.forEach(item => {
+                const date = new Date(item.date);
+                const dayNames = ["일", "월", "화", "수", "목", "금", "토"];
+                const formattedDate = `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일 ${dayNames[date.getDay()]}요일`;
+        
+                // 日付が変わったら新しいボックスを作成
+                if (formattedDate !== currentDate) {
+                    currentDate = formattedDate;
+                    box = document.createElement('div');
+                    box.classList.add('box');
+                    box.id = `${date.getFullYear()}${(date.getMonth() + 1).toString().padStart(2,'0')}${date.getDate().toString().padStart(2,'0')}`;
+        
+                    const dateElement = document.createElement('div');
+                    dateElement.classList.add('date');
+                    dateElement.innerHTML = `<h5>${formattedDate}</h5>`;
+                    box.appendChild(dateElement);
+                    boxList.appendChild(box);
+                }
+        
+                const members = (item) => {
+                    let addNuguCount = item.membersCount - item.members.length;
+                    const addNugu = `
+                    <div class="member" data-group-id=${item.groupId} >
+                        <div class="mem-img mem-x">
+                            <img src="http://127.0.0.1:5501/img/plus.png" />
+                        </div>
+                        <div class="mem-name">
+                            <h6>추가</h6>
+                        </div>    
+                        <!-- 吹き出しメニュー -->
+                        <div class="add_menu">
+                            <div class="add-img">
+                                <img src="https://furiirakun.com/wp/wp-content/uploads/2023/01/kaitensurutori.gif" alt="add-user-male"/>
+                            </div>    
+                            <div class="add-title">
+                                <h4>추가 신청</h4> <!-- 追加する学生を選択 -->
+                            </div>
+                            <div class="add-data">
+                                <p>${formattedDate}</p>
+                            </div>
+                            <div class="add_cleanArea">
+                                <p>${item.cleanArea}</p>
+                            </div>
+                            <div class="add-input">
+                                <div class="schoolNumber">
+                                    <img src="https://img.icons8.com/pulsar-color/48/graduation-cap.png" alt="graduation-cap"/>
+                                    <input type="text" placeholder="학번을 입력하세요">
+                                </div>
+                                <div class="add-btn">
+                                    <div class="add-btn_cancel">
+                                        <button>취소</button>
+                                    </div>
+                                    <div class="add-btn_OK">
+                                        <button class="add_OK">학인</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                
+                    </div>
+                    `;
+        
+                    let membersHtml = item.members.map(member => {
+                        const date = new Date(item.date);
+                        const formattedDate = `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일 ${dayNames[date.getDay()]}요일`;
+        
+                        return `
+                        <div class="member" data-group-id=${item.groupId} data-student-number=${member.studentNumber}>
+                            <div class="mem-img mem-o">
+                                <img class="mem-o_img" src="${member.profileImage}" />
+                                <div class="clean-coun">
+                                    <p>${member.cleaningCount}</p>
+                                </div>
+                            </div>
+                            <div class="mem-name">
+                                <h6>${member.familyName} ${member.givenName}</h6>
+                            </div>
+                            <!-- 吹き出しメニュー -->
+                            <div class="member-menu">
+                                <div class="member-info">
+                                    <img src="${member.profileImage}" alt="Member Image">
+                                    <h6>${member.familyName} ${member.givenName}</h6>
+                                    <p>${formattedDate}</p>
+                                </div>
+                                <div class="mem-menu">
+                                    <div class="mem-menu_img">
+                                        <img src="https://img.icons8.com/pulsar-color/48/user-female-circle.png" alt="user-female-circle"/>
+                                    </div>
+                                    <div class="mem-menu_p">
+                                        <p>프로필 보기</p>
+                                    </div>
+                                </div>
+                                <div class="mem-menu">
+                                    <div class="mem-menu_img">
+                                        <img src="https://img.icons8.com/pulsar-color/48/broom.png" alt="broom"/>
+                                    </div>
+                                    <div class="mem-menu_p">
+                                        <p>청소 기록</p>
+                                    </div>
+                                </div>
+                                <div class="mem-menu">
+                                    <div class="mem-menu_img">
+                                        <img src="https://img.icons8.com/pulsar-color/48/change.png" alt="change"/>
+                                    </div>
+                                    <div class="mem-menu_p">
+                                        <p>교환 신청</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        `;
+                    }).join('');
+        
+                    membersHtml += addNugu.repeat(addNuguCount);
+                    return membersHtml;
+                }
+        
+                let addNuguCount = item.membersCount - item.members.length;
+        
+                if (box) {
+                    const areaSub = document.createElement('div');
+                    areaSub.classList.add('area-sub');
+                    areaSub.innerHTML = `
+                        <div class="all-sw">
+                            <div class="area-menu">
+                                <div class="area me-box">
+                                    <h6>${item.cleanArea}</h6>
+                                </div>
+                                <div class="mem-coun me-box">
+                                    <h6>${item.membersCount}</h6>
+                                </div>
+                            </div>
+                            <!-- <div class="me-box me-edit">
+                                <div class="card">
+                                    <div class="front">
+                                        <h6><img src="http://127.0.0.1:5501/img/pen.png" alt="pen icon"></h6>
+                                    </div>
+                                    <div class="back">
+                                        <h6>EDIT</h6>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                        <div class="members">
+                            ${members(item)}
+                        </div>
+                    `;
+                    box.appendChild(areaSub);
+                }
+            });
+        
+            // 吹き出しメニューの表示/非表示を共通化
+            function toggleMenu(event, menuClass) {
+                const member = event.target.closest('.member');
+                const menu = member.querySelector(menuClass);
+        
+                if (menu.style.display === 'none' || menu.style.display === '') {
+                    menu.style.display = 'block';
+                    setTimeout(() => {
+                        menu.classList.add('show');
+                    }, 10);
+                } else {
+                    menu.classList.remove('show');
+                    setTimeout(() => {
+                        menu.style.display = 'none';
+                    }, 300);
+                }
+            }
+        
+            // メンバー画像クリック時に吹き出しメニューを表示
+            document.querySelectorAll('.mem-img.mem-o').forEach((memImg) => {
+                memImg.addEventListener('click', (event) => {
+                    console.log("イメージがクリックされました。");
+                    toggleMenu(event, '.member-menu');
+                });
+            });
+        
+            // "mem-img mem-x" ボタンがクリックされたときにadd-menuを表示
+            document.querySelectorAll('.mem-img.mem-x').forEach((memImg) => {
+                memImg.addEventListener('click', (event) => {
+                    console.log("mem-xがクリックされました。");
+                    toggleMenu(event, '.add_menu');
+                });
+            });
+        
+            // 外側クリックでメニューを閉じる処理
+            document.addEventListener('click', (event) => {
+                const isMenuClick = event.target.closest('.add_menu') || event.target.closest('.member-menu');
+                const isMemImgClick = event.target.closest('.mem-img.mem-x') || event.target.closest('.mem-img.mem-o');
+        
+                if (!isMenuClick && !isMemImgClick) {
+                    document.querySelectorAll('.add_menu, .member-menu').forEach((menu) => {
+                        menu.classList.remove('show');
+                        setTimeout(() => {
+                            menu.style.display = 'none';
+                        }, 300);
+                    });
+                }
+            });
+
+        } catch (error) {
+            console.error("データ取得に失敗しました:", error);
+        }
+    }
+
+    fetchData()
+    
+  
+    function setProfileImages(data) {
+      // 使用済みの画像IDを管理するためのセット
+      let usedImages = new Set();
+  
+      // ローカルストレージから画像の割り当てを読み込み
+      let storedImages = JSON.parse(localStorage.getItem('profileImages')) || {};
+  
+      data.forEach(group => {
+          group.members.forEach(member => {
+              if (member.profileImage === null) {
+                  // すでにローカルストレージに保存されている画像IDがあればそれを使う
+                  if (storedImages[member.studentNumber]) {
+                      member.profileImage = storedImages[member.studentNumber];
+                  } else {
+                      let randomImageId;
+  
+                      // まだ使用されていない画像IDをランダムに選ぶ
+                      do {
+                          randomImageId = `im${String(Math.floor(Math.random() * 40) + 1).padStart(2, '0')}`; // 01~40まで
+                      } while (usedImages.has(randomImageId));  // 重複しないように確認
+  
+                      // 画像IDをセットに追加して、次回の選択で使わないようにする
+                      usedImages.add(randomImageId);
+  
+                      // 画像URLを設定
+                      member.profileImage = `https://raw.githubusercontent.com/Saaatsuki/cleaning_schedule/main/img/profile/${randomImageId}.png`;
+  
+                      // ローカルストレージに保存
+                      storedImages[member.studentNumber] = member.profileImage;
+                      localStorage.setItem('profileImages', JSON.stringify(storedImages));
+                  }
+  
+                  const img = new Image();
+                  img.onload = () => {
+                      console.log('画像が正常に読み込まれました:', img.src);
+                  };
+                  img.onerror = () => {
+                      console.error('画像読み込みエラー:', img.src);
+                      // 画像が読み込めなかった場合は、デフォルト画像を使用
+                      member.profileImage = 'https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-hellokitty.png';
+                  };
+                  img.src = member.profileImage;
+              }
+          });
+      });
+    }
+    /////////↑Box表示////////////////////////////////////////////////////////////////
 
 });
+
+
