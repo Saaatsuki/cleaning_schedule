@@ -6,12 +6,59 @@
     <title>graph</title>
     <link rel="stylesheet" href="../../components/header.css">
     <link rel="stylesheet" href="../../components/menu.css">
+    <link rel="stylesheet" href="graph.css">
+    
 </head>
 <body>
     <main>
-        <h1>Graph</h1>
+        <div class="main_graph graph_box">
+            <div class="graph_header">
+                <div class="graph_header_title"><img width="24" height="24" src="https://img.icons8.com/external-febrian-hidayat-detailed-outline-febrian-hidayat/64/FFFFFF/external-01-school-and-education-febrian-hidayat-detailed-outline-febrian-hidayat.png" alt="external-01-school-and-education-febrian-hidayat-detailed-outline-febrian-hidayat"/>
+                    <h4>Current Status</h4>
+                </div>
+                <div class="graph_header_data">
+                    <button class="prev-day" onclick="changeday(-1)">❮</button>
+                    <h6>2025년 3월 25일 화요일  <img width="10" height="10" src="https://img.icons8.com/fluency-systems-filled/48/FFFFFF/star.png" alt="star"/>  2025년 3월 26일 수요일</h6>
+                    <button class="next-day" onclick="changeday(1)">❯</button>
+                </div>
+            </div>
+            <div class="graph_main">
+
+            </div>
+        </div>
+        <div class="week_graph graph_box">
+            <div class="graph_header">
+                <div class="graph_header_title">
+                    <img width="24" height="24" src="https://img.icons8.com/glyph-neue/64/FFFFFF/saving-book.png" alt="saving-book"/>
+                    <h4>Weekly</h4>
+                </div>
+                <div class="graph_header_data">
+                    <button class="prev-day" onclick="changeday(-1)">❮</button>
+                    <h6>2025년 3월 19일 수요일  ~  2025년 3월 26일 수요일</h6>
+                    <button class="next-day" onclick="changeday(1)">❯</button>
+                </div>
+            </div>
+            <div class="graph_main">
+                
+            </div>
+        </div>
+        <div class="ranking graph_box">
+            <div class="graph_header">
+                <div class="graph_header_title">
+                    <img width="24" height="24" src="https://img.icons8.com/material-rounded/48/FFFFFF/crown.png" alt="crown"/>
+                    <h4>Class Ranking</h4>
+                </div>
+                <div class="graph_header_data">
+                    <button class="prev-day" onclick="changeday(-1)">❮</button>
+                    <h6>2025년 3월 25일 화요일</h6>
+                    <button class="next-day" onclick="changeday(1)">❯</button>
+                </div>
+            </div>
+            <div class="graph_main">
+                
+            </div>
+        </div>
     </main>
-    
     <script src="../../components/header.js"></script>
 </body>
 </html>
