@@ -355,6 +355,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         if (response.ok) {
                             alert('削除成功');
                             memberElement.remove(); // UI から削除
+                            window.location.reload();
                         } else {
                             return response.json().then(err => {
                                 throw new Error(err.message || '削除に失敗しました');
@@ -417,6 +418,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (response.ok) {
                     alert("학생이 추가되었습니다!");
                     inputField.value = ""; 
+                    window.location.reload();
                 } else {
                     const errorData = await response.json();
                     alert(`오류 발생: ${errorData.message || "추가 실패"}`);
