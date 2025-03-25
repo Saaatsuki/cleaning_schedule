@@ -11,72 +11,10 @@
 <body>
     <main>
 
+        
     </main>
     <script src="../../components/header.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-
-    
-            try {
-                const mainCodeHTML = `
-                    <div class="profile-container">
-                        <div class="profile-container_header">
-                            <img width="48" height="48" src="https://img.icons8.com/sf-regular/48/FFFFFF/admin-settings-male.png" alt="admin-settings-male"/>
-                            <h2>프로필 설정</h2>
-                        </div>
-    
-                        <div class="profile-container_box">
-                            <div class="profile-section">
-                                <label for="profile-image">이미지</label>
-                                <div class="image-container">
-                                    <img id="profile-preview" width="96" height="96" src="https://img.icons8.com/color/96/test-account.png" alt="test-account" class="profile_img"/>
-                                    <input type="file" id="image-upload" accept="image/*" style="display: none;">
-                                </div>
-                                <div class="plf_edit" id="upload-trigger">
-                                    <img width="30" height="30" src="https://img.icons8.com/sf-black-filled/64/FFFFFF/image.png" alt="image"/>
-                                </div>
-                            </div>
-                            <div class="profile-section">
-                                <div class="pro_name"><h3>${sessionStorage.getItem('familyName') || 'GUEST'} ${sessionStorage.getItem('givenName') || ''}</h3></div>
-                            </div>
-                            <div class="lg_box">
-                                <div class="profile-section lg">
-                                    <div class="lglg stuNum_lglg">
-                                        <img src="https://img.icons8.com/pulsar-color/96/student-male.png" alt="student-male"/>
-                                    </div>
-                                    <div class="pro_schNum"><h5>${sessionStorage.getItem('studentNumber') || 'Guest Student'}</h5></div>
-                                </div>
-                                <div class="profile-section lg">
-                                    <div class="lglg line_lglg">
-                                        <img src="https://img.icons8.com/pulsar-color/96/gmail-new.png" alt="gmail-new"/>
-                                    </div>
-                                    <div class="email-container">
-                                        <div class="pro_email"><h5 id="email-text">${sessionStorage.getItem('email') || 'example@g.yju.ac.kr'}</h5></div>
-                                        <button id="copy-email" class="copy-btn">
-                                            <img width="20" height="20" src="https://img.icons8.com/fluency-systems-regular/48/f594b5/copy--v1.png" alt="copy--v1"/>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="profile-section lg">
-                                    <div class="lglg">
-                                        <a href="https://lin.ee/byNXODw"><img src="https://img.icons8.com/pulsar-color/96/FFFFFF/line-me.png" alt="line-me"/></a>
-                                    </div>
-                                    <div class="line-container">
-                                        <h5>LINE 연결</h5>
-                                    </div>
-                                </div>
-                            </div>    
-                        </div>
-                    </div>
-                `;
-                const mainElement = document.querySelector('main');
-                mainElement.innerHTML += mainCodeHTML;
-    
-            } catch (error) {
-                console.error('Error loading profile HTML:', error);
-            }
-        });
-    </script>
-    
+    <script src="profile.js"></script>
+    <script src="https://kit.fontawesome.com/5d59a453d5.js" crossorigin="anonymous"></script>
 </body>
 </html>

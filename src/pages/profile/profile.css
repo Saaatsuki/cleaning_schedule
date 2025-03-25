@@ -23,11 +23,11 @@ main {
     margin-top: header(height) + 20px;
 }
 
-input::placeholder {
-    padding-left: 10px;
-    color: gray; 
-    font-size:100%; 
+a {
+    text-decoration: none;
 }
+
+
 
 /* プロフィールコンテナ */
 .profile-container {
@@ -248,5 +248,178 @@ button {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
+}
+
+
+
+
+.line_torisetu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 300px;
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%) scale(0.9); 
+    border: 1px solid #f0c4a1; 
+    border-radius: 15px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
+    padding: 20px; 
+    z-index: 5000; 
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease; 
+    color: #5e3e2e; 
+    font-family: 'Comic Sans MS', sans-serif; 
+}
+
+.line_torisetu.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1); 
+}
+
+.torisetu_batsu {
+    display: flex;
+    justify-content: flex-end;
+    margin: 15px 0;
+}
+
+.torisetu_batsu img {
+    cursor: pointer;
+    filter: brightness(0) saturate(100%) invert(20%) sepia(50%) saturate(509%) hue-rotate(137deg) brightness(98%) contrast(93%); /* 柔らかい色合いのXボタン */
+    transition: transform 0.2s ease;
+}
+
+.torisetu_batsu img:hover {
+    transform: scale(1.2);
+}
+
+.title_line_logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.title_line_logo img {
+    width: 110px; 
+    border-radius: 50%;
+}
+
+.title_line_txt {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.title_line_txt h4 {
+    color: #f1a7a0; 
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 0;
+    text-align: center;
+}
+
+.line_list {
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 10px;
+}
+
+.line_list ol {
+    padding-left: 20px;
+    list-style-type: decimal;
+    color: #5e3e2e;
+}
+
+.line_list li {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #5e3e2e;
+    line-height: 1.5;
+}
+
+.line_list .token_copy {
+    width: 100%;
+    margin-top: 5px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fbe3e0; 
+    padding: 5px 12px;
+    border-radius: 5px; 
+    color: #d5725b; 
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    position: relative; 
+}
+
+.token_copy_lg {
+    position: absolute;
+    top: 3px; 
+    right: 5px;
+    margin: 10px;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 5px;
+    width: 10px;
+    cursor: pointer;
+}
+
+.line_list .token_copy:hover {
+    background-color: #f8a5a5; 
+    transform: scale(1.05); 
+}
+
+.line_list .token_copy:active {
+    background-color: #f8a5a5; 
+    transform: scale(0.98); 
+}
+
+.vp_img {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.vp_img img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.line_add_btn {
+    padding: 5px 12px;
+    border-radius: 5px; 
+    margin-top: 5px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fbe3e0; 
+    color: #d5725b; 
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+
+.line_add_btn:hover {
+    background-color: #f8a5a5; 
+    transform: scale(1.05); 
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+}
+
+.line_add_btn:active {
+    background-color: #f8a5a5; 
+    transform: scale(0.98); 
+    transition: background-color 0.3s ease, transform 0.3s ease;
+
+}
+
+.line_add_btn img{
+    margin-right: 10px;
 }
 
