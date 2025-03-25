@@ -179,151 +179,151 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>
                     `;
         
-                    let membersHtml = item.members.map(member => {
-                        const date = new Date(item.date);
-                        const formattedDate = `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일 ${dayNames[date.getDay()]}요일`;
-        
-                        return `
-                        <div class="member" data-group-id=${item.groupId} data-student-number=${member.studentNumber}>
-                            <div class="mem-img mem-o">
-                                <img class="mem-o_img" src="${member.profileImage}" />
-                                <div class="clean-coun">
-                                    <p>${member.cleaningCount}</p>
-                                </div>
+            let membersHtml = item.members.map(member => {
+                const date = new Date(item.date);
+                const formattedDate = `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일 ${dayNames[date.getDay()]}요일`;
+
+                return `
+                <div class="member" data-group-id=${item.groupId} data-student-number=${member.studentNumber}>
+                    <div class="mem-img mem-o">
+                        <img class="mem-o_img" src="${member.profileImage}" />
+                        <div class="clean-coun">
+                            <p>${member.cleaningCount}</p>
+                        </div>
+                    </div>
+                    <div class="mem-name">
+                        <h6>${member.familyName} ${member.givenName}</h6>
+                    </div>
+                    <!-- 吹き出しメニュー -->
+                    <div class="member-menu">
+                        <div class="member-info">
+                            <img src="${member.profileImage}" alt="Member Image">
+                            <h6>${member.familyName} ${member.givenName}</h6>
+                            <p>${formattedDate}</p>
+                        </div>
+                        <div class="mem-menu">
+                            <div class="mem-menu_img">
+                                <img src="https://img.icons8.com/pulsar-color/48/user-female-circle.png" alt="user-female-circle"/>
                             </div>
-                            <div class="mem-name">
-                                <h6>${member.familyName} ${member.givenName}</h6>
-                            </div>
-                            <!-- 吹き出しメニュー -->
-                            <div class="member-menu">
-                                <div class="member-info">
-                                    <img src="${member.profileImage}" alt="Member Image">
-                                    <h6>${member.familyName} ${member.givenName}</h6>
-                                    <p>${formattedDate}</p>
-                                </div>
-                                <div class="mem-menu">
-                                    <div class="mem-menu_img">
-                                        <img src="https://img.icons8.com/pulsar-color/48/user-female-circle.png" alt="user-female-circle"/>
-                                    </div>
-                                    <div class="mem-menu_p">
-                                        <p>프로필 보기</p>
-                                    </div>
-                                </div>
-                                <div class="mem-menu">
-                                    <div class="mem-menu_img">
-                                        <img src="https://img.icons8.com/pulsar-color/48/broom.png" alt="broom"/>
-                                    </div>
-                                    <div class="mem-menu_p">
-                                        <p>청소 기록</p>
-                                    </div>
-                                </div>
-                                <div class="mem-menu">
-                                    <div class="mem-menu_img">
-                                        <img src="https://img.icons8.com/pulsar-color/48/delete.png" alt="delete"/>
-                                    </div>
-                                    <div class="mem-menu_p">
-                                        <p>당번 삭제</p>
-                                    </div>
-                                </div>
-                                <div class="mem-menu">
-                                    <div class="mem-menu_img">
-                                        <img src="https://img.icons8.com/pulsar-color/48/change.png" alt="change"/>
-                                    </div>
-                                    <div class="mem-menu_p">
-                                        <p>교환하기</p>
-                                    </div>
-                                </div>
+                            <div class="mem-menu_p">
+                                <p>프로필 보기</p>
                             </div>
                         </div>
-                        `;
-                    }).join('');
-        
-                    membersHtml += addNugu.repeat(addNuguCount);
-                    return membersHtml;
-                }
-        
-                let addNuguCount = item.membersCount - item.members.length;
-        
-                if (box) {
-                    const areaSub = document.createElement('div');
-                    areaSub.classList.add('area-sub');
-                    areaSub.innerHTML = `
-                        <div class="all-sw">
-                            <div class="area-menu">
-                                <div class="area me-box">
-                                    <h6>${item.cleanArea}</h6>
-                                </div>
-                                <div class="mem-coun me-box">
-                                    <h6>${item.membersCount}</h6>
-                                </div>
+                        <div class="mem-menu">
+                            <div class="mem-menu_img">
+                                <img src="https://img.icons8.com/pulsar-color/48/broom.png" alt="broom"/>
                             </div>
-                            <div class="me-box me-edit">
-                                <div class="card">
-                                    <div class="front">
-                                        <h6><img src="http://127.0.0.1:5501/img/pen.png" alt="pen icon"></h6>
-                                    </div>
-                                    <div class="back">
-                                        <h6>EDIT</h6>
-                                    </div>
-                                </div>
+                            <div class="mem-menu_p">
+                                <p>청소 기록</p>
                             </div>
                         </div>
-                        <div class="members">
-                            ${members(item)}
+                        <div class="mem-menu">
+                            <div class="mem-menu_img">
+                                <img src="https://img.icons8.com/pulsar-color/48/delete.png" alt="delete"/>
+                            </div>
+                            <div class="mem-menu_p">
+                                <p>당번 삭제</p>
+                            </div>
                         </div>
-                    `;
-                    box.appendChild(areaSub);
-                }
+                        <div class="mem-menu">
+                            <div class="mem-menu_img">
+                                <img src="https://img.icons8.com/pulsar-color/48/change.png" alt="change"/>
+                            </div>
+                            <div class="mem-menu_p">
+                                <p>교환하기</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                `;
+            }).join('');
+
+            membersHtml += addNugu.repeat(addNuguCount);
+            return membersHtml;
+        }
+
+        let addNuguCount = item.membersCount - item.members.length;
+
+        if (box) {
+            const areaSub = document.createElement('div');
+            areaSub.classList.add('area-sub');
+            areaSub.innerHTML = `
+                <div class="all-sw">
+                    <div class="area-menu">
+                        <div class="area me-box">
+                            <h6>${item.cleanArea}</h6>
+                        </div>
+                        <div class="mem-coun me-box">
+                            <h6>${item.membersCount}</h6>
+                        </div>
+                    </div>
+                    <div class="me-box me-edit">
+                        <div class="card">
+                            <div class="front">
+                                <h6><img src="http://127.0.0.1:5501/img/pen.png" alt="pen icon"></h6>
+                            </div>
+                            <div class="back">
+                                <h6>EDIT</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="members">
+                    ${members(item)}
+                </div>
+            `;
+            box.appendChild(areaSub);
+        }
+    });
+
+    // 吹き出しメニューの表示/非表示を共通化
+    function toggleMenu(event, menuClass) {
+        const member = event.target.closest('.member');
+        const menu = member.querySelector(menuClass);
+
+        if (menu.style.display === 'none' || menu.style.display === '') {
+            menu.style.display = 'block';
+            setTimeout(() => {
+                menu.classList.add('show');
+            }, 10);
+        } else {
+            menu.classList.remove('show');
+            setTimeout(() => {
+                menu.style.display = 'none';
+            }, 300);
+        }
+    }
+
+    // メンバー画像クリック時に吹き出しメニューを表示
+    document.querySelectorAll('.mem-img.mem-o').forEach((memImg) => {
+        memImg.addEventListener('click', (event) => {
+            console.log("イメージがクリックされました。");
+            toggleMenu(event, '.member-menu');
+        });
+    });
+
+    // "mem-img mem-x" ボタンがクリックされたときにadd-menuを表示
+    document.querySelectorAll('.mem-img.mem-x').forEach((memImg) => {
+        memImg.addEventListener('click', (event) => {
+            console.log("mem-xがクリックされました。");
+            toggleMenu(event, '.add_menu');
+        });
+    });
+
+    // 外側クリックでメニューを閉じる処理
+    document.addEventListener('click', (event) => {
+        const isMenuClick = event.target.closest('.add_menu') || event.target.closest('.member-menu');
+        const isMemImgClick = event.target.closest('.mem-img.mem-x') || event.target.closest('.mem-img.mem-o');
+
+        if (!isMenuClick && !isMemImgClick) {
+            document.querySelectorAll('.add_menu, .member-menu').forEach((menu) => {
+                menu.classList.remove('show');
+                setTimeout(() => {
+                    menu.style.display = 'none';
+                }, 300);
             });
-        
-            // 吹き出しメニューの表示/非表示を共通化
-            function toggleMenu(event, menuClass) {
-                const member = event.target.closest('.member');
-                const menu = member.querySelector(menuClass);
-        
-                if (menu.style.display === 'none' || menu.style.display === '') {
-                    menu.style.display = 'block';
-                    setTimeout(() => {
-                        menu.classList.add('show');
-                    }, 10);
-                } else {
-                    menu.classList.remove('show');
-                    setTimeout(() => {
-                        menu.style.display = 'none';
-                    }, 300);
-                }
-            }
-        
-            // メンバー画像クリック時に吹き出しメニューを表示
-            document.querySelectorAll('.mem-img.mem-o').forEach((memImg) => {
-                memImg.addEventListener('click', (event) => {
-                    console.log("イメージがクリックされました。");
-                    toggleMenu(event, '.member-menu');
-                });
-            });
-        
-            // "mem-img mem-x" ボタンがクリックされたときにadd-menuを表示
-            document.querySelectorAll('.mem-img.mem-x').forEach((memImg) => {
-                memImg.addEventListener('click', (event) => {
-                    console.log("mem-xがクリックされました。");
-                    toggleMenu(event, '.add_menu');
-                });
-            });
-        
-            // 外側クリックでメニューを閉じる処理
-            document.addEventListener('click', (event) => {
-                const isMenuClick = event.target.closest('.add_menu') || event.target.closest('.member-menu');
-                const isMemImgClick = event.target.closest('.mem-img.mem-x') || event.target.closest('.mem-img.mem-o');
-        
-                if (!isMenuClick && !isMemImgClick) {
-                    document.querySelectorAll('.add_menu, .member-menu').forEach((menu) => {
-                        menu.classList.remove('show');
-                        setTimeout(() => {
-                            menu.style.display = 'none';
-                        }, 300);
-                    });
-                }
-            });
+        }
+    });
         
     // "당번 삭제" ボタンがクリックされたときの処理
     document.querySelectorAll('.mem-menu_p p').forEach(button => {

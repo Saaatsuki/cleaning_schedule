@@ -7,7 +7,7 @@
 /* メニュー */
 .menu-container {
     margin-top: 40px;
-    position: absolute;
+    position: fixed;
     top: 60px;
     left: 0;
     width: 100%;
