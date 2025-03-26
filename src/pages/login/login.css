@@ -140,3 +140,20 @@ p {
   display: flex;
   justify-content: center;
 }
+
+.google_login_btn > div {
+  width: 100%;
+  background-color: black;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.google_login_btn > div > div {
+  width: 100%;
+  background-color: black;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+}
+
