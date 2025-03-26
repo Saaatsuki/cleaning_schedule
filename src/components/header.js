@@ -121,6 +121,10 @@ document.addEventListener('DOMContentLoaded', function () {
         profileImageDiv.innerHTML = ''; 
         profileImageDiv.appendChild(imgElement);
 
+
+
+        
+
     } catch (error) {
         console.error("データ取得時のエラー:", error);
     }

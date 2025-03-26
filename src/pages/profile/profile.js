@@ -58,15 +58,15 @@ document.addEventListener('DOMContentLoaded', function () {
                                     <div class="token_copy">
                                         <div class="tk_cp">
                                             <div class="title_line_logo"><img src="https://img.icons8.com/clouds/100/line-me.png" alt="line-me"/></div>
-                                            <div class="title_line_txt"><h4>LINE 연결방법</h4></div>
+                                            <div class="title_line_txt" id="line-toggle"><h4>LINE 연결방법</h4></div>
                                             <div class="line_list">
                                                 <ol>
                                                     <li>
                                                         아래 URL을 복사한다!!
                                                         <div class="token_copy">
-                                                            <div class="token_copy_txt">
-                                                                <p>コピーするToken</p>
-                                                            </div> 
+                                                            <div class="token_copy_txt" onclick="copyText()">
+                                                                <p id="copyTarget">コピーするToken</p>
+                                                            </div>
                                                             <div class="token_copy_lg">
                                                                 <i class="fa-regular fa-copy"></i>
                                                             </div>                                                               
@@ -105,26 +105,41 @@ document.addEventListener('DOMContentLoaded', function () {
         const mainElement = document.querySelector('main');
         mainElement.innerHTML += mainCodeHTML;
 
-        // profileImageDiv を定義（これが問題の部分）
-        const profileImageDiv = document.querySelector('.image-container'); // この部分を追加
 
-        // クリックでファイル選択ボックスを開く
-        document.getElementById('upload-trigger').addEventListener('click', function() {
-            document.getElementById('image-upload').click();
-        });
 
-        // 画像が選択された時にプレビューを更新する
-        document.getElementById('image-upload').addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById('profile-preview').src = e.target.result;
-                    sessionStorage.setItem('profileImage', e.target.result); // sessionStorageに保存
-                };
-                reader.readAsDataURL(file);
-            }
-        });
+        // 画像アップロードのイベント
+        const imageUpload = document.getElementById("image-upload");
+        const profilePreview = document.getElementById("profile-preview");
+        const uploadTrigger = document.getElementById("upload-trigger");
+
+        if (uploadTrigger && imageUpload) {
+            uploadTrigger.addEventListener("click", function () {
+                imageUpload.click();
+            });
+
+            imageUpload.addEventListener("change", function (event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        profilePreview.src = e.target.result;
+                        sessionStorage.setItem("profileImage", e.target.result);
+                    };
+                    reader.readAsDataURL(file);
+                    location.reload();
+                }
+            });
+        } else {
+            console.error("要素が見つかりません: #upload-trigger または #image-upload");
+        }
+
+        
+
+        // ページリロード時に画像を復元
+        const savedProfileImage = sessionStorage.getItem("profileImage");
+        if (savedProfileImage) {
+            profilePreview.src = savedProfileImage;
+        }
 
         document.getElementById('copy-email').addEventListener('click', function() {
             const emailText = document.getElementById('email-text').innerText;
@@ -145,12 +160,24 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             imgElement.src = profileImage;
         }
-        profileImageDiv.innerHTML = ''; 
-        profileImageDiv.appendChild(imgElement);
 
-        // 以下、toggleMenu 関数を正しく定義
+        // profile-preview を設定
+        const profileImageDiv = document.getElementById('profile-preview');
+        if (profileImageDiv) {
+            profileImageDiv.innerHTML = ''; 
+            profileImageDiv.appendChild(imgElement);
+        } else {
+            console.error("profile-preview element not found");
+        }
+
+        // toggleMenu 関数
         function toggleMenu(event, menuClass) {
             const menu = document.querySelector(menuClass);
+
+            if (!menu) {
+                console.log('Menu not found');
+                return;
+            }
 
             if (menu.style.display === 'none' || menu.style.display === '') {
                 menu.style.display = 'block';
@@ -166,20 +193,38 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // LINE 연결をクリックした時に吹き出しの表示・非表示を切り替える
-        document.getElementById('line-toggle').addEventListener('click', function(event) {
+        document.getElementById('line-toggle')?.addEventListener('click', function(event) {
+            console.log("LINE click");
             toggleMenu(event, '.line_torisetu');
         });
 
         // 吹き出し内の閉じるボタンをクリックした時に吹き出しを閉じる
-        document.querySelector('.torisetu_batsu').addEventListener('click', function() {
+        document.querySelector('.torisetu_batsu')?.addEventListener('click', function() {
             const menu = document.querySelector('.line_torisetu');
-            menu.classList.remove('show');
-            setTimeout(() => {
-                menu.style.display = 'none';
-            }, 300); // 非表示にするまでの時間を設定
+            if (menu) {
+                menu.classList.remove('show');
+                setTimeout(() => {
+                    menu.style.display = 'none';
+                }, 300); // 非表示にするまでの時間を設定
+            }
         });
+
+
 
     } catch (error) {
         console.error('Error loading profile HTML:', error);
     }
 });
+
+
+function copyText() {
+    let text = document.getElementById("copyTarget").textContent;
+    let textarea = document.createElement("textarea");
+    textarea.value = text;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textarea);
+    alert("복사 성공 : " + text);
+}
+copyText()

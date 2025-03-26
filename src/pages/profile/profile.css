@@ -419,7 +419,48 @@ button {
 
 }
 
-.line_add_btn img{
+.line_add_btn img {
     margin-right: 10px;
+    transition: transform 0.3s ease;
+    animation: heartbeat 1.2s infinite; /* アニメーションを無限ループ */
 }
 
+/* 心臓のようにどきどきするアニメーション */
+@keyframes heartbeat {
+    0% {
+        transform: scale(1); /* 初期サイズ */
+    }
+    25% {
+        transform: scale(1.2); /* 少し膨らむ */
+    }
+    50% {
+        transform: scale(1); /* 元のサイズに戻る */
+    }
+    75% {
+        transform: scale(1.2); /* 再び膨らむ */
+    }
+    100% {
+        transform: scale(1); /* 最終的に元に戻る */
+    }
+}
+
+
+.conect_h5 {
+    transition:  transform 0.3s ease; 
+    
+}
+
+
+.conect_h5:hover {
+    /* box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2); */
+    transform: scale(1.03);
+    transition:  transform 0.3s ease; 
+
+}
+
+.conect_h5:active {
+    /* box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2); */
+    transform: scale(0.97);
+    transition:  transform 0.3s ease; 
+
+}
