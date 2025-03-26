@@ -611,6 +611,18 @@ h6 {
     color: white;
 }
 
+.menu_batu {
+    display: flex;
+    justify-content: flex-end;
+    margin: 5px;
+}
+
+.menu_batu img {
+    cursor: pointer;
+    filter: brightness(0) saturate(100%) invert(20%) sepia(50%) saturate(509%) hue-rotate(137deg) brightness(98%) contrast(93%); /* 柔らかい色合いのXボタン */
+    transition: transform 0.2s ease;
+}
+
 /* 吹き出しメニュー */
 .add_menu {
     display: flex;

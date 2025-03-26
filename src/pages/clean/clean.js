@@ -148,7 +148,8 @@ document.addEventListener("DOMContentLoaded", function () {
                             <h6>추가</h6>
                         </div>    
                         <!-- 吹き出しメニュー -->
-                        <div class="add_menu">
+                        <div class="add_menu" style="display: none;">
+                            <div class=menu_batu><i class="fa-solid fa-xmark" style="color :rgb(180, 180, 180)"></i></div>
                             <div class="add-img">
                                 <img src="https://furiirakun.com/wp/wp-content/uploads/2023/01/kaitensurutori.gif" alt="add-user-male"/>
                             </div>    
@@ -196,6 +197,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             </div>
                             <!-- 吹き出しメニュー -->
                             <div class="member-menu">
+                                <div class=menu_batu><i class="fa-solid fa-xmark" style="color :rgb(180, 180, 180)"></i></div>
                                 <div class="member-info">
                                     <img src="${member.profileImage}" alt="Member Image">
                                     <h6>${member.familyName} ${member.givenName}</h6>
@@ -267,6 +269,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     box.appendChild(areaSub);
                 }
             });
+            
         
             // 吹き出しメニューの表示/非表示を共通化
             function toggleMenu(event, menuClass) {
@@ -302,20 +305,35 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
             });
         
-            // 外側クリックでメニューを閉じる処理
+            // メニューを閉じる処理を共通化
+            function closeMenu() {
+                document.querySelectorAll('.add_menu, .member-menu').forEach((menu) => {
+                    menu.classList.remove('show');
+                    setTimeout(() => {
+                        menu.style.display = 'none';
+                    }, 300);
+                });
+            }
+
+            // バツ印を押したときの処理
             document.addEventListener('click', (event) => {
+                // .menu_batu がクリックされたか確認
+                if (event.target.closest('.menu_batu')) {
+                    console.log("click : X");  // バツ印がクリックされた時
+                    closeMenu();  // メニューを閉じる
+                }
+
+                // 外側をクリックしたときの処理
                 const isMenuClick = event.target.closest('.add_menu') || event.target.closest('.member-menu');
                 const isMemImgClick = event.target.closest('.mem-img.mem-x') || event.target.closest('.mem-img.mem-o');
-        
+                
+                // メニューまたはメンバー画像がクリックされていない場合にメニューを閉じる
                 if (!isMenuClick && !isMemImgClick) {
-                    document.querySelectorAll('.add_menu, .member-menu').forEach((menu) => {
-                        menu.classList.remove('show');
-                        setTimeout(() => {
-                            menu.style.display = 'none';
-                        }, 300);
-                    });
+                    closeMenu();
                 }
             });
+
+
 
         } catch (error) {
             console.error("データ取得に失敗しました:", error);
