@@ -193,13 +193,15 @@ main {
     .profile-img {
         display: flex;
         justify-content: center;
-        /* background-color: #50C878; */
-        border-radius: 50px;
+        border-radius: 100px;
 
     }
 
     .profile-img img{
-        height: 60px;
+        aspect-ratio: 1/1;
+        height: 80px;
+        border-radius: 50%;   
+        object-fit: cover; 
     }
 
     .profile-img dotlottie-player{

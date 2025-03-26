@@ -107,9 +107,9 @@ a {
     height: 96px;
     border-radius: 50%;
 }
+
 .profile-container_header {
     display: flex;
-
 }
 
 .profile_img {
@@ -442,6 +442,11 @@ button {
     100% {
         transform: scale(1); /* 最終的に元に戻る */
     }
+}
+
+.plf_edit img {
+    transition: transform 0.3s ease;
+    animation: heartbeat 1.2s infinite; 
 }
 
 

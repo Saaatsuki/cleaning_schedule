@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     const addNugu = `
                     <div class="member" data-group-id=${item.groupId} >
                         <div class="mem-img mem-x">
-                            <img src="http://127.0.0.1:5501/img/plus.png" />
+                            <img src="https://github.com/Saaatsuki/cleaning_schedule/releases/download/v1.0/plus.png" />
                         </div>
                         <div class="mem-name">
                             <h6>추가</h6>
