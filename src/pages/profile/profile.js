@@ -62,10 +62,10 @@ document.addEventListener('DOMContentLoaded', function () {
                                             <div class="line_list">
                                                 <ol>
                                                     <li>
-                                                        아래 URL을 복사한다!!
+                                                        아래 정보코드을 복사한다!!
                                                         <div class="token_copy">
                                                             <div class="token_copy_txt" onclick="copyText()">
-                                                                <p id="copyTarget">コピーするToken</p>
+                                                                <p id="copyTarget">복사</p>
                                                             </div>
                                                             <div class="token_copy_lg">
                                                                 <i class="fa-regular fa-copy"></i>
@@ -94,6 +94,16 @@ document.addEventListener('DOMContentLoaded', function () {
                                             <!-- 必要な画像をここに追加 -->
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profile-section lg logout-box">
+                            <div class="lglg line_lglg">
+                                <img width="96" height="96" src="https://img.icons8.com/pulsar-color/96/exit.png" alt="exit"/>
+                            </div>
+                            <div class="logout-container">
+                                <div class="pro_logout conect_h5">
+                                    <h5 id="logout-text">Log Out</h5>
                                 </div>
                             </div>
                         </div>
@@ -209,6 +219,17 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
+        document.getElementById("logout-text").addEventListener("click", function () {
+            // 確認ダイアログを表示
+            let confirmLogout = confirm("ログアウトしますか？");
+
+            // ユーザーが「OK」を押したらログアウト処理
+            if (confirmLogout) {
+                sessionStorage.removeItem("token");  // トークン削除
+                window.location.href = "../login/login.html";  // ログインページへ移動
+            }
+        }); 
+
 
 
     } catch (error) {
@@ -220,11 +241,11 @@ document.addEventListener('DOMContentLoaded', function () {
 function copyText() {
     let text = document.getElementById("copyTarget").textContent;
     let textarea = document.createElement("textarea");
-    textarea.value = text;
+    textarea.value = sessionStorage.token;
     document.body.appendChild(textarea);
     textarea.select();
     document.execCommand("copy");
     document.body.removeChild(textarea);
-    alert("복사 성공 : " + text);
+    alert("복사 : 정보코드");
 }
 copyText()

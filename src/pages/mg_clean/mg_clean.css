@@ -18,89 +18,89 @@ main {
 
 input::placeholder {
     padding-left: 10px;
-    color: gray; 
+    color: rgba(23, 44, 102, 0.3); 
     font-size:100%; 
 }
 
-/* 検索バーのスタイル */
+
+
+/* 検索ボックス全体のスタイル */
 .search-container {
-    width: 100%;
-    margin-bottom: 10px;
-    /* margin-top: 30px; */
-    aspect-ratio: 8/1;
-    background-color: #172C66;  /* ボックスの背景色 */
-    border-radius: 10px;
-    padding: 3%;
-    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
-    transition: background-color 2s ease; 
-    display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
-    justify-items: center;
-    justify-content: center;
+    display: flex;
     align-items: center;
+    justify-content: space-around;
+    background-color: #172C66;
+    padding: 10px;
+    border-radius: 25px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
 }
 
-.search-container > :nth-child(2) {
-    justify-items: flex-end;
-}
-
-
-.search-container:hover {
-    background-color: #1f3a86;  /* ホバー時の色 */
-}
-
+/* 入力フィールドのスタイル */
 .search-container input {
-    height: 100%;
     border: none;
-    border-radius: 5px;
-    width: 90%;  
+    outline: none;
+    background-color: white;
+    padding: 10px;
     font-size: 16px;
-    box-sizing: border-box;
+    width: 85%;
+    transition: all 1s ease-in-out;
+    color: #172C66;
+    border-radius: 15px;
+    box-shadow: inset 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
 }
 
-.search-container button {
-    height: 100%;
-    aspect-ratio: 1/1;
-    color: white;
+
+
+/* ボタンのスタイル */
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon button {
+    background: transparent;
     border: none;
-    font-size: 16px;
-    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-.search-container button:hover {
-    background-color: #f57291;  /* ボタンのホバー時 */
-}
-
-.search-container .serch-btn button {
-    background-color: #F582AE;  
-}
-
-.search-container .calender-btn button {
-    background-color: #f5a623;
-}
-
-.search-container .icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    height: 100%;
-    width: 100;
-    padding: 5%;
-}
-
-.search-container .icon button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.search-container .icon img {
-    height: 75%;
+.icon img {
+    width: 30px;
     aspect-ratio: 1/1;
-    object-fit: contain;
+}
+
+.icon button:hover {
+    transform: scale(1.1) rotate(5deg);
+    opacity: 0.8;
+}
+
+/* カレンダーボタンのアニメーション */
+.calender-btn button:hover {
+    animation: soft-glow 1s infinite alternate;
+}
+
+/* 検索ボタンのアニメーション */
+.serch-btn button:hover {
+    animation: glow 1s infinite alternate;
+}
+
+
+
+/* 検索ボタンのアニメーション */
+.serch-btn button:hover {
+    animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        filter: drop-shadow(0 0 5px rgb(255, 255, 255));
+    }
+    to {
+        filter: drop-shadow(0 0 10px rgb(241, 215, 228));
+    }
 }
 
 

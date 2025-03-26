@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function () {
             <div class="menu-container">
                 <div class="menu-content">
                     <div class="menu-list">
-                
                         <div class="menu" data-link=" ../main/main.html">
                             <div class="menu-li-logo"><img width="64" height="64" src="https://img.icons8.com/sf-black-filled/64/FFFFFF/home.png" alt="home"/></div>
                             <div class="menu-ti">HOME</div>
@@ -51,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             <div class="menu-ti">관리사</div>
                         </div>
                     </div>
+
                 </div>
             </div>
         `;
