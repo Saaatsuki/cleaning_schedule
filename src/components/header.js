@@ -30,23 +30,23 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="menu-content">
                     <div class="menu-list">
                 
-                        <div class="menu" data-link="http://127.0.0.1:5501/src/pages/main/main.html">
+                        <div class="menu" data-link="https://saaatsuki.github.io/cleaning_schedule/src/pages/main/main.html">
                             <div class="menu-li-logo"><img width="64" height="64" src="https://img.icons8.com/sf-black-filled/64/FFFFFF/home.png" alt="home"/></div>
                             <div class="menu-ti">HOME</div>
                         </div>
-                        <div class="menu" data-link="http://127.0.0.1:5501/src/pages/profile/profile.html">
+                        <div class="menu" data-link="https://saaatsuki.github.io/cleaning_schedule/src/pages/profile/profile.html">
                             <div class="menu-li-logo"><img src="https://img.icons8.com/small/16/FFFFFF/admin-settings-male.png" alt="broom" /></div>
                             <div class="menu-ti">프로필 설정</div>
                         </div>            
-                        <div class="menu" data-link="http://127.0.0.1:5501/src/pages/clean/clean.html">
+                        <div class="menu" data-link="https://saaatsuki.github.io/cleaning_schedule/src/pages/clean/clean.html">
                             <div class="menu-li-logo"><img src="https://img.icons8.com/ios/50/FFFFFF/broom.png" alt="broom" /></div>
                             <div class="menu-ti">청소 일정</div>
                         </div>
-                        <div class="menu" data-link="http://127.0.0.1:5501/src/pages/graph/graph.html">
+                        <div class="menu" data-link="https://saaatsuki.github.io/cleaning_schedule/src/pages/graph/graph.html">
                             <div class="menu-li-logo"><img src="https://img.icons8.com/forma-light-filled-sharp/24/FFFFFF/combo-chart.png" alt="broom" /></div>
                             <div class="menu-ti">학교 시간 기록</div>
                         </div>
-                        <div class="menu" data-link="http://127.0.0.1:5501/src/pages/manager/manager.html">
+                        <div class="menu" data-link="https://saaatsuki.github.io/cleaning_schedule/src/pages/manager/manager.html">
                             <div class="menu-li-logo"><img width="24" height="24" src="https://img.icons8.com/material-two-tone/24/FFFFFF/business-network.png" alt="business-network"/></div>
                             <div class="menu-ti">관리사</div>
                         </div>
