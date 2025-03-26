@@ -137,4 +137,6 @@ p {
   width: 100%;
   background-color: black;
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
 }
