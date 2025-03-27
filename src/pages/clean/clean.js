@@ -335,6 +335,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
+
         } catch (error) {
             console.error("データ取得に失敗しました:", error);
         }
@@ -390,6 +392,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
     /////////↑Box表示////////////////////////////////////////////////////////////////
+
 
 });
 

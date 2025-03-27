@@ -63,8 +63,8 @@ document.addEventListener('DOMContentLoaded', function () {
                                                 <ol>
                                                     <li>
                                                         아래 정보코드을 복사한다!!
-                                                        <div class="token_copy">
-                                                            <div class="token_copy_txt" onclick="copyText()">
+                                                        <div class="token_copy" onclick="copyText()">
+                                                            <div class="token_copy_txt" >
                                                                 <p id="copyTarget">복사</p>
                                                             </div>
                                                             <div class="token_copy_lg">
@@ -238,14 +238,33 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-function copyText() {
-    let text = document.getElementById("copyTarget").textContent;
-    let textarea = document.createElement("textarea");
-    textarea.value = sessionStorage.token;
-    document.body.appendChild(textarea);
-    textarea.select();
-    document.execCommand("copy");
-    document.body.removeChild(textarea);
-    alert("복사 : 정보코드");
+
+async function copyText() {
+    // APIからBearer Tokenを取得
+    try {
+        const response = await fetch('http://210.101.236.158:8081/api/message', {
+            method: 'GET',
+            headers: {
+                'Authorization': 'Bearer YOUR_ACCESS_TOKEN', 
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error('APIリクエストが失敗しました');
+        }
+
+        const data = await response.json();
+        const token = data.token; 
+        let textarea = document.createElement("textarea");
+        textarea.value = token; 
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+
+        alert("복사 : 정보코드");
+    } catch (error) {
+        console.error('トークンのコピー中にエラーが発生しました:', error);
+    }
 }
-copyText()
+
