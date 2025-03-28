@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>graph</title>
+    <title>Graph</title>
     <link rel="stylesheet" href="../../components/header.css">
     <link rel="stylesheet" href="../../components/menu.css">
     <link rel="stylesheet" href="graph.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
     
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+ <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+
 </head>
 <body>
     <main>
         <div class="main_graph graph_box">
             <div class="graph_header">
-                <div class="graph_header_title"><img width="24" height="24" src="https://img.icons8.com/external-febrian-hidayat-detailed-outline-febrian-hidayat/64/FFFFFF/external-01-school-and-education-febrian-hidayat-detailed-outline-febrian-hidayat.png" alt="external-01-school-and-education-febrian-hidayat-detailed-outline-febrian-hidayat"/>
+                <div class="graph_header_title">
+                    <img width="24" height="24" src="https://img.icons8.com/external-febrian-hidayat-detailed-outline-febrian-hidayat/64/FFFFFF/external-01-school-and-education-febrian-hidayat-detailed-outline-febrian-hidayat.png" alt="external-01-school-and-education-febrian-hidayat-detailed-outline-febrian-hidayat"/>
                     <h4>Current Status</h4>
                 </div>
                 <div class="graph_header_data">
@@ -23,7 +29,25 @@
                 </div>
             </div>
             <div class="graph_main">
+                <div class="doughnut_box">
+                    <div class="color-exp">
 
+                    </div>
+                    <div class="doughnutX2">
+                        <div class="doignut-twoDaysAgo">
+                            <div class="doignut_gr">
+                                <!-- Unique ID for the first canvas -->
+                                <div id="myChart1"></div>
+                            </div>
+                        </div>
+                        <div class="doignut-oneDayAgo">
+                            <div class="doignut_gr">
+                                <!-- Unique ID for the second canvas -->
+                                <div id="myChart2"></div>
+                            </div>                        
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="week_graph graph_box">
@@ -38,9 +62,7 @@
                     <button class="next-day" onclick="changeday(1)">❯</button>
                 </div>
             </div>
-            <div class="graph_main">
-                
-            </div>
+            <div class="graph_main"></div>
         </div>
         <div class="ranking graph_box">
             <div class="graph_header">
@@ -54,11 +76,10 @@
                     <button class="next-day" onclick="changeday(1)">❯</button>
                 </div>
             </div>
-            <div class="graph_main">
-                
-            </div>
+            <div class="graph_main"></div>
         </div>
     </main>
     <script src="../../components/header.js"></script>
+    <script src="graph.js"></script>
 </body>
 </html>
