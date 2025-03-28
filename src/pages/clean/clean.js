@@ -61,7 +61,6 @@ function generateCalendar() {
 generateCalendar();
 
 
-
 function showDateDetail(day) {
 
     const clickedDate = day;
@@ -91,34 +90,40 @@ function showDateDetail(day) {
     }
 }
 
+
+const studentNumber = sessionStorage.getItem('studentNumber');
 function showMemberScroll() {
-    const studentNumber = sessionStorage.getItem('studentNumber');
-    console.log(`クリックされた学生番号：${studentNumber}`)
+    console.log(`クリックされた学生番号：${studentNumber}`);
+
     if (!studentNumber) {
         console.warn('Student number not found in sessionStorage');
         return;
     }
 
-    const targetElement = document.getElementById(studentNumber);
-    if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const targetElements = document.querySelectorAll(`[data-student-number="${studentNumber}"]`);
+    
+    if (targetElements.length > 0) {
+        targetElements[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+        targetElements.forEach(targetElement => {
+            const boxElement = targetElement.closest('.box');
+            if (boxElement) {
+                boxElement.style.animation = 'shake 0.5s ease-in-out';
 
-        const boxElement = targetElement.closest('.box');
-        if (boxElement) {
-            boxElement.style.animation = 'shake 0.5s ease-in-out';
-
-            setTimeout(() => {
-                boxElement.style.animation = '';
-            }, 500);
-        }
+                setTimeout(() => {
+                    boxElement.style.animation = '';
+                }, 500);
+            }
+        });
     } else {
         console.warn('No matching element found for student number:', studentNumber);
     }
 }
 
 
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
-    //////calendar表示/非表示/////////////////////////////////////
     const calendarBtn = document.querySelector(".calender-btn button");
     const calendarSearch = document.querySelector(".calendar_serch");
 
@@ -426,5 +431,56 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+document.addEventListener("DOMContentLoaded", async () => {
+    try {
+        const studentNumber = await getStudentNumber();
+        console.log('Student number:', studentNumber);  
+        
+        if (studentNumber) {
+            const elements = await getElements(studentNumber);
+            console.log('Found elements:', elements);
+            
+            // 各要素に対して処理を行う
+            for (const element of elements) {
+                const imgElement = element.querySelector('.mem-o_img');
+                console.log('Found img element:', imgElement); // 見つかったimg要素の確認
+                
+                if (imgElement) {
+                    imgElement.classList.add("glow-animation");
+                    console.log('Glow animation added');
+                }
+            }
+        }
+    } catch (error) {
+        console.error("Error:", error);
+    }
+});
+
+// 擬似的に非同期処理にする関数
+function getStudentNumber() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const studentNumber = sessionStorage.getItem('studentNumber');
+            if (studentNumber) {
+                resolve(studentNumber);
+            } else {
+                reject('Student number not found in sessionStorage');
+            }
+        }, 1000);  // 1秒後に取得
+    });
+}
+
+function getElements(studentNumber) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const elements = document.querySelectorAll(`[data-student-number="${studentNumber}"]`);
+            if (elements.length > 0) {
+                resolve(elements);
+            } else {
+                reject('No matching elements found');
+            }
+        }, 1000);  // 1秒後に取得
+    });
+}
 
 

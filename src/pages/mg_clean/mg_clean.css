@@ -809,3 +809,20 @@ h6 {
     75% { transform: translateX(-5px); }
     100% { transform: translateX(0); }
 }
+
+
+@keyframes glow_img {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+    }
+}
+
+.glow-animation {
+    animation: glow_img 1.5s infinite alternate;
+}
