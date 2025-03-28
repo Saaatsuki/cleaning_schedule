@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="profile-img">
                     <img src="https://img.icons8.com/color/96/test-account.png" alt="test-account"/>
                 </div>
-                <div class="Profole-name">
+                <div class="Profole-name" onclick="showMemberScroll()">
                     <div class="pro-name"><h3>${sessionStorage.getItem('familyName') || 'GUEST'} ${sessionStorage.getItem('givenName') || ''}</h3></div>
                     <div class="pro-school_number"><h5>${sessionStorage.getItem('studentNumber') || 'Guest Student'}</h5></div>
                 </div>

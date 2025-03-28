@@ -73,6 +73,14 @@ function showDateDetail(day) {
     if (targetBox) {
         // スクロールさせる
         targetBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (targetBox) {
+            targetBox.style.animation = 'shake 0.5s ease-in-out';
+            
+            setTimeout(() => {
+                targetBox.style.animation = '';
+            }, 500);
+        }
+
     } else {
         // ボックスが見つからない場合、モーダルアラートを表示
         const alertMessage = document.getElementById('alertMessage');

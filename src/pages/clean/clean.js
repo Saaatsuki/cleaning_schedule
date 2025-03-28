@@ -1,3 +1,5 @@
+
+
 // グローバル変数
 let currentDate = new Date();
 
@@ -56,14 +58,15 @@ function generateCalendar() {
 
 }
 
+generateCalendar();
+
+
 
 function showDateDetail(day) {
-    // alert(`${currentDate.getFullYear()}년 ${currentDate.getMonth() + 1}월 ${day}일`);
 
-    // クリックした日付の月、年を取得
     const clickedDate = day;
-    const clickedMonth = currentDate.getMonth() + 1; // 現在の月を取得
-    const clickedYear = currentDate.getFullYear(); // 現在の年を取得
+    const clickedMonth = currentDate.getMonth() + 1; 
+    const clickedYear = currentDate.getFullYear(); 
 
     // 日付を2桁にパディングしてboxIdを生成
     const boxId = `${clickedYear}${String(clickedMonth).padStart(2, '0')}${String(clickedDate).padStart(2, '0')}`;
@@ -71,10 +74,16 @@ function showDateDetail(day) {
     const targetBox = document.getElementById(boxId);
 
     if (targetBox) {
-        // スクロールさせる
         targetBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (targetBox) {
+            targetBox.style.animation = 'shake 0.5s ease-in-out';
+            
+            setTimeout(() => {
+                targetBox.style.animation = '';
+            }, 500);
+        }
+
     } else {
-        // ボックスが見つからない場合、モーダルアラートを表示
         const alertMessage = document.getElementById('alertMessage');
         alertMessage.innerText = '선택한 날짜에는 청소 일정이 없습니다.';
         alert("선택한 날짜에는 청소 일정이 없습니다.")
@@ -82,9 +91,31 @@ function showDateDetail(day) {
     }
 }
 
+function showMemberScroll() {
+    const studentNumber = sessionStorage.getItem('studentNumber');
+    console.log(`クリックされた学生番号：${studentNumber}`)
+    if (!studentNumber) {
+        console.warn('Student number not found in sessionStorage');
+        return;
+    }
 
-// ページがロードされたときにカレンダーを生成
-generateCalendar();
+    const targetElement = document.getElementById(studentNumber);
+    if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        const boxElement = targetElement.closest('.box');
+        if (boxElement) {
+            boxElement.style.animation = 'shake 0.5s ease-in-out';
+
+            setTimeout(() => {
+                boxElement.style.animation = '';
+            }, 500);
+        }
+    } else {
+        console.warn('No matching element found for student number:', studentNumber);
+    }
+}
+
 
 document.addEventListener("DOMContentLoaded", function () {
     //////calendar表示/非表示/////////////////////////////////////
@@ -186,7 +217,7 @@ document.addEventListener("DOMContentLoaded", function () {
         
                         return `
                         <div class="member" data-group-id=${item.groupId} data-student-number=${member.studentNumber}>
-                            <div class="mem-img mem-o">
+                            <div class="mem-img mem-o" id=${member.studentNumber}>
                                 <img class="mem-o_img" src="${member.profileImage}" />
                                 <div class="clean-coun">
                                     <p>${member.cleaningCount}</p>
@@ -334,8 +365,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
 
-
-
+            
 
         } catch (error) {
             console.error("データ取得に失敗しました:", error);
@@ -395,5 +425,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 });
+
 
 
