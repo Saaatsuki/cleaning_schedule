@@ -8,11 +8,109 @@
     <link rel="stylesheet" href="../../components/menu.css">
     <link rel="stylesheet" href="main.css">
     <script src="../../components/header.js"></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
 
 </head>
 <body>
     <main>
-        <h1>Main</h1>
+        <div class="main-menu">
+            <div class="panda">
+<!-- 
+                    <div class="weather-container">
+                        <div class="weather-card" id="message">
+
+                        </div>
+                    </div> -->
+
+                <div class="panda_v">
+                    <dotlottie-player src="https://lottie.host/c7c2e3c2-8d84-4515-b70e-310adc867ffb/GdW4WDj1xE.lottie" background="transparent" speed="1" style="width: 200px; height: 200px" loop autoplay></dotlottie-player>
+                </div>
+            </div>
+            <div class="button-container">
+                <button class="action-button clean" data-link="../clean/clean.html"><img width="60" height="60" src="https://img.icons8.com/ios/100/FFFFFF/housekeeping.png" alt="housekeeping"/>청소 일정</button>
+            </div>
+        </div>
     </main>
+    <script>
+        document.querySelector('.action-button.clean').addEventListener('click', function() {
+            const link = this.getAttribute('data-link');
+            window.location.href = link;
+        });
+
+        // ページが読み込まれた際に天気情報を更新
+        window.onload = updateMessage;
+
+        async function updateMessage() {
+            const today = new Date();
+            const dateStr = today.toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' });
+            const weekStr = today.toLocaleDateString('ko-KR', { weekday: 'long' });
+
+            const apiKey = 'f445506b5dd4c08fe74777837d3bbb80'; 
+            const city = 'Daegu'; 
+            const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&lang=kr&units=metric`;
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+
+                const currentWeather = data.list[0].weather[0].description;
+                const currentTemp = data.list[0].main.temp;
+                const currentMaxTemp = data.list[0].main.temp_max;
+                const currentMinTemp = data.list[0].main.temp_min;
+
+                const tomorrowWeather = data.list[8].weather[0].description;
+                const tomorrowMaxTemp = data.list[8].main.temp_max;
+                const tomorrowMinTemp = data.list[8].main.temp_min;
+
+                const dayAfterTomorrowWeather = data.list[16].weather[0].description;
+                const dayAfterTomorrowMaxTemp = data.list[16].main.temp_max;
+                const dayAfterTomorrowMinTemp = data.list[16].main.temp_min;
+
+                const weatherEmojis = {
+                    'clear sky': '<img src="../../../img/wether/clear_sky.gif" />',
+                    'few clouds': '<img src="../../../img/wether/scattered clouds.gif" />',
+                    'scattered clouds': '<img src="../../../img/wether/scattered clouds.gif" />',
+                    'broken clouds': '☁️',
+                    'shower rain': '🌧️',
+                    'rain': '🌧️',
+                    'thunderstorm': '⛈️',
+                    'snow': '❄️',
+                    'mist': '🌫️',
+                };
+
+                const currentWeatherEmoji = weatherEmojis[currentWeather] || '🌥️';
+                const tomorrowWeatherEmoji = weatherEmojis[tomorrowWeather] || '🌥️';
+                const dayAfterTomorrowWeatherEmoji = weatherEmojis[dayAfterTomorrowWeather] || '🌥️';
+
+                let clothingAdvice = '';
+                if (currentTemp > 25) {
+                    clothingAdvice = '<img width="96" height="96" src="https://img.icons8.com/color/96/t-shirt.png" alt="t-shirt"/>';
+                } else if (currentTemp > 15) {
+                    clothingAdvice = '<img width="96" height="96" src="https://img.icons8.com/color/96/tracksuit.png" alt="tracksuit"/>';
+                } else {
+                    clothingAdvice = '<img width="20" height="20" src="https://img.icons8.com/color/96/puffer-jacket.png" alt="puffer-jacket"/>';
+                }
+
+                document.getElementById('message').innerHTML = `
+                    <p class="date">${dateStr} (${weekStr})</p>
+                    <p class="current-weather">
+                        <span class="weather-icon">${currentWeatherEmoji}</span> ${currentWeather} (현재 기온: ${currentTemp}°C)
+                    </p>
+                    <p class="temp-info">최고 기온: ${currentMaxTemp}°C / 최저 기온: ${currentMinTemp}°C</p>
+                    <p class="clothing-advice">복장 추천: ${clothingAdvice}</p>
+                    <p class="weather-forecast">
+                        <span>내일 날씨:</span> ${tomorrowWeatherEmoji} ${tomorrowWeather} (최고 기온: ${tomorrowMaxTemp}°C / 최저 기온: ${tomorrowMinTemp}°C)
+                        <span>모레 날씨:</span> ${dayAfterTomorrowWeatherEmoji} ${dayAfterTomorrowWeather} (최고 기온: ${dayAfterTomorrowMaxTemp}°C / 최저 기온: ${dayAfterTomorrowMinTemp}°C)
+                    </p>
+                `;
+            } catch (error) {
+                console.error('천기 정보 불러오기 실패', error);
+                document.getElementById('message').innerHTML = `
+                    <p class="date">${dateStr} (${weekStr})</p>
+                    <p>날씨 정보를 불러올 수 없습니다.</p>
+                `;
+            }
+        }
+    </script>
 </body>
 </html>

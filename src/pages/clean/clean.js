@@ -440,7 +440,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             const elements = await getElements(studentNumber);
             console.log('Found elements:', elements);
             
-            // 各要素に対して処理を行う
             for (const element of elements) {
                 const imgElement = element.querySelector('.mem-o_img');
                 console.log('Found img element:', imgElement); // 見つかったimg要素の確認
@@ -456,7 +455,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 });
 
-// 擬似的に非同期処理にする関数
+
 function getStudentNumber() {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -466,7 +465,7 @@ function getStudentNumber() {
             } else {
                 reject('Student number not found in sessionStorage');
             }
-        }, 1000);  // 1秒後に取得
+        }, 1000);  
     });
 }
 
@@ -479,7 +478,7 @@ function getElements(studentNumber) {
             } else {
                 reject('No matching elements found');
             }
-        }, 1000);  // 1秒後に取得
+        }, 1000);  
     });
 }
 

@@ -44,7 +44,7 @@ h4 , h6 {
 }
 
 .graph_header {
-    height: 100px;
+    /* height: 100px; */
     color: white;
 
 }

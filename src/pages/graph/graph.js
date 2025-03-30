@@ -1,5 +1,8 @@
 https://apexcharts.com/docs/options/plotoptions/pie/#labels
 
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
     // 共通のラベルとカラーを定義
     var labels = ['학교 체류', '학교 부재', '식사', '도서관', '키타'];
@@ -9,7 +12,12 @@ document.addEventListener("DOMContentLoaded", function () {
     var options1 = {
         chart: {
             type: 'donut',
-            fontFamily: 'Noto Sans KR', // グラフ全体のフォント設定
+            fontFamily: 'Noto Sans KR',
+            events: {
+                mounted: function(chartContext) {
+                    addHourLabels(chartContext);
+                }
+            }
         },
         series: [40, 60, 50, 30, 20], // 1つ目のグラフのデータ
         labels: labels,
@@ -65,15 +73,15 @@ document.addEventListener("DOMContentLoaded", function () {
             enabledOnSeries: undefined, // 特定のシリーズにのみデータラベルを表示する場合、シリーズのインデックスを指定します。undefinedだとすべてのシリーズに表示されます。
             formatter: function (val, opts) { 
                 // データラベルの表示内容をカスタマイズするための関数
-                return val; // ここではそのまま値を返していますが、例えば`return "$" + val`のように加工できます。
+                return  val; // ここではそのまま値を返していますが、例えば`return "$" + val`のように加工できます。
             },
             textAnchor: 'middle', // ラベルのテキストの配置方法。'middle'は中央に配置されます。他には'start'や'end'があります。
-            distributed: false, // ラベルを均等に配置するかどうか。trueだとラベルが均等に分散されます。
+            distributed: true, // ラベルを均等に配置するかどうか。trueだとラベルが均等に分散されます。
             offsetX: 0, // X軸方向へのオフセット。値を変更するとラベルが左右に移動します。
             offsetY: 0, // Y軸方向へのオフセット。値を変更するとラベルが上下に移動します。
             style: {
-                fontSize: '14px', // ラベルのフォントサイズを指定します。
-                fontFamily: 'Helvetica, Arial, sans-serif', // 使用するフォントファミリー。複数のフォントを指定できます。
+                fontSize: '10px', // ラベルのフォントサイズを指定します。
+                fontFamily: '"Noto Sans KR", serif', // 使用するフォントファミリー。複数のフォントを指定できます。
                 fontWeight: 'bold', // フォントの太さ。'bold'で太字になります。
                 colors: undefined // ラベルの文字色を指定します。未設定のためデフォルトカラーが適用されます。
             },
@@ -105,78 +113,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 
-    // 2つ目のグラフの設定
-    var options2 = {
-        chart: {
-            type: 'donut',
-            fontFamily: 'Noto Sans KR', // グラフ全体のフォント設定
-        },
-        series: [30, 70, 40, 60, 50], // 2つ目のグラフのデータ
-        labels: labels,
-        colors: colors,
-        plotOptions: {
-            pie: {
-                donut: {
-                    size: '45%', // ドーナツサイズの設定
-                    labels: {
-                        show: true, // 真ん中にラベルを表示
-                        name: {
-                            show: true,
-                            fontSize: '10px',
-                            fontFamily: 'Noto Sans KR',
-                            fontWeight: 600,
-                            color: '#172C66', // ラベルの色
-                            offsetY: -5,
-                            formatter: function (val) {
-                                return val; // ラベルのフォーマット
-                            }
-                        },
-                        value: {
-                            show: true,
-                            fontSize: '15px',
-                            fontFamily: 'Noto Sans KR',
-                            fontWeight: 400,
-                            color: '#172C66',
-                            offsetY: 1,
-                            formatter: function (val) {
-                                return val; // 値ラベルのフォーマット
-                            }
-                        },
-                        total: {
-                            show: true, // 合計値を表示しない
-                        }
-                    }
-                },
-                dataLabels: {
-                    show: true, // データラベルを表示
-                    style: {
-                        fontFamily: 'Noto Sans KR',
-                        fontSize: '20px',
-                        fontWeight: 'bold',
-                        colors: ['#172C66']
-                    },
-                    dropShadow: {
-                        enabled: true, // シャドウを有効化
-                        top: 1,        // シャドウの位置（上下）
-                        left: 1,       // シャドウの位置（左右）
-                        blur: 3,       // シャドウのぼかし
-                        opacity: 0.75  // シャドウの透明度
-                    }
-                }
-            }
-        },
-        legend: {
-            show: false // 外側のデータラベル（Legend）を表示しない
-        },
-        tooltip: {
-            y: {
-                formatter: function (val) {
-                    return val; // コロンを削除するために、値だけを返す
-                }
-            }
-        }
-    };
-
+    var options2 = JSON.parse(JSON.stringify(options1)); // 1つ目のオプションをコピー
+    options2.series = [30, 50, 40, 20, 10]; // 別データを適用（例）
 
 
     // 1つ目のグラフを描画
@@ -212,4 +150,34 @@ document.addEventListener("DOMContentLoaded", function () {
         // カスタムレジェンドの親要素に追加
         legendContainer.appendChild(legendItem);
     });
+
+    var chart = new ApexCharts(document.querySelector("#chart"), options);
+    chart.render();
+
+    function addHourLabels(chartContext) {
+        let svg = chartContext.el.querySelector("svg");
+        let chartCenterX = chartContext.w.globals.cx;
+        let chartCenterY = chartContext.w.globals.cy;
+        let radius = chartContext.w.globals.radius + 20; // 円の外周位置
+
+        for (let i = 0; i < 24; i++) {
+            let angle = (i * 15) - 90; // 0～23時を円周に配置
+            let radian = (angle * Math.PI) / 180;
+            let x = chartCenterX + radius * Math.cos(radian);
+            let y = chartCenterY + radius * Math.sin(radian);
+
+            let text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+            text.setAttribute("x", x);
+            text.setAttribute("y", y);
+            text.setAttribute("text-anchor", "middle");
+            text.setAttribute("dominant-baseline", "middle");
+            text.setAttribute("font-size", "12px");
+            text.setAttribute("fill", "#000");
+            text.textContent = i;
+
+            svg.appendChild(text);
+        }
+    }
+
 });
+
