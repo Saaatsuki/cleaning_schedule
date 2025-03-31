@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.getElementById("logout-text").addEventListener("click", function () {
             // 確認ダイアログを表示
-            let confirmLogout = confirm("ログアウトしますか？");
+            let confirmLogout = confirm("로그아웃하셔도 괜찮으시겠어요?");
 
             // ユーザーが「OK」を押したらログアウト処理
             if (confirmLogout) {
