@@ -1,5 +1,42 @@
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
     try {
+        async function copyText() {
+            try {
+                const response = await fetch('http://210.101.236.158:8081/api/message', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': 'Bearer YOUR_ACCESS_TOKEN', 
+                    }
+                });
+    
+                if (!response.ok) {
+                    throw new Error('APIリクエストが失敗しました');
+                }
+    
+                const data = await response.json();
+                const token = data.token;
+    
+                let textarea = document.createElement("textarea");
+                textarea.value = token;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand("copy");
+                document.body.removeChild(textarea);
+    
+                alert("복사 : 정보코드");
+            } catch (error) {
+                console.error('トークンのコピー中にエラーが発生しました:', error);
+            }
+        }
+    
+        // ✅ HTMLから呼び出せるようにする
+        window.copyText = copyText;
+
+
+
         const mainCodeHTML = `
             <div class="profile-container">
                 <div class="profile-container_header">
@@ -239,32 +276,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-async function copyText() {
-    // APIからBearer Tokenを取得
-    try {
-        const response = await fetch('http://210.101.236.158:8081/api/message', {
-            method: 'GET',
-            headers: {
-                'Authorization': 'Bearer YOUR_ACCESS_TOKEN', 
-            }
-        });
 
-        if (!response.ok) {
-            throw new Error('APIリクエストが失敗しました');
-        }
-
-        const data = await response.json();
-        const token = data.token; 
-        let textarea = document.createElement("textarea");
-        textarea.value = token; 
-        document.body.appendChild(textarea);
-        textarea.select();
-        document.execCommand("copy");
-        document.body.removeChild(textarea);
-
-        alert("복사 : 정보코드");
-    } catch (error) {
-        console.error('トークンのコピー中にエラーが発生しました:', error);
-    }
-}
 
