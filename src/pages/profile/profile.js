@@ -32,9 +32,6 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     
-        // ✅ HTMLから呼び出せるようにする
-        window.copyText = copyText;
-
 
 
         const mainCodeHTML = `
