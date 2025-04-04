@@ -414,7 +414,7 @@ h2 {
 .mem-img {
     display: flex;
     height: 72PX;
-    aspect-ratio: 1 / 1; 
+    width: 72px;
     /* position: relative; */
 }
 
@@ -422,7 +422,7 @@ h2 {
     transition: filter 0.3s ease-in-out; /* フィルターにアニメーションをつける */
     border-radius: 50%;
     height: 72PX;
-    aspect-ratio: 1 / 1; 
+    width: 72px;
     display: block; /* 余計な隙間をなくす */
 }
 
