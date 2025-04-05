@@ -1,39 +1,5 @@
-
-
-
 document.addEventListener('DOMContentLoaded', function () {
     try {
-        async function copyText() {
-            try {
-                const response = await fetch('http://210.101.236.158:8081/api/message', {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': 'Bearer YOUR_ACCESS_TOKEN', 
-                    }
-                });
-    
-                if (!response.ok) {
-                    throw new Error('APIリクエストが失敗しました');
-                }
-    
-                const data = await response.json();
-                const token = data.token;
-    
-                let textarea = document.createElement("textarea");
-                textarea.value = token;
-                document.body.appendChild(textarea);
-                textarea.select();
-                document.execCommand("copy");
-                document.body.removeChild(textarea);
-    
-                alert("복사 : 정보코드");
-            } catch (error) {
-                console.error('トークンのコピー中にエラーが発生しました:', error);
-            }
-        }
-    
-
-
         const mainCodeHTML = `
             <div class="profile-container">
                 <div class="profile-container_header">
@@ -89,15 +55,15 @@ document.addEventListener('DOMContentLoaded', function () {
                                     <div class="torisetu_batsu">
                                         <i class="fa-solid fa-xmark fa-lg" style="color: #f1a7a0;"></i>
                                     </div>
-                                    <div class="token_copy">
+                                    <div class="token_copy" onclick="copyToken()">
                                         <div class="tk_cp">
-                                            <div class="title_line_logo"><img src="https://img.icons8.com/clouds/100/line-me.png" alt="line-me"/></div>
+                                            <div class="title_line_logo"><img width="500" height="500" src="https://img.icons8.com/clouds/500/line-me.png" alt="line-me"/></div>
                                             <div class="title_line_txt" id="line-toggle"><h4>LINE 연결방법</h4></div>
                                             <div class="line_list">
                                                 <ol>
                                                     <li>
                                                         아래 정보코드을 복사한다!!
-                                                        <div class="token_copy" onclick="copyText()">
+                                                        <div class="token_copy">
                                                             <div class="token_copy_txt" >
                                                                 <p id="copyTarget">복사</p>
                                                             </div>
@@ -251,7 +217,32 @@ document.addEventListener('DOMContentLoaded', function () {
                     menu.style.display = 'none';
                 }, 300); // 非表示にするまでの時間を設定
             }
+            setTimeout(() => {
+                location.reload();
+            }, 500);
+
         });
+
+        window.copyToken = async function () {
+            try {
+                const response = await fetch("https://bannote.org/api/message");
+                if (!response.ok) throw new Error("サーバーエラー");
+        
+                const token = await response.text(); // ← JSONなら .json() に変えてね！
+                
+                // トークンをコピー
+                await navigator.clipboard.writeText(token);
+        
+                // コピー完了の表示
+                document.getElementById("copyTarget").innerText = "복사 완료!";
+            } catch (err) {
+                console.error("トークン取得失敗:", err);
+                document.getElementById("copyTarget").innerText = "실패했어요ㅠㅠ";
+            }
+        };
+        
+        
+
 
         document.getElementById("logout-text").addEventListener("click", function () {
             // 確認ダイアログを表示
@@ -270,8 +261,4 @@ document.addEventListener('DOMContentLoaded', function () {
         console.error('Error loading profile HTML:', error);
     }
 });
-
-
-
-
 
