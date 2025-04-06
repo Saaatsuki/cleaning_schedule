@@ -225,24 +225,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
         window.copyToken = async function () {
             try {
-                const response = await fetch("https://bannote.org/api/message");
-                if (!response.ok) throw new Error("サーバーエラー");
+                // セッションストレージからトークンを取得（キー名は "token"）
+                const myToken = sessionStorage.getItem("token");
+                if (!myToken) throw new Error("セッションストレージにトークンが見つかりません");
         
-                const token = await response.text(); // ← JSONなら .json() に変えてね！
-                
-                // トークンをコピー
+                // Bearer 認証付きでリクエスト送信
+                const response = await fetch("https://bannote.org/api/message", {
+                    method: "GET",
+                    headers: {
+                        "Authorization": `Bearer ${myToken}`
+                    }
+                });
+        
+                if (!response.ok) throw new Error("APIからのレスポンスが不正です");
+        
+                const token = await response.text(); // JSONなら response.json()
+        
+                // トークンをクリップボードにコピー
                 await navigator.clipboard.writeText(token);
         
-                // コピー完了の表示
+                // 成功メッセージ表示
                 document.getElementById("copyTarget").innerText = "복사 완료!";
             } catch (err) {
                 console.error("トークン取得失敗:", err);
-                document.getElementById("copyTarget").innerText = "실패했어요ㅠㅠ";
+                document.getElementById("copyTarget").innerText = "복사 실패";
             }
         };
         
-        
-
+    
 
         document.getElementById("logout-text").addEventListener("click", function () {
             // 確認ダイアログを表示
