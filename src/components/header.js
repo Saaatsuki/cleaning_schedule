@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // ① ヘッダーの内容を動的に作成
         const headerHTML = `
             <header>
-                <div class="profile-img">
+                <div class="profile-img" id="profileLink">
                     <img src="https://img.icons8.com/color/96/test-account.png" alt="test-account"/>
                 </div>
                 <div class="Profole-name" onclick="showMemberScroll()">
@@ -58,6 +58,11 @@ document.addEventListener('DOMContentLoaded', function () {
         // `body` に追加
         document.body.insertAdjacentHTML('afterbegin', headerHTML);
         document.body.insertAdjacentHTML('beforeend', menuHTML);
+
+        document.getElementById("profileLink").addEventListener("click", function() {
+            window.location.href = "https://bannote.org/src/pages/profile/profile.html";
+        });
+
 
         // メニュー開閉処理
         const menuLogo = document.querySelector('.menu-logo');
