@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const mainCodeHTML = `
             <div class="profile-container">
                 <div class="profile-container_header">
-                    <img width="48" height="48" src="https://img.icons8.com/sf-regular/48/FFFFFF/admin-settings-male.png" alt="admin-settings-male"/>
+                    <img width="48" height="48" src="https://img.icons8.com/fluency-systems-regular/96/FFFFFF/edit-administrator.png" alt="admin-settings-male"/>
                     <h2>프로필 설정</h2>
                 </div>
                 <div class="profile-container_box">

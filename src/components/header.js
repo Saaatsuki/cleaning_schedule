@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             <div class="menu-ti">HOME</div>
                         </div>
                         <div class="menu" data-link=" ../profile/profile.html">
-                            <div class="menu-li-logo"><img src="https://img.icons8.com/small/16/FFFFFF/admin-settings-male.png" alt="broom" /></div>
+                            <div class="menu-li-logo"><img src="https://img.icons8.com/fluency-systems-regular/96/FFFFFF/edit-administrator.png" alt="broom" /></div>
                             <div class="menu-ti">프로필 설정</div>
                         </div>            
                         <div class="menu" data-link=" ../clean/clean.html">

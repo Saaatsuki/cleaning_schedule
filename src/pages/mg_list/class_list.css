@@ -1,0 +1,93 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    padding: 2%;
+    box-sizing: border-box;
+}
+
+.class_list_box {
+    width: 100%;
+    height: 85vh;
+    max-width: 900px; /* 最大横幅を設定 */
+    background-color: #172C66;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+.cl_box_header {
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.cl_box_header img {
+    height: 28px;
+    width: 28px;
+}
+
+.cl_box_main {
+    background-color: white;
+    border-radius: 7px;
+    padding: 16px;
+    color: #172C66;
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.class_lists {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.class_mem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.mem_image img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.mem_infomation {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9em;
+    min-width: 100px;
+    flex: 1;
+}
+
+.mem_info_name h4,
+.mem_info_schoolNumber h6 {
+    margin: 0;
+    font-size: 1em;
+}
+
+.clean_infomation img,
+.profile_details img,
+.position img {
+    width: 28px;
+    height: 28px;
+}
