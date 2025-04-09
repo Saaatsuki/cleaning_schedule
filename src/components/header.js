@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             <div class="menu-ti">청소 일정</div>
                         </div>
                         <div class="menu" data-link=" ../graph/graph.html">
-                            <div class="menu-li-logo"><img src="https://img.icons8.com/forma-light-filled-sharp/24/FFFFFF/combo-chart.png" alt="broom" /></div>
+                            <div class="menu-li-logo"><img src="https://img.icons8.com/fluency-systems-filled/100/FFFFFF/combo-chart.png" alt="broom" /></div>
                             <div class="menu-ti">학교 시간 기록</div>
                         </div>
                         <div class="menu" data-link=" ../manager/manager.html">

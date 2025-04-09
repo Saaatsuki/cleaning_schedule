@@ -1,29 +1,28 @@
 body {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
     margin: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
 }
 
 main {
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100%;
-    padding: 2%;
-    box-sizing: border-box;
+    /* align-items: center; */
 }
 
 .class_list_box {
-    width: 100%;
-    height: 85vh;
-    max-width: 900px; /* 最大横幅を設定 */
+    width: 94%;
+    height: 83%;
+    margin: 3%;
     background-color: #172C66;
     border-radius: 10px;
     padding: 16px;
-    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
 
 .cl_box_header {
@@ -45,8 +44,10 @@ main {
     padding: 16px;
     color: #172C66;
     box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.1);
-    overflow-y: auto;
     box-sizing: border-box;
+    height: 85%; /* ←ここがポイント */
+    overflow-y: auto; /* ←ここもポイント */
+    flex-grow: 1;
 }
 
 .class_lists {
@@ -60,7 +61,7 @@ main {
     align-items: center;
     justify-content: space-between;
     gap: 10px;
-    padding: 10px;
+    padding: 3px;
     border-bottom: 1px solid #ccc;
     box-sizing: border-box;
 }
@@ -75,14 +76,19 @@ main {
     display: flex;
     flex-direction: column;
     font-size: 0.9em;
-    min-width: 100px;
+    /* min-width: 10px; */
+    margin-right: 0.3rem;
     flex: 1;
 }
 
-.mem_info_name h4,
-.mem_info_schoolNumber h6 {
+.mem_info_name h4 {
     margin: 0;
     font-size: 1em;
+}
+
+.mem_info_schoolNumber h6 {
+    margin: 0;
+    font-size: 0.7em;
 }
 
 .clean_infomation img,
