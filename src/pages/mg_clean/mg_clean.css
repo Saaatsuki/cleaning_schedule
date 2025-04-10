@@ -69,7 +69,7 @@ input::placeholder {
 
 .icon img {
     width: 30px;
-    aspect-ratio: 1/1;
+    height: 30px;
 }
 
 .icon button:hover {
@@ -239,6 +239,8 @@ h2 {
 
 /* ボックスデザイン */
 .box {
+    position: relative;
+    z-index: auto;
     margin-top: 20px;
     background-color: #172C66;
     transition: background-color 2s ease;
@@ -415,7 +417,7 @@ h2 {
 .mem-img {
     display: flex;
     height: 72PX;
-    aspect-ratio: 1 / 1; 
+    width: 72px;
     /* position: relative; */
 }
 
@@ -423,7 +425,7 @@ h2 {
     transition: filter 0.3s ease-in-out; /* フィルターにアニメーションをつける */
     border-radius: 50%;
     height: 72PX;
-    aspect-ratio: 1 / 1; 
+    width: 72px;
     display: block; /* 余計な隙間をなくす */
 }
 
@@ -599,7 +601,7 @@ h6 {
 .member-info img {
     margin-top: 15px;
     width: 80px;
-    aspect-ratio: 1/1;
+    height: 80px;
     border-radius: 50px;
 
 }
