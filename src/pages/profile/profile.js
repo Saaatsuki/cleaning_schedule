@@ -240,7 +240,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!response.ok) throw new Error("APIからのレスポンスが不正です");
 
-        const token = await response.text(); // JSONなら response.json()
+        const data = await response.json();
+        const token = data.data;
 
         // トークンをクリップボードにコピー
         await navigator.clipboard.writeText(token);

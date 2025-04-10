@@ -502,6 +502,8 @@ document.addEventListener("DOMContentLoaded", function () {
             member.profileImage = "https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-hellokitty.png";
           };
           img.src = member.profileImage;
+        } else {
+          member.profileImage = "https://bannote.org" + member.profileImage;
         }
       });
     });
