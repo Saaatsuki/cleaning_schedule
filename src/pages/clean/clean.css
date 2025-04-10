@@ -236,6 +236,7 @@ h2 {
 
 /* ボックスデザイン */
 .box {
+    position: relative;
     margin-top: 20px;
     background-color: #172C66;
     transition: background-color 2s ease;
