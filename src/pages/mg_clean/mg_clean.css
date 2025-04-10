@@ -726,8 +726,8 @@ h6 {
     height: 75px;
     background-color: #E8CB1F;
     border-radius: 50px;
-    height: 75px;
-    aspect-ratio: 1/1;
+    width: 75px;
+
 }
 
 /* ボタン */

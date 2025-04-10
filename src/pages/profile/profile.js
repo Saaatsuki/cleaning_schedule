@@ -121,12 +121,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const imageUpload = document.getElementById("image-upload");
         const profilePreview = document.getElementById("profile-preview");
         const uploadTrigger = document.getElementById("upload-trigger");
-
+    
+        // ボタンクリックでファイル選択を開く
         if (uploadTrigger && imageUpload) {
             uploadTrigger.addEventListener("click", function () {
                 imageUpload.click();
             });
-
+    
             imageUpload.addEventListener("change", function (event) {
                 const file = event.target.files[0];
                 if (file) {
@@ -136,7 +137,9 @@ document.addEventListener('DOMContentLoaded', function () {
                         sessionStorage.setItem("profileImage", e.target.result);
                     };
                     reader.readAsDataURL(file);
-                    location.reload();
+                    setTimeout(() => {
+                        location.reload();
+                    }, 100); 
                 }
             });
         } else {
