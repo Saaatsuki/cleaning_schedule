@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
   /////box表示
   async function fetchData() {
     try {
-      const response = await fetch("http://210.101.236.158:8081/api/clean/all?classId=1");
+      const response = await fetch("https://bannote.org/api/clean/all?classId=1");
       const data = await response.json();
       console.log("取得したデータ:", data.data);
 
@@ -367,7 +367,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
               }
 
-              const apiUrl = `http://210.101.236.158:8081/api/clean/manager/groups/${groupId}/members`;
+              const apiUrl = `https://bannote.org/api/clean/manager/groups/${groupId}/members`;
               const token = sessionStorage.getItem("token");
 
               fetch(apiUrl, {
@@ -424,7 +424,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
 
           // APIリクエスト
-          const apiUrl = `http://210.101.236.158:8081/api/clean/manager/groups/${groupId}/members`;
+          const apiUrl = `https://bannote.org/api/clean/manager/groups/${groupId}/members`;
           const requestData = {
             studentNumber: studentNumber,
           };

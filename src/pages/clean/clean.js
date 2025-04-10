@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
   /////box表示
   async function fetchData() {
     try {
-      const response = await fetch("http://210.101.236.158:8081/api/clean/all?classId=1");
+      const response = await fetch("https://bannote.org/api/clean/all?classId=1");
       const data = await response.json();
       console.log("取得したデータ:", data.data);
 
