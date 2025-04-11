@@ -216,7 +216,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("logout-text").addEventListener("click", function () {
       if (confirm("로그아웃하셔도 괜찮으시겠어요?")) {
         sessionStorage.removeItem("token");
-        location.href = "/login"; // ログイン画面へ遷移（必要に応じて調整）
+        location.href = "../login/login.html"; 
       }
     });
   } catch (error) {
