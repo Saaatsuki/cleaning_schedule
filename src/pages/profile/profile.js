@@ -111,20 +111,19 @@ document.addEventListener("DOMContentLoaded", function () {
     // ======================== イベントバインド ========================
 
     const profileImg = document.getElementById("profile-preview");
-    const imageInput = document.getElementById("image-click-area");
-    const imageClickArea = document.getElementById("image-click-area");
-
-
+    const imageInput = document.getElementById("image-upload"); 
+    const imageClickArea = document.getElementById("upload-trigger");
+    
     imageClickArea.addEventListener("click", () => {
       imageInput.click();
       console.log("Image input click!!");
     });
+    
 
     imageInput.addEventListener("change", async () => {
       const file = imageInput.files[0];
       if (!file) return;
     
-      // ローカルプレビューを即座に表示
       profileImg.src = URL.createObjectURL(file);
     
       const formData = new FormData();
@@ -132,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
       try {
         const response = await fetch("http://210.101.236.158:8081/api/members/me/profile-image", {
-          method: "POST",
+          method: "PUT",
           body: formData,
         });
     
