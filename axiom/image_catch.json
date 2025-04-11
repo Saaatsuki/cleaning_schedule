@@ -1,0 +1,5 @@
+{
+    "success": true,
+    "message": "프로필 이미지 업데이트 성공",
+    "data": "images/profile/example.png"
+}

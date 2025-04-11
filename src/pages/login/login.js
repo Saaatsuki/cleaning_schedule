@@ -1,16 +1,12 @@
 // Google APIのライブラリを読み込む
 function loadGoogleAuth() {
-<<<<<<< HEAD
+
     google.accounts.id.initialize({
         client_id: "441788767782-183ndebp7adg7dsigjqofpj56bb7c3mp.apps.googleusercontent.com",
         callback: handleCredentialResponse
     });
-=======
-  google.accounts.id.initialize({
-    client_id: "441788767782-183ndebp7adg7dsigjqofpj56bb7c3mp.apps.googleusercontent.com", // あなたのクライアントIDに変更
-    callback: handleCredentialResponse,
-  });
->>>>>>> 414e6dcd90829bd7fb3da7a3741865176f57267f
+
+
 
   google.accounts.id.renderButton(document.getElementById("google-login-btn"), {
     theme: "filled_black",
