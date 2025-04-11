@@ -113,34 +113,44 @@ document.addEventListener("DOMContentLoaded", function () {
     const profileImg = document.getElementById("profile-preview");
     const imageInput = document.getElementById("image-upload"); 
     const imageClickArea = document.getElementById("upload-trigger");
-    
+
     imageClickArea.addEventListener("click", () => {
       imageInput.click();
       console.log("Image input click!!");
     });
-    
 
     imageInput.addEventListener("change", async () => {
       const file = imageInput.files[0];
       if (!file) return;
-    
-      profileImg.src = URL.createObjectURL(file);
-    
+
+      // 一時的に表示するURL
+      const tempURL = URL.createObjectURL(file);
+      profileImg.src = tempURL;
+
+      // FileReaderでBase64変換し、sessionStorageに保存
+      const reader = new FileReader();
+      reader.onload = () => {
+        sessionStorage.setItem("profileImage", reader.result); // Base64形式
+      };
+      reader.readAsDataURL(file);
+
       const formData = new FormData();
       formData.append("image", file);
-    
+
       try {
         const response = await fetch("http://210.101.236.158:8081/api/members/me/profile-image", {
           method: "PUT",
           body: formData,
         });
-    
+
         const result = await response.json();
-    
+
         if (result.success) {
-          // サーバーから画像URLが返ってくる場合はこちらを上書き
+          // サーバーが画像URLを返してくる場合
           if (typeof result.data === "string") {
-            profileImg.src = "https://bannote.org/" + result.data;
+            const imageURL = "https://bannote.org/" + result.data;
+            profileImg.src = imageURL;
+            sessionStorage.setItem("profileImage", imageURL); // URLで上書き
           }
         } else {
           alert("画像のアップロードに失敗しました: " + result.message);
@@ -150,6 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
         alert("画像のアップロードに失敗しました。");
       }
     });
+
     
 
     document.getElementById("copy-email").addEventListener("click", function () {
