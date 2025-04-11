@@ -12,7 +12,7 @@ html, body {
   text-align: center;
   overscroll-behavior: none; 
   background-image: url("ta_li.png");
-  background-size: 95%;
+  background-size: 200%;
 
   /* background-image: linear-gradient(to right, red, blue); */
   /* background-image: radial-gradient(circle, red, blue); */
@@ -20,13 +20,20 @@ html, body {
 
 }
 
+
+
 main {
   display: flex;
+  flex-direction: column;
   justify-content: center;  
   align-items: center; 
   width: 100%;
   height: 100%;
 }
+
+/* .website_logo img {
+  width: 150px;
+} */
 
 @keyframes moveBirdInside {
   0% {
@@ -62,9 +69,9 @@ main {
   z-index: 2;
 }
 
-.login-container img {
-  width: 40%;
-}
+/* .login-container img {
+  width: 80%;
+} */
 
 h1 {
   font-size: 22px;
@@ -157,3 +164,85 @@ p {
   justify-content: center;
 }
 
+
+.website_logo {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+  animation: zoomIn 1s ease-in-out forwards;
+  /* animation: glow 1s ease-in-out forwards; */
+  opacity: 0;
+  padding: 3%;
+  
+}
+
+.website_logo img {
+  width: 180px;
+  height: auto;
+  animation: glowingColors 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px #e8cb1f)
+          drop-shadow(0 0 20px #e8cb1f)
+          drop-shadow(0 0 30px #e8cb1f);
+  transition: filter 0.3s ease-in-out;
+}
+
+
+/* @keyframes glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px rgba(255, 223, 0, 0.3))
+            drop-shadow(0 0 10px rgba(255, 223, 0, 0.2));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(255, 223, 0, 0.6))
+            drop-shadow(0 0 40px rgba(255, 223, 0, 0.4))
+            drop-shadow(0 0 60px rgba(255, 223, 0, 0.2));
+  }
+} */
+
+@keyframes glowingColors {
+  0% {
+    filter: drop-shadow(0 0 10px #e8cb1f)
+            drop-shadow(0 0 20px #e8cb1f)
+            drop-shadow(0 0 30px #e8cb1f);
+  }
+  33% {
+    filter: drop-shadow(0 0 10px #f582ae)
+            drop-shadow(0 0 20px #f582ae)
+            drop-shadow(0 0 30px #f582ae);
+  }
+  66% {
+    filter: drop-shadow(0 0 10px #8bd3dd)
+            drop-shadow(0 0 20px #8bd3dd)
+            drop-shadow(0 0 30px #8bd3dd);
+  }
+  100% {
+    filter: drop-shadow(0 0 10px #e8cb1f)
+            drop-shadow(0 0 20px #e8cb1f)
+            drop-shadow(0 0 30px #e8cb1f);
+  }
+}
+
+
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* @keyframes glow {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.7), 0 0 60px rgba(255, 215, 0, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3), 0 0 20px rgba(255, 215, 0, 0.2);
+  }
+} */
