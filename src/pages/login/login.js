@@ -1,7 +1,7 @@
 // Google APIのライブラリを読み込む
 function loadGoogleAuth() {
     google.accounts.id.initialize({
-        client_id: "441788767782-183ndebp7adg7dsigjqofpj56bb7c3mp.apps.googleusercontent.com",  // あなたのクライアントIDに変更
+        client_id: "441788767782-183ndebp7adg7dsigjqofpj56bb7c3mp.apps.googleusercontent.com",
         callback: handleCredentialResponse
     });
 
