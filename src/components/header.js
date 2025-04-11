@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="menu-content">
                     <div class="menu-list">
                         <div class="menu" data-link=" ../main/main.html">
-                            <div class="menu-li-logo"><img width="64" height="64" src="https://img.icons8.com/sf-black-filled/64/FFFFFF/home.png" alt="home"/></div>
+                            <div class="menu-li-logo"><img width="70" height="70" src="https://img.icons8.com/sf-black-filled/64/FFFFFF/home.png" alt="home"/></div>
                             <div class="menu-ti">HOME</div>
                         </div>
                         <div class="menu" data-link=" ../profile/profile.html">
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             <div class="menu-ti">프로필 설정</div>
                         </div>            
                         <div class="menu" data-link=" ../clean/clean.html">
-                            <div class="menu-li-logo"><img src="https://img.icons8.com/ios/50/FFFFFF/broom.png" alt="broom" /></div>
+                            <div class="menu-li-logo"><img src="https://img.icons8.com/ios-filled/100/FFFFFF/broom.png" alt="broom" /></div>
                             <div class="menu-ti">청소 일정</div>
                         </div>
                         <div class="menu" data-link=" ../graph/graph.html">
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             <div class="menu-ti">학교 시간 기록</div>
                         </div>
                         <div class="menu" data-link=" ../manager/manager.html">
-                            <div class="menu-li-logo"><img width="24" height="24" src="https://img.icons8.com/material-two-tone/24/FFFFFF/business-network.png" alt="business-network"/></div>
+                            <div class="menu-li-logo"><img width="24" height="24" src="https://img.icons8.com/ios-glyphs/100/FFFFFF/business-network.png" alt="business-network"/></div>
                             <div class="menu-ti">관리사</div>
                         </div>
                     </div>
