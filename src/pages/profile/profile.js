@@ -18,7 +18,9 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>
           </div>
           <div class="profile-section">
-            <div class="pro_name"><h3>${sessionStorage.getItem("familyName") || "GUEST"} ${sessionStorage.getItem("givenName") || ""}</h3></div>
+            <div class="pro_name"><h3>${sessionStorage.getItem("familyName") || "GUEST"} ${
+      sessionStorage.getItem("givenName") || ""
+    }</h3></div>
           </div>
           <div class="lg_box">
             <div class="profile-section lg">
@@ -111,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // ======================== イベントバインド ========================
 
     const profileImg = document.getElementById("profile-preview");
-    const imageInput = document.getElementById("image-upload"); 
+    const imageInput = document.getElementById("image-upload");
     const imageClickArea = document.getElementById("upload-trigger");
 
     imageClickArea.addEventListener("click", () => {
@@ -138,9 +140,12 @@ document.addEventListener("DOMContentLoaded", function () {
       formData.append("image", file);
 
       try {
-        const response = await fetch("http://210.101.236.158:8081/api/members/me/profile-image", {
+        const response = await fetch("https://bannote.org/api/members/me/profile-image", {
           method: "PUT",
           body: formData,
+          headers: {
+            Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+          },
         });
 
         const result = await response.json();
@@ -160,8 +165,6 @@ document.addEventListener("DOMContentLoaded", function () {
         alert("画像のアップロードに失敗しました。");
       }
     });
-
-    
 
     document.getElementById("copy-email").addEventListener("click", function () {
       const emailText = document.getElementById("email-text").innerText;
@@ -227,7 +230,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("logout-text").addEventListener("click", function () {
       if (confirm("로그아웃하셔도 괜찮으시겠어요?")) {
         sessionStorage.removeItem("token");
-        location.href = "../login/login.html"; 
+        location.href = "../login/login.html";
       }
     });
   } catch (error) {
