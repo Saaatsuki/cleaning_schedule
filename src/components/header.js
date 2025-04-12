@@ -1,15 +1,18 @@
-
-document.addEventListener('DOMContentLoaded', function () { 
-    try {
-        // ① ヘッダーの内容を動的に作成
-        const headerHTML = `
+document.addEventListener("DOMContentLoaded", function () {
+  try {
+    // ① ヘッダーの内容を動的に作成
+    const headerHTML = `
             <header>
                 <div class="profile-img" id="profileLink">
                     <img src="https://img.icons8.com/color/96/test-account.png" alt="test-account"/>
                 </div>
                 <div class="Profole-name" onclick="showMemberScroll()">
-                    <div class="pro-name"><h3>${sessionStorage.getItem('familyName') || 'GUEST'} ${sessionStorage.getItem('givenName') || ''}</h3></div>
-                    <div class="pro-school_number"><h5>${sessionStorage.getItem('studentNumber') || 'Guest Student'}</h5></div>
+                    <div class="pro-name"><h3>${sessionStorage.getItem("familyName") || "GUEST"} ${
+      sessionStorage.getItem("givenName") || ""
+    }</h3></div>
+                    <div class="pro-school_number"><h5>${
+                      sessionStorage.getItem("studentNumber") || "Guest Student"
+                    }</h5></div>
                 </div>
                 <div class="menu-logo">
                     <button class="menu-lo" onclick="this.classList.toggle('opened');this.setAttribute('aria-expanded', this.classList.contains('opened'))" aria-label="Main Menu">
@@ -23,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
             </header>
         `;
 
-        const menuHTML = `
+    const menuHTML = `
             <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
 
             <div class="menu-container">
@@ -55,82 +58,76 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
         `;
 
-        // `body` に追加
-        document.body.insertAdjacentHTML('afterbegin', headerHTML);
-        document.body.insertAdjacentHTML('beforeend', menuHTML);
+    // `body` に追加
+    document.body.insertAdjacentHTML("afterbegin", headerHTML);
+    document.body.insertAdjacentHTML("beforeend", menuHTML);
 
-        document.getElementById("profileLink").addEventListener("click", function() {
-            window.location.href = "https://bannote.org/src/pages/profile/profile.html";
-        });
+    document.getElementById("profileLink").addEventListener("click", function () {
+      window.location.href = "https://bannote.org/src/pages/profile/profile.html";
+    });
 
+    // メニュー開閉処理
+    const menuLogo = document.querySelector(".menu-logo");
+    const menuContent = document.querySelector(".menu-content");
 
-        // メニュー開閉処理
-        const menuLogo = document.querySelector('.menu-logo');
-        const menuContent = document.querySelector('.menu-content');
+    menuContent.style.height = "0px";
+    menuContent.style.overflow = "hidden";
+    menuContent.style.transition = "height 0.3s ease-in-out";
 
-        menuContent.style.height = '0px';
-        menuContent.style.overflow = 'hidden';
-        menuContent.style.transition = 'height 0.3s ease-in-out';
+    menuLogo.addEventListener("click", function () {
+      if (menuContent.style.height === "0px" || menuContent.style.height === "") {
+        menuContent.style.height = menuContent.scrollHeight + "px"; // メニューを表示
+      } else {
+        menuContent.style.height = "0px"; // メニューを非表示
+      }
+    });
 
-        menuLogo.addEventListener('click', function () {
-            if (menuContent.style.height === '0px' || menuContent.style.height === '') {
-                menuContent.style.height = menuContent.scrollHeight + 'px'; // メニューを表示
-            } else {
-                menuContent.style.height = '0px'; // メニューを非表示
-            }
-        });
-
-        // メニュー項目のクリックイベント処理
-        const menuItems = document.querySelectorAll('.menu');
-        menuItems.forEach(item => {
-            item.addEventListener('click', function() {
-                const link = item.getAttribute('data-link');
-                if (link) {
-                    window.location.href = link; // リダイレクト
-                }
-            });
-        });
-
-        // ② セッションストレージから情報を取得
-        const familyName = sessionStorage.getItem('familyName');
-        const givenName = sessionStorage.getItem('givenName');
-        const studentNumber = sessionStorage.getItem('studentNumber');
-        const profileImage = sessionStorage.getItem('profileImage');
-
-        if (!givenName || !familyName || !studentNumber) {
-            console.error("セッションから情報を取得できませんでした。");
-            return;
+    // メニュー項目のクリックイベント処理
+    const menuItems = document.querySelectorAll(".menu");
+    menuItems.forEach((item) => {
+      item.addEventListener("click", function () {
+        const link = item.getAttribute("data-link");
+        if (link) {
+          window.location.href = link; // リダイレクト
         }
-        
-        // データが存在しない場合、デフォルトの名前を設定
-        if (!familyName || !givenName) {
-            sessionStorage.setItem('familyName', '홍');  
-            sessionStorage.setItem('givenName', '길동동');  
-        }
+      });
+    });
 
-        // ③ ヘッダー内のプロファイル情報を更新
-        const profileNameDiv = document.querySelector('.Profole-name');
-        const profileImageDiv = document.querySelector('.profile-img');
+    // ② セッションストレージから情報を取得
+    const familyName = sessionStorage.getItem("familyName");
+    const givenName = sessionStorage.getItem("givenName");
+    const studentNumber = sessionStorage.getItem("studentNumber");
+    const profileImage = sessionStorage.getItem("profileImage");
 
-        // 名前を動的に表示
-        profileNameDiv.querySelector('.pro-name h3').textContent = `${familyName} ${givenName}`;
-        profileNameDiv.querySelector('.pro-school_number h5').textContent = studentNumber;
-
-        // プロフィール画像を設定（profileImageがnull, undefined, false, 空文字のいずれかの場合はデフォルト画像を使用）
-        const imgElement = document.createElement('img');
-        if (!profileImage || profileImage === "false" || profileImage.trim() === "") {
-            imgElement.src = 'https://img.icons8.com/color/96/test-account.png'; // デフォルト画像
-        } else {
-            imgElement.src = profileImage;
-        }
-        profileImageDiv.innerHTML = ''; 
-        profileImageDiv.appendChild(imgElement);
-
-
-
-        
-
-    } catch (error) {
-        console.error("データ取得時のエラー:", error);
+    if (!givenName || !familyName || !studentNumber) {
+      console.error("セッションから情報を取得できませんでした。");
+      return;
     }
+
+    // データが存在しない場合、デフォルトの名前を設定
+    if (!familyName || !givenName) {
+      sessionStorage.setItem("familyName", "홍");
+      sessionStorage.setItem("givenName", "길동동");
+    }
+
+    // ③ ヘッダー内のプロファイル情報を更新
+    const profileNameDiv = document.querySelector(".Profole-name");
+    const profileImageDiv = document.querySelector(".profile-img");
+
+    // 名前を動的に表示
+    profileNameDiv.querySelector(".pro-name h3").textContent = `${familyName} ${givenName}`;
+    profileNameDiv.querySelector(".pro-school_number h5").textContent = studentNumber;
+
+    // プロフィール画像を設定（profileImageがnull, undefined, false, 空文字のいずれかの場合はデフォルト画像を使用）
+    const imgElement = document.createElement("img");
+    if (!profileImage || profileImage === "false" || profileImage.trim() === "") {
+      imgElement.src = "https://img.icons8.com/color/96/test-account.png"; // デフォルト画像
+    } else {
+      imgElement.src = "https://bannote.org" + profileImage;
+    }
+    profileImageDiv.innerHTML = "";
+    profileImageDiv.appendChild(imgElement);
+  } catch (error) {
+    console.error("データ取得時のエラー:", error);
+  }
 });
