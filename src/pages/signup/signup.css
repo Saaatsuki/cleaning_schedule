@@ -6,7 +6,7 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #FEF6E4;
+    background-color: #fef6e4;
     font-family: 'Noto Sans KR', sans-serif;
     text-align: center;
     overscroll-behavior: none;
