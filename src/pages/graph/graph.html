@@ -11,7 +11,7 @@
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
+
 
 </head>
 <body>
@@ -72,11 +72,29 @@
                 </div>
                 <div class="graph_header_data">
                     <button class="prev-day" onclick="changeday(-1)">❮</button>
-                    <h6>2025년 3월 25일 화요일</h6>
+                    <h6 id="ranking-date">2025년 3월 25일 화요일</h6>
                     <button class="next-day" onclick="changeday(1)">❯</button>
                 </div>
             </div>
-            <div class="graph_main"></div>
+            <div class="graph_main">
+                <div class="class_Ranking">
+                    <div class="class_ranking_mem">
+                        <div class="class_rank">
+                            <p>1</p>
+                        </div>
+                        <div class="rank_img">
+                            <img src="https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-mysweetpiano.png" />
+                        </div>
+                        <div class="rank_name">
+                            <p>마이 스위트 피아노</p>
+                        </div>
+                        <div class="rank_time">
+                            <p>12시간 45분</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </main>
     <script src="../../components/header.js"></script>

@@ -1,0 +1,653 @@
+{
+    "ranking": {
+      "2025-04-11": [
+        {
+          "studentNumber": "2423039",
+          "familyName": "케로케러",
+          "firstName": "케롶피",
+          "image": "https://www.sanrio.co.jp/wp-content/uploads/2022/06/mv-keroppi.png",
+          "dailyTimeSche": {
+            "schoolYes": "9시간 31분",
+            "schoolNo": "1시간 48분",
+            "foodTime": "1시간 30분",
+            "library": "4시간 27분"
+          },
+          "studyTime": "13시간 58분"
+        },
+        {
+          "studentNumber": "2423065",
+          "familyName": "키키",
+          "firstName": "라라라",
+          "image":"https://www.sanrio.co.jp/wp-content/themes/sanrio2022/common/images/goods/h1_char.png",          "dailyTimeSche": {
+            "schoolYes": "10시간 51분",
+            "schoolNo": "1시간 44분",
+            "foodTime": "1시간 31분",
+            "library": "2시간 56분"
+          },
+          "studyTime": "13시간 47분"
+        },
+        {
+          "studentNumber": "2423060",
+          "familyName": "포차코",
+          "image":"https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-pochacco.png",
+          "firstName": "",
+          "dailyTimeSche": {
+            "schoolYes": "6시간 48분",
+            "schoolNo": "2시간 52분",
+            "foodTime": "1시간 10분",
+            "library": "4시간 45분"
+          },
+          "studyTime": "11시간 33분"
+        },
+        {
+          "studentNumber": "2423035",
+          "familyName": "우사하나",
+          "image":"https://www.sanrio.co.jp/wp-content/uploads/2022/06/mv-usahana.png",
+          "firstName": "",
+          "dailyTimeSche": {
+            "schoolYes": "10시간 32분",
+            "schoolNo": "1시간 26분",
+            "foodTime": "0시간 25분",
+            "library": "0시간 53분"
+          },
+          "studyTime": "11시간 25분"
+        },
+        {
+          "studentNumber": "2423034",
+          "familyName": "헬로",
+          "firstName": "월드",
+          "image":"https://www.sanrio.co.jp/wp-content/themes/sanrio2022/common/images/news/h1_char.png",          "dailyTimeSche": {
+            "schoolYes": "10시간 49분",
+            "schoolNo": "1시간 55분",
+            "foodTime": "0시간 21분",
+            "library": "0시간 11분"
+          },
+          "studyTime": "11시간 0분"
+        },
+        {
+          "studentNumber": "2423019",
+          "familyName": "코기",
+          "firstName": "뮤으응",
+          "image":"https://www.sanrio.co.jp/wp-content/themes/sanrio2022/common/images/digital/h1_char01.png",
+          "dailyTimeSche": {
+            "schoolYes": "6시간 17분",
+            "schoolNo": "2시간 9분",
+            "foodTime": "1시간 51분",
+            "library": "4시간 12분"
+          },
+          "studyTime": "10시간 29분"
+        },
+        {
+          "studentNumber": "2423088",
+          "familyName": "쿠로미",
+          "image":"https://www.sanrio.co.jp/wp-content/themes/sanrio2022/common/images/movie/h1_char02.png",
+          "firstName": "",
+          "dailyTimeSche": {
+            "schoolYes": "6시간 24분",
+            "schoolNo": "2시간 48분",
+            "foodTime": "1시간 24분",
+            "library": "2시간 35분"
+          },
+          "studyTime": "8시간 59분"
+        },
+        {
+          "studentNumber": "2423057",
+          "familyName": "시나모롤",
+          "image":"https://www.sanrio.co.jp/wp-content/themes/sanrio2022/common/images/spots/h1_char.png",          "firstName": "",
+          "dailyTimeSche": {
+            "schoolYes": "6시간 50분",
+            "schoolNo": "1시간 15분",
+            "foodTime": "0시간 26분",
+            "library": "1시간 41분"
+          },
+          "studyTime": "8시간 31분"
+        },
+        {
+          "studentNumber": "2423063",
+          "familyName": "마이",
+          "firstName": "스위트 피아노",
+          "image":"https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-mysweetpiano.png",
+          "dailyTimeSche": {
+            "schoolYes": "7시간 12분",
+            "schoolNo": "2시간 41분",
+            "foodTime": "0시간 21분",
+            "library": "1시간 11분"
+          },
+          "studyTime": "8시간 23분"
+        },
+        {
+          "studentNumber": "2423062",
+          "familyName": "밧드",
+          "firstName": "바츠마루",
+          "image":"https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-badtzmaru-1.png",
+          "dailyTimeSche": {
+            "schoolYes": "6시간 22분",
+            "schoolNo": "3시간 38분",
+            "foodTime": "0시간 45분",
+            "library": "1시간 59분"
+          },
+          "studyTime": "8시간 21분"
+        }
+      ],
+      "2025-04-12": [
+        {
+          "studentNumber": "2423019",
+          "familyName": "코기",
+          "firstName": "뮤으응",
+          "image":"https://www.sanrio.co.jp/wp-content/themes/sanrio2022/common/images/digital/h1_char01.png",
+          "dailyTimeSche": {
+            "schoolYes": "10시간 31분",
+            "schoolNo": "1시간 13분",
+            "foodTime": "1시간 18분",
+            "library": "4시간 44분"
+          },
+          "studyTime": "15시간 15분"
+        },
+        {
+          "studentNumber": "2423039",
+          "familyName": "케로케러",
+          "firstName": "케롶피",
+          "image": "https://www.sanrio.co.jp/wp-content/uploads/2022/06/mv-keroppi.png",
+          "dailyTimeSche": {
+            "schoolYes": "7시간 12분",
+            "schoolNo": "3시간 49분",
+            "foodTime": "0시간 45분",
+            "library": "4시간 17분"
+          },
+          "studyTime": "11시간 29분"
+        },
+        {
+          "studentNumber": "2423060",
+          "familyName": "포차코",
+          "image":"https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-pochacco.png",
+          "firstName": "",
+          "dailyTimeSche": {
+            "schoolYes": "8시간 13분",
+            "schoolNo": "1시간 45분",
+            "foodTime": "1시간 12분",
+            "library": "3시간 15분"
+          },
+          "studyTime": "11시간 28분"
+        },
+        {
+          "studentNumber": "2423063",
+          "familyName": "마이",
+          "firstName": "스위트 피아노",
+          "image":"https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-mysweetpiano.png",
+          "dailyTimeSche": {
+            "schoolYes": "7시간 3분",
+            "schoolNo": "1시간 25분",
+            "foodTime": "0시간 37분",
+            "library": "4시간 24분"
+          },
+          "studyTime": "11시간 27분"
+        },
+        {
+          "studentNumber": "2423057",
+          "familyName": "시나모롤",
+          "image":"https://www.sanrio.co.jp/wp-content/themes/sanrio2022/common/images/spots/h1_char.png",          "firstName": "",
+          "dailyTimeSche": {
+            "schoolYes": "7시간 26분",
+            "schoolNo": "2시간 17분",
+            "foodTime": "1시간 37분",
+            "library": "3시간 40분"
+          },
+          "studyTime": "11시간 6분"
+        },
+        {
+          "studentNumber": "2423035",
+          "familyName": "우사하나",
+          "image":"https://www.sanrio.co.jp/wp-content/uploads/2022/06/mv-usahana.png",
+          "firstName": "",
+          "dailyTimeSche": {
+            "schoolYes": "6시간 0분",
+            "schoolNo": "3시간 48분",
+            "foodTime": "1시간 2분",
+            "library": "4시간 51분"
+          },
+          "studyTime": "10시간 51분"
+        },
+        {
+          "studentNumber": "2423062",
+          "familyName": "밧드",
+          "firstName": "바츠마루",
+          "image":"https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-badtzmaru-1.png",
+          "dailyTimeSche": {
+            "schoolYes": "10시간 6분",
+            "schoolNo": "3시간 45분",
+            "foodTime": "1시간 44분",
+            "library": "0시간 44분"
+          },
+          "studyTime": "10시간 50분"
+        },
+        {
+          "studentNumber": "2423065",
+          "familyName": "키키",
+          "firstName": "라라라",
+          "image":"https://www.sanrio.co.jp/wp-content/themes/sanrio2022/common/images/goods/h1_char.png",
+          "dailyTimeSche": {
+            "schoolYes": "7시간 17분",
+            "schoolNo": "2시간 6분",
+            "foodTime": "1시간 0분",
+            "library": "1시간 16분"
+          },
+          "studyTime": "8시간 33분"
+        },
+        {
+          "studentNumber": "2423034",
+          "familyName": "헬로",
+          "firstName": "월드",
+          "image":"https://www.sanrio.co.jp/wp-content/themes/sanrio2022/common/images/news/h1_char.png",          "dailyTimeSche": {
+            "schoolYes": "7시간 11분",
+            "schoolNo": "1시간 48분",
+            "foodTime": "1시간 0분",
+            "library": "0시간 37분"
+          },
+          "studyTime": "7시간 48분"
+        },
+        {
+          "studentNumber": "2423088",
+          "familyName": "쿠로미",
+          "image":"https://www.sanrio.co.jp/wp-content/themes/sanrio2022/common/images/movie/h1_char02.png",
+          "firstName": "",
+          "dailyTimeSche": {
+            "schoolYes": "6시간 29분",
+            "schoolNo": "1시간 31분",
+            "foodTime": "0시간 36분",
+            "library": "0시간 1분"
+          },
+          "studyTime": "6시간 30분"
+        }
+      ],
+      "2025-04-13": [
+        {
+          "studentNumber": "2423019",
+          "familyName": "코기",
+          "firstName": "뮤으응",
+          "image":"https://www.sanrio.co.jp/wp-content/themes/sanrio2022/common/images/digital/h1_char01.png",
+          "dailyTimeSche": {
+            "schoolYes": "10시간 52분",
+            "schoolNo": "3시간 48분",
+            "foodTime": "1시간 47분",
+            "library": "4시간 52분"
+          },
+          "studyTime": "15시간 44분"
+        },
+        {
+          "studentNumber": "2423057",
+          "familyName": "시나모롤",
+          "image":"https://www.sanrio.co.jp/wp-content/themes/sanrio2022/common/images/spots/h1_char.png",          "firstName": "",
+          "dailyTimeSche": {
+            "schoolYes": "10시간 48분",
+            "schoolNo": "2시간 19분",
+            "foodTime": "1시간 14분",
+            "library": "4시간 22분"
+          },
+          "studyTime": "15시간 10분"
+        },
+        {
+          "studentNumber": "2423034",
+          "familyName": "헬로",
+          "firstName": "월드",
+          "image":"https://www.sanrio.co.jp/wp-content/themes/sanrio2022/common/images/news/h1_char.png",          "dailyTimeSche": {
+            "schoolYes": "10시간 27분",
+            "schoolNo": "1시간 17분",
+            "foodTime": "1시간 53분",
+            "library": "2시간 47분"
+          },
+          "studyTime": "13시간 14분"
+        },
+        {
+          "studentNumber": "2423039",
+          "familyName": "케로케러",
+          "firstName": "케롶피",
+          "image": "https://www.sanrio.co.jp/wp-content/uploads/2022/06/mv-keroppi.png",
+          "dailyTimeSche": {
+            "schoolYes": "10시간 52분",
+            "schoolNo": "1시간 17분",
+            "foodTime": "0시간 34분",
+            "library": "1시간 22분"
+          },
+          "studyTime": "12시간 14분"
+        },
+        {
+          "studentNumber": "2423065",
+          "familyName": "키키",
+          "firstName": "라라라",
+          "image":"https://www.sanrio.co.jp/wp-content/themes/sanrio2022/common/images/goods/h1_char.png",
+          "dailyTimeSche": {
+            "schoolYes": "6시간 44분",
+            "schoolNo": "3시간 50분",
+            "foodTime": "0시간 10분",
+            "library": "4시간 44분"
+          },
+          "studyTime": "11시간 28분"
+        },
+        {
+          "studentNumber": "2423062",
+          "familyName": "밧드",
+          "firstName": "바츠마루",
+          "image":"https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-badtzmaru-1.png",
+          "dailyTimeSche": {
+            "schoolYes": "9시간 22분",
+            "schoolNo": "1시간 15분",
+            "foodTime": "0시간 46분",
+            "library": "1시간 36분"
+          },
+          "studyTime": "10시간 58분"
+        },
+        {
+          "studentNumber": "2423063",
+          "familyName": "마이",
+          "firstName": "스위트 피아노",
+          "image":"https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-mysweetpiano.png",
+          "dailyTimeSche": {
+            "schoolYes": "9시간 8분",
+            "schoolNo": "1시간 54분",
+            "foodTime": "0시간 54분",
+            "library": "1시간 48분"
+          },
+          "studyTime": "10시간 56분"
+        },
+        {
+          "studentNumber": "2423060",
+          "familyName": "포차코",
+          "image":"https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-pochacco.png",
+          "firstName": "",
+          "dailyTimeSche": {
+            "schoolYes": "6시간 25분",
+            "schoolNo": "1시간 13분",
+            "foodTime": "1시간 6분",
+            "library": "4시간 1분"
+          },
+          "studyTime": "10시간 26분"
+        },
+        {
+          "studentNumber": "2423088",
+          "familyName": "쿠로미",
+          "image":"https://www.sanrio.co.jp/wp-content/themes/sanrio2022/common/images/movie/h1_char02.png",
+          "firstName": "",
+          "dailyTimeSche": {
+            "schoolYes": "8시간 22분",
+            "schoolNo": "3시간 58분",
+            "foodTime": "0시간 23분",
+            "library": "0시간 52분"
+          },
+          "studyTime": "9시간 14분"
+        },
+        {
+          "studentNumber": "2423035",
+          "familyName": "우사하나",
+          "image":"https://www.sanrio.co.jp/wp-content/uploads/2022/06/mv-usahana.png",
+          "firstName": "",
+          "dailyTimeSche": {
+            "schoolYes": "7시간 48분",
+            "schoolNo": "3시간 33분",
+            "foodTime": "0시간 8분",
+            "library": "0시간 4분"
+          },
+          "studyTime": "7시간 52분"
+        }
+      ],
+      "2025-04-14": [
+        {
+          "studentNumber": "2423063",
+          "familyName": "마이",
+          "firstName": "스위트 피아노",
+          "image":"https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-mysweetpiano.png",
+          "dailyTimeSche": {
+            "schoolYes": "10시간 45분",
+            "schoolNo": "2시간 26분",
+            "foodTime": "1시간 34분",
+            "library": "2시간 28분"
+          },
+          "studyTime": "13시간 13분"
+        },
+        {
+          "studentNumber": "2423088",
+          "familyName": "쿠로미",
+          "image":"https://www.sanrio.co.jp/wp-content/themes/sanrio2022/common/images/movie/h1_char02.png",
+          "firstName": "",
+          "dailyTimeSche": {
+            "schoolYes": "10시간 36분",
+            "schoolNo": "2시간 47분",
+            "foodTime": "1시간 59분",
+            "library": "2시간 6분"
+          },
+          "studyTime": "12시간 42분"
+        },
+        {
+          "studentNumber": "2423062",
+          "familyName": "밧드",
+          "firstName": "바츠마루",
+          "image":"https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-badtzmaru-1.png",
+          "dailyTimeSche": {
+            "schoolYes": "7시간 25분",
+            "schoolNo": "2시간 40분",
+            "foodTime": "1시간 12분",
+            "library": "4시간 43분"
+          },
+          "studyTime": "12시간 8분"
+        },
+        {
+          "studentNumber": "2423039",
+          "familyName": "케로케러",
+          "firstName": "케롶피",
+          "image": "https://www.sanrio.co.jp/wp-content/uploads/2022/06/mv-keroppi.png",
+          "dailyTimeSche": {
+            "schoolYes": "10시간 33분",
+            "schoolNo": "1시간 34분",
+            "foodTime": "0시간 42분",
+            "library": "1시간 24분"
+          },
+          "studyTime": "11시간 57분"
+        },
+        {
+          "studentNumber": "2423057",
+          "familyName": "시나모롤",
+          "image":"https://www.sanrio.co.jp/wp-content/themes/sanrio2022/common/images/spots/h1_char.png",          "firstName": "",
+          "dailyTimeSche": {
+            "schoolYes": "8시간 12분",
+            "schoolNo": "3시간 24분",
+            "foodTime": "0시간 23분",
+            "library": "2시간 22분"
+          },
+          "studyTime": "10시간 34분"
+        },
+        {
+          "studentNumber": "2423035",
+          "familyName": "우사하나",
+          "image":"https://www.sanrio.co.jp/wp-content/uploads/2022/06/mv-usahana.png",
+          "firstName": "",
+          "dailyTimeSche": {
+            "schoolYes": "6시간 35분",
+            "schoolNo": "1시간 22분",
+            "foodTime": "0시간 27분",
+            "library": "2시간 41분"
+          },
+          "studyTime": "9시간 16분"
+        },
+        {
+          "studentNumber": "2423034",
+          "familyName": "헬로",
+          "firstName": "월드",
+          "image":"https://www.sanrio.co.jp/wp-content/themes/sanrio2022/common/images/news/h1_char.png",          "dailyTimeSche": {
+            "schoolYes": "7시간 34분",
+            "schoolNo": "3시간 50분",
+            "foodTime": "1시간 35분",
+            "library": "1시간 38분"
+          },
+          "studyTime": "9시간 12분"
+        },
+        {
+          "studentNumber": "2423019",
+          "familyName": "코기",
+          "firstName": "뮤으응",
+          "image":"https://www.sanrio.co.jp/wp-content/themes/sanrio2022/common/images/digital/h1_char01.png",
+          "dailyTimeSche": {
+            "schoolYes": "6시간 1분",
+            "schoolNo": "1시간 52분",
+            "foodTime": "0시간 53분",
+            "library": "1시간 39분"
+          },
+          "studyTime": "7시간 40분"
+        },
+        {
+          "studentNumber": "2423065",
+          "familyName": "키키",
+          "firstName": "라라라",
+          "image":"https://www.sanrio.co.jp/wp-content/themes/sanrio2022/common/images/goods/h1_char.png",
+          "dailyTimeSche": {
+            "schoolYes": "6시간 33분",
+            "schoolNo": "2시간 15분",
+            "foodTime": "1시간 42분",
+            "library": "0시간 35분"
+          },
+          "studyTime": "7시간 8분"
+        },
+        {
+          "studentNumber": "2423060",
+          "familyName": "포차코",
+          "image":"https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-pochacco.png",
+          "firstName": "",
+          "dailyTimeSche": {
+            "schoolYes": "6시간 22분",
+            "schoolNo": "1시간 18분",
+            "foodTime": "0시간 15분",
+            "library": "0시간 19분"
+          },
+          "studyTime": "6시간 41분"
+        }
+      ],
+      "2025-04-15": [
+        {
+          "studentNumber": "2423088",
+          "familyName": "쿠로미",
+          "image":"https://www.sanrio.co.jp/wp-content/themes/sanrio2022/common/images/movie/h1_char02.png",
+          "firstName": "",
+          "dailyTimeSche": {
+            "schoolYes": "9시간 46분",
+            "schoolNo": "3시간 38분",
+            "foodTime": "1시간 29분",
+            "library": "4시간 30분"
+          },
+          "studyTime": "14시간 16분"
+        },
+        {
+          "studentNumber": "2423034",
+          "familyName": "헬로",
+          "firstName": "월드",
+          "image":"https://www.sanrio.co.jp/wp-content/themes/sanrio2022/common/images/news/h1_char.png",          "dailyTimeSche": {
+            "schoolYes": "8시간 25분",
+            "schoolNo": "3시간 47분",
+            "foodTime": "0시간 29분",
+            "library": "3시간 27분"
+          },
+          "studyTime": "11시간 52분"
+        },
+        {
+          "studentNumber": "2423060",
+          "familyName": "포차코",
+          "image":"https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-pochacco.png",
+          "firstName": "",
+          "dailyTimeSche": {
+            "schoolYes": "10시간 37분",
+            "schoolNo": "2시간 3분",
+            "foodTime": "0시간 36분",
+            "library": "1시간 9분"
+          },
+          "studyTime": "11시간 46분"
+        },
+        {
+          "studentNumber": "2423039",
+          "familyName": "케로케러",
+          "firstName": "케롶피",
+          "image": "https://www.sanrio.co.jp/wp-content/uploads/2022/06/mv-keroppi.png",
+          "dailyTimeSche": {
+            "schoolYes": "6시간 23분",
+            "schoolNo": "1시간 32분",
+            "foodTime": "1시간 31분",
+            "library": "4시간 46분"
+          },
+          "studyTime": "11시간 9분"
+        },
+        {
+          "studentNumber": "2423063",
+          "familyName": "마이",
+          "firstName": "스위트 피아노",
+          "image":"https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-mysweetpiano.png",
+          "dailyTimeSche": {
+            "schoolYes": "9시간 21분",
+            "schoolNo": "2시간 43분",
+            "foodTime": "1시간 52분",
+            "library": "1시간 44분"
+          },
+          "studyTime": "11시간 5분"
+        },
+        {
+          "studentNumber": "2423035",
+          "familyName": "우사하나",
+          "image":"https://www.sanrio.co.jp/wp-content/uploads/2022/06/mv-usahana.png",
+          "firstName": "",
+          "dailyTimeSche": {
+            "schoolYes": "7시간 24분",
+            "schoolNo": "3시간 21분",
+            "foodTime": "0시간 12분",
+            "library": "3시간 36분"
+          },
+          "studyTime": "11시간 0분"
+        },
+        {
+          "studentNumber": "2423019",
+          "familyName": "코기",
+          "firstName": "뮤으응",
+          "image":"https://www.sanrio.co.jp/wp-content/themes/sanrio2022/common/images/digital/h1_char01.png",
+          "dailyTimeSche": {
+            "schoolYes": "6시간 47분",
+            "schoolNo": "2시간 54분",
+            "foodTime": "1시간 21분",
+            "library": "2시간 31분"
+          },
+          "studyTime": "9시간 18분"
+        },
+        {
+          "studentNumber": "2423062",
+          "familyName": "밧드",
+          "firstName": "바츠마루",
+          "image":"https://www.sanrio.co.jp/wp-content/uploads/2022/06/list-badtzmaru-1.png",
+          "dailyTimeSche": {
+            "schoolYes": "8시간 4분",
+            "schoolNo": "2시간 33분",
+            "foodTime": "1시간 41분",
+            "library": "0시간 19분"
+          },
+          "studyTime": "8시간 23분"
+        },
+        {
+          "studentNumber": "2423057",
+          "familyName": "시나모롤",
+          "image":"https://www.sanrio.co.jp/wp-content/themes/sanrio2022/common/images/spots/h1_char.png",          "firstName": "",
+          "dailyTimeSche": {
+            "schoolYes": "7시간 4분",
+            "schoolNo": "2시간 12분",
+            "foodTime": "0시간 25분",
+            "library": "1시간 6분"
+          },
+          "studyTime": "8시간 10분"
+        },
+        {
+          "studentNumber": "2423065",
+          "familyName": "키키",
+          "firstName": "라라라",
+          "image":"https://www.sanrio.co.jp/wp-content/themes/sanrio2022/common/images/goods/h1_char.png",
+          "dailyTimeSche": {
+            "schoolYes": "6시간 10분",
+            "schoolNo": "3시간 0분",
+            "foodTime": "1시간 38분",
+            "library": "1시간 56분"
+          },
+          "studyTime": "8시간 6분"
+        }
+      ]
+    }
+  }

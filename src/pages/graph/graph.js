@@ -181,3 +181,88 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const RANKING_URL = "../../../axiom/ranking.json";
+    const rankingContainer = document.querySelector(".class_Ranking");
+    const dateHeading = document.getElementById("ranking-date");
+
+    let currentDate = new Date("2025-04-11");
+
+
+    function formatJapaneseDate(date) {
+        const days = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+        return `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일 ${days[date.getDay()]}`;
+    }
+
+
+    function formatKeyDate(date) {
+        return date.toISOString().split("T")[0];
+    }
+
+    function loadRankingForDate(date) {
+        fetch(RANKING_URL)
+            .then(response => response.json())
+            .then(data => {
+                const key = formatKeyDate(date);
+                const rankingData = data.ranking[key];
+
+                // タイトル更新
+                dateHeading.textContent = formatJapaneseDate(date);
+
+                if (!rankingData || !rankingContainer) {
+                    console.warn("ランキングデータが存在しません。");
+                    rankingContainer.innerHTML = "<p>データがありません</p>";
+                    return;
+                }
+
+                // 一旦中身をクリア
+                rankingContainer.innerHTML = "";
+
+                // ソート（studyTimeを基準に降順）
+                rankingData.sort((a, b) => {
+                    const timeToMinutes = timeStr => {
+                        const match = timeStr.match(/(\d+)시간\s*(\d+)분/);
+                        return parseInt(match[1]) * 60 + parseInt(match[2]);
+                    };
+                    return timeToMinutes(b.studyTime) - timeToMinutes(a.studyTime);
+                });
+
+                rankingData.forEach((student, index) => {
+                    const fullName = `${student.familyName} ${student.firstName}`.trim();
+                    const studentImg = student.image || "https://img.icons8.com/emoji/48/student-emoji.png";
+
+                    const studentHtml = `
+                        <div class="class_ranking_mem">
+                            <div class="class_rank">
+                                <p>${index + 1}</p>
+                            </div>
+                            <div class="rank_img">
+                                <img src="${studentImg}" alt="${fullName}" />
+                            </div>
+                            <div class="rank_name">
+                                <p>${fullName}</p>
+                            </div>
+                            <div class="rank_time">
+                                <p>${student.studyTime}</p>
+                            </div>
+                        </div>
+                    `;
+
+                    rankingContainer.insertAdjacentHTML("beforeend", studentHtml);
+                });
+            })
+            .catch(error => {
+                console.error("ランキングデータの取得に失敗しました:", error);
+            });
+    }
+
+    // 日付変更用関数（±1日）
+    window.changeday = function (offset) {
+        currentDate.setDate(currentDate.getDate() + offset);
+        loadRankingForDate(currentDate);
+    };
+
+    // 初回表示
+    loadRankingForDate(currentDate);
+});
+
