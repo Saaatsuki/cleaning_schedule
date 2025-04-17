@@ -253,3 +253,12 @@ h4 , h6 {
     display: flex;
     justify-content: flex-end;
 }
+
+/* .dateX_msg {
+    display: flex;
+    flex-direction: column;
+} */
+
+.dateX_msg img {
+    width: 150px;
+}

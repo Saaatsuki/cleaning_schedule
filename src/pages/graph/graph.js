@@ -211,7 +211,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (!rankingData || !rankingContainer) {
                     console.warn("ランキングデータが存在しません。");
-                    rankingContainer.innerHTML = "<p>データがありません</p>";
+                    rankingContainer.innerHTML = `
+                        <div class="dateX_msg">
+                            <p>데이터가 없습니다</p>
+                            <img src="https://www.sanrio.co.jp/wp-content/themes/sanrio2022/common/images/spots/h1_char.png" />
+                        </div>
+                    `;
                     return;
                 }
 
