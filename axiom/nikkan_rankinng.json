@@ -1,0 +1,1712 @@
+[
+  {
+    "success": true,
+    "message": "랭킹 조회 성공",
+    "data": {
+      "rankingType": "체류_시간",
+      "periodType": "일간",
+      "startDate": "2025-04-01",
+      "rankList": [
+        {
+          "studentNumber": "2423003",
+          "givenName": "도윤",
+          "familyName": "박",
+          "profileImageUrl": "false",
+          "rank": 1,
+          "formattedValue": "181:25:47"
+        },
+        {
+          "studentNumber": "2423016",
+          "givenName": "승우",
+          "familyName": "안",
+          "profileImageUrl": "images/profile/2423016/7469396615017.gif",
+          "rank": 2,
+          "formattedValue": "141:28:30"
+        },
+        {
+          "studentNumber": "2423008",
+          "givenName": "시우",
+          "familyName": "장",
+          "profileImageUrl": "false",
+          "rank": 3,
+          "formattedValue": "200:52:56"
+        },
+        {
+          "studentNumber": "2423013",
+          "givenName": "건우",
+          "familyName": "신",
+          "profileImageUrl": "false",
+          "rank": 4,
+          "formattedValue": "135:54:30"
+        },
+        {
+          "studentNumber": "2423019",
+          "givenName": "다이치",
+          "familyName": "사토",
+          "profileImageUrl": "false",
+          "rank": 5,
+          "formattedValue": "173:20:21"
+        },
+        {
+          "studentNumber": "2423004",
+          "givenName": "하준",
+          "familyName": "최",
+          "profileImageUrl": "false",
+          "rank": 6,
+          "formattedValue": "70:39:36"
+        },
+        {
+          "studentNumber": "2423017",
+          "givenName": "서진",
+          "familyName": "송",
+          "profileImageUrl": "images/profile/2423017/4253262559024.gif",
+          "rank": 7,
+          "formattedValue": "290:16:23"
+        },
+        {
+          "studentNumber": "2423009",
+          "givenName": "주원",
+          "familyName": "임",
+          "profileImageUrl": "images/profile/2423009/4534452255511.gif",
+          "rank": 8,
+          "formattedValue": "73:25:58"
+        },
+        {
+          "studentNumber": "2423010",
+          "givenName": "현우",
+          "familyName": "한",
+          "profileImageUrl": "false",
+          "rank": 9,
+          "formattedValue": "274:11:58"
+        },
+        {
+          "studentNumber": "2423020",
+          "givenName": "아야메",
+          "familyName": "오오이",
+          "profileImageUrl": "false",
+          "rank": 10,
+          "formattedValue": "101:11:21"
+        },
+        {
+          "studentNumber": "2423018",
+          "givenName": "연우",
+          "familyName": "류",
+          "profileImageUrl": "images/profile/2423018/3733516223370.gif",
+          "rank": 11,
+          "formattedValue": "165:16:09"
+        },
+        {
+          "studentNumber": "2423015",
+          "givenName": "유준",
+          "familyName": "황",
+          "profileImageUrl": "images/profile/2423015/9157788676883.gif",
+          "rank": 12,
+          "formattedValue": "279:47:36"
+        },
+        {
+          "studentNumber": "2423014",
+          "givenName": "하람",
+          "familyName": "권",
+          "profileImageUrl": "false",
+          "rank": 13,
+          "formattedValue": "180:27:58"
+        },
+        {
+          "studentNumber": "2423005",
+          "givenName": "지후",
+          "familyName": "정",
+          "profileImageUrl": "false",
+          "rank": 14,
+          "formattedValue": "243:24:50"
+        },
+        {
+          "studentNumber": "2423002",
+          "givenName": "서준",
+          "familyName": "이",
+          "profileImageUrl": "false",
+          "rank": 15,
+          "formattedValue": "125:38:13"
+        },
+        {
+          "studentNumber": "2423007",
+          "givenName": "예준",
+          "familyName": "윤",
+          "profileImageUrl": "false",
+          "rank": 16,
+          "formattedValue": "182:24:47"
+        },
+        {
+          "studentNumber": "2423011",
+          "givenName": "지호",
+          "familyName": "오",
+          "profileImageUrl": "images/profile/2423011/3536481150168.gif",
+          "rank": 17,
+          "formattedValue": "120:16:53"
+        },
+        {
+          "studentNumber": "2423006",
+          "givenName": "준우",
+          "familyName": "조",
+          "profileImageUrl": "images/profile/2423006/5577597728411.gif",
+          "rank": 18,
+          "formattedValue": "124:07:48"
+        },
+        {
+          "studentNumber": "2423001",
+          "givenName": "민준",
+          "familyName": "김",
+          "profileImageUrl": "false",
+          "rank": 19,
+          "formattedValue": "221:16:55"
+        },
+        {
+          "studentNumber": "2423012",
+          "givenName": "지훈",
+          "familyName": "서",
+          "profileImageUrl": "false",
+          "rank": 20,
+          "formattedValue": "89:21:13"
+        }
+      ]
+    }
+  },
+  {
+    "success": true,
+    "message": "랭킹 조회 성공",
+    "data": {
+      "rankingType": "체류_시간",
+      "periodType": "일간",
+      "startDate": "2025-04-02",
+      "rankList": [
+        {
+          "studentNumber": "2423012",
+          "givenName": "지훈",
+          "familyName": "서",
+          "profileImageUrl": "false",
+          "rank": 1,
+          "formattedValue": "152:46:13"
+        },
+        {
+          "studentNumber": "2423020",
+          "givenName": "아야메",
+          "familyName": "오오이",
+          "profileImageUrl": "false",
+          "rank": 2,
+          "formattedValue": "206:39:14"
+        },
+        {
+          "studentNumber": "2423011",
+          "givenName": "지호",
+          "familyName": "오",
+          "profileImageUrl": "false",
+          "rank": 3,
+          "formattedValue": "261:46:29"
+        },
+        {
+          "studentNumber": "2423008",
+          "givenName": "시우",
+          "familyName": "장",
+          "profileImageUrl": "false",
+          "rank": 4,
+          "formattedValue": "129:20:58"
+        },
+        {
+          "studentNumber": "2423016",
+          "givenName": "승우",
+          "familyName": "안",
+          "profileImageUrl": "false",
+          "rank": 5,
+          "formattedValue": "197:27:39"
+        },
+        {
+          "studentNumber": "2423007",
+          "givenName": "예준",
+          "familyName": "윤",
+          "profileImageUrl": "images/profile/2423007/3771470482552.gif",
+          "rank": 6,
+          "formattedValue": "109:50:23"
+        },
+        {
+          "studentNumber": "2423004",
+          "givenName": "하준",
+          "familyName": "최",
+          "profileImageUrl": "false",
+          "rank": 7,
+          "formattedValue": "92:05:38"
+        },
+        {
+          "studentNumber": "2423017",
+          "givenName": "서진",
+          "familyName": "송",
+          "profileImageUrl": "false",
+          "rank": 8,
+          "formattedValue": "268:01:45"
+        },
+        {
+          "studentNumber": "2423002",
+          "givenName": "서준",
+          "familyName": "이",
+          "profileImageUrl": "false",
+          "rank": 9,
+          "formattedValue": "110:10:23"
+        },
+        {
+          "studentNumber": "2423013",
+          "givenName": "건우",
+          "familyName": "신",
+          "profileImageUrl": "false",
+          "rank": 10,
+          "formattedValue": "267:27:18"
+        },
+        {
+          "studentNumber": "2423019",
+          "givenName": "다이치",
+          "familyName": "사토",
+          "profileImageUrl": "images/profile/2423019/1515321293523.gif",
+          "rank": 11,
+          "formattedValue": "195:28:13"
+        },
+        {
+          "studentNumber": "2423009",
+          "givenName": "주원",
+          "familyName": "임",
+          "profileImageUrl": "images/profile/2423009/5134114765877.gif",
+          "rank": 12,
+          "formattedValue": "51:38:25"
+        },
+        {
+          "studentNumber": "2423001",
+          "givenName": "민준",
+          "familyName": "김",
+          "profileImageUrl": "images/profile/2423001/3561180564579.gif",
+          "rank": 13,
+          "formattedValue": "194:56:38"
+        },
+        {
+          "studentNumber": "2423010",
+          "givenName": "현우",
+          "familyName": "한",
+          "profileImageUrl": "false",
+          "rank": 14,
+          "formattedValue": "110:23:21"
+        },
+        {
+          "studentNumber": "2423003",
+          "givenName": "도윤",
+          "familyName": "박",
+          "profileImageUrl": "false",
+          "rank": 15,
+          "formattedValue": "299:15:41"
+        },
+        {
+          "studentNumber": "2423005",
+          "givenName": "지후",
+          "familyName": "정",
+          "profileImageUrl": "false",
+          "rank": 16,
+          "formattedValue": "150:15:45"
+        },
+        {
+          "studentNumber": "2423015",
+          "givenName": "유준",
+          "familyName": "황",
+          "profileImageUrl": "images/profile/2423015/5421699102243.gif",
+          "rank": 17,
+          "formattedValue": "244:15:13"
+        },
+        {
+          "studentNumber": "2423014",
+          "givenName": "하람",
+          "familyName": "권",
+          "profileImageUrl": "false",
+          "rank": 18,
+          "formattedValue": "145:45:11"
+        },
+        {
+          "studentNumber": "2423018",
+          "givenName": "연우",
+          "familyName": "류",
+          "profileImageUrl": "false",
+          "rank": 19,
+          "formattedValue": "169:30:26"
+        },
+        {
+          "studentNumber": "2423006",
+          "givenName": "준우",
+          "familyName": "조",
+          "profileImageUrl": "false",
+          "rank": 20,
+          "formattedValue": "83:58:24"
+        }
+      ]
+    }
+  },
+  {
+    "success": true,
+    "message": "랭킹 조회 성공",
+    "data": {
+      "rankingType": "체류_시간",
+      "periodType": "일간",
+      "startDate": "2025-04-03",
+      "rankList": [
+        {
+          "studentNumber": "2423006",
+          "givenName": "준우",
+          "familyName": "조",
+          "profileImageUrl": "false",
+          "rank": 1,
+          "formattedValue": "279:44:05"
+        },
+        {
+          "studentNumber": "2423005",
+          "givenName": "지후",
+          "familyName": "정",
+          "profileImageUrl": "images/profile/2423005/1687860850064.gif",
+          "rank": 2,
+          "formattedValue": "102:57:41"
+        },
+        {
+          "studentNumber": "2423009",
+          "givenName": "주원",
+          "familyName": "임",
+          "profileImageUrl": "false",
+          "rank": 3,
+          "formattedValue": "127:45:57"
+        },
+        {
+          "studentNumber": "2423015",
+          "givenName": "유준",
+          "familyName": "황",
+          "profileImageUrl": "false",
+          "rank": 4,
+          "formattedValue": "229:02:52"
+        },
+        {
+          "studentNumber": "2423008",
+          "givenName": "시우",
+          "familyName": "장",
+          "profileImageUrl": "images/profile/2423008/9467842062677.gif",
+          "rank": 5,
+          "formattedValue": "170:53:21"
+        },
+        {
+          "studentNumber": "2423007",
+          "givenName": "예준",
+          "familyName": "윤",
+          "profileImageUrl": "false",
+          "rank": 6,
+          "formattedValue": "223:14:18"
+        },
+        {
+          "studentNumber": "2423020",
+          "givenName": "아야메",
+          "familyName": "오오이",
+          "profileImageUrl": "false",
+          "rank": 7,
+          "formattedValue": "257:33:21"
+        },
+        {
+          "studentNumber": "2423004",
+          "givenName": "하준",
+          "familyName": "최",
+          "profileImageUrl": "false",
+          "rank": 8,
+          "formattedValue": "297:19:52"
+        },
+        {
+          "studentNumber": "2423018",
+          "givenName": "연우",
+          "familyName": "류",
+          "profileImageUrl": "images/profile/2423018/3691031985827.gif",
+          "rank": 9,
+          "formattedValue": "69:14:32"
+        },
+        {
+          "studentNumber": "2423002",
+          "givenName": "서준",
+          "familyName": "이",
+          "profileImageUrl": "false",
+          "rank": 10,
+          "formattedValue": "280:24:53"
+        },
+        {
+          "studentNumber": "2423001",
+          "givenName": "민준",
+          "familyName": "김",
+          "profileImageUrl": "false",
+          "rank": 11,
+          "formattedValue": "235:14:49"
+        },
+        {
+          "studentNumber": "2423013",
+          "givenName": "건우",
+          "familyName": "신",
+          "profileImageUrl": "false",
+          "rank": 12,
+          "formattedValue": "179:37:14"
+        },
+        {
+          "studentNumber": "2423016",
+          "givenName": "승우",
+          "familyName": "안",
+          "profileImageUrl": "false",
+          "rank": 13,
+          "formattedValue": "230:30:06"
+        },
+        {
+          "studentNumber": "2423011",
+          "givenName": "지호",
+          "familyName": "오",
+          "profileImageUrl": "images/profile/2423011/2755355278191.gif",
+          "rank": 14,
+          "formattedValue": "148:29:40"
+        },
+        {
+          "studentNumber": "2423010",
+          "givenName": "현우",
+          "familyName": "한",
+          "profileImageUrl": "false",
+          "rank": 15,
+          "formattedValue": "185:18:22"
+        },
+        {
+          "studentNumber": "2423017",
+          "givenName": "서진",
+          "familyName": "송",
+          "profileImageUrl": "false",
+          "rank": 16,
+          "formattedValue": "218:44:08"
+        },
+        {
+          "studentNumber": "2423003",
+          "givenName": "도윤",
+          "familyName": "박",
+          "profileImageUrl": "false",
+          "rank": 17,
+          "formattedValue": "95:52:29"
+        },
+        {
+          "studentNumber": "2423019",
+          "givenName": "다이치",
+          "familyName": "사토",
+          "profileImageUrl": "false",
+          "rank": 18,
+          "formattedValue": "280:07:31"
+        },
+        {
+          "studentNumber": "2423012",
+          "givenName": "지훈",
+          "familyName": "서",
+          "profileImageUrl": "false",
+          "rank": 19,
+          "formattedValue": "61:27:49"
+        },
+        {
+          "studentNumber": "2423014",
+          "givenName": "하람",
+          "familyName": "권",
+          "profileImageUrl": "images/profile/2423014/4542331800067.gif",
+          "rank": 20,
+          "formattedValue": "282:34:59"
+        }
+      ]
+    }
+  },
+  {
+    "success": true,
+    "message": "랭킹 조회 성공",
+    "data": {
+      "rankingType": "체류_시간",
+      "periodType": "일간",
+      "startDate": "2025-04-04",
+      "rankList": [
+        {
+          "studentNumber": "2423020",
+          "givenName": "아야메",
+          "familyName": "오오이",
+          "profileImageUrl": "false",
+          "rank": 1,
+          "formattedValue": "264:34:39"
+        },
+        {
+          "studentNumber": "2423004",
+          "givenName": "하준",
+          "familyName": "최",
+          "profileImageUrl": "false",
+          "rank": 2,
+          "formattedValue": "254:24:28"
+        },
+        {
+          "studentNumber": "2423017",
+          "givenName": "서진",
+          "familyName": "송",
+          "profileImageUrl": "false",
+          "rank": 3,
+          "formattedValue": "256:32:59"
+        },
+        {
+          "studentNumber": "2423011",
+          "givenName": "지호",
+          "familyName": "오",
+          "profileImageUrl": "false",
+          "rank": 4,
+          "formattedValue": "83:05:20"
+        },
+        {
+          "studentNumber": "2423006",
+          "givenName": "준우",
+          "familyName": "조",
+          "profileImageUrl": "false",
+          "rank": 5,
+          "formattedValue": "251:32:51"
+        },
+        {
+          "studentNumber": "2423009",
+          "givenName": "주원",
+          "familyName": "임",
+          "profileImageUrl": "images/profile/2423009/1378351004389.gif",
+          "rank": 6,
+          "formattedValue": "195:35:51"
+        },
+        {
+          "studentNumber": "2423016",
+          "givenName": "승우",
+          "familyName": "안",
+          "profileImageUrl": "images/profile/2423016/3292007088972.gif",
+          "rank": 7,
+          "formattedValue": "132:55:04"
+        },
+        {
+          "studentNumber": "2423001",
+          "givenName": "민준",
+          "familyName": "김",
+          "profileImageUrl": "false",
+          "rank": 8,
+          "formattedValue": "169:31:43"
+        },
+        {
+          "studentNumber": "2423012",
+          "givenName": "지훈",
+          "familyName": "서",
+          "profileImageUrl": "false",
+          "rank": 9,
+          "formattedValue": "127:30:09"
+        },
+        {
+          "studentNumber": "2423013",
+          "givenName": "건우",
+          "familyName": "신",
+          "profileImageUrl": "false",
+          "rank": 10,
+          "formattedValue": "95:42:51"
+        },
+        {
+          "studentNumber": "2423019",
+          "givenName": "다이치",
+          "familyName": "사토",
+          "profileImageUrl": "false",
+          "rank": 11,
+          "formattedValue": "163:27:02"
+        },
+        {
+          "studentNumber": "2423005",
+          "givenName": "지후",
+          "familyName": "정",
+          "profileImageUrl": "false",
+          "rank": 12,
+          "formattedValue": "117:57:25"
+        },
+        {
+          "studentNumber": "2423007",
+          "givenName": "예준",
+          "familyName": "윤",
+          "profileImageUrl": "images/profile/2423007/4437409772002.gif",
+          "rank": 13,
+          "formattedValue": "174:40:17"
+        },
+        {
+          "studentNumber": "2423018",
+          "givenName": "연우",
+          "familyName": "류",
+          "profileImageUrl": "false",
+          "rank": 14,
+          "formattedValue": "203:07:47"
+        },
+        {
+          "studentNumber": "2423015",
+          "givenName": "유준",
+          "familyName": "황",
+          "profileImageUrl": "false",
+          "rank": 15,
+          "formattedValue": "59:52:36"
+        },
+        {
+          "studentNumber": "2423008",
+          "givenName": "시우",
+          "familyName": "장",
+          "profileImageUrl": "false",
+          "rank": 16,
+          "formattedValue": "265:02:56"
+        },
+        {
+          "studentNumber": "2423003",
+          "givenName": "도윤",
+          "familyName": "박",
+          "profileImageUrl": "false",
+          "rank": 17,
+          "formattedValue": "188:25:37"
+        },
+        {
+          "studentNumber": "2423002",
+          "givenName": "서준",
+          "familyName": "이",
+          "profileImageUrl": "false",
+          "rank": 18,
+          "formattedValue": "102:44:01"
+        },
+        {
+          "studentNumber": "2423014",
+          "givenName": "하람",
+          "familyName": "권",
+          "profileImageUrl": "false",
+          "rank": 19,
+          "formattedValue": "105:53:58"
+        },
+        {
+          "studentNumber": "2423010",
+          "givenName": "현우",
+          "familyName": "한",
+          "profileImageUrl": "false",
+          "rank": 20,
+          "formattedValue": "218:04:31"
+        }
+      ]
+    }
+  },
+  {
+    "success": true,
+    "message": "랭킹 조회 성공",
+    "data": {
+      "rankingType": "체류_시간",
+      "periodType": "일간",
+      "startDate": "2025-04-05",
+      "rankList": [
+        {
+          "studentNumber": "2423007",
+          "givenName": "예준",
+          "familyName": "윤",
+          "profileImageUrl": "false",
+          "rank": 1,
+          "formattedValue": "171:58:19"
+        },
+        {
+          "studentNumber": "2423016",
+          "givenName": "승우",
+          "familyName": "안",
+          "profileImageUrl": "false",
+          "rank": 2,
+          "formattedValue": "158:53:22"
+        },
+        {
+          "studentNumber": "2423018",
+          "givenName": "연우",
+          "familyName": "류",
+          "profileImageUrl": "false",
+          "rank": 3,
+          "formattedValue": "82:18:53"
+        },
+        {
+          "studentNumber": "2423014",
+          "givenName": "하람",
+          "familyName": "권",
+          "profileImageUrl": "false",
+          "rank": 4,
+          "formattedValue": "70:38:09"
+        },
+        {
+          "studentNumber": "2423008",
+          "givenName": "시우",
+          "familyName": "장",
+          "profileImageUrl": "false",
+          "rank": 5,
+          "formattedValue": "266:31:31"
+        },
+        {
+          "studentNumber": "2423005",
+          "givenName": "지후",
+          "familyName": "정",
+          "profileImageUrl": "false",
+          "rank": 6,
+          "formattedValue": "208:50:43"
+        },
+        {
+          "studentNumber": "2423001",
+          "givenName": "민준",
+          "familyName": "김",
+          "profileImageUrl": "false",
+          "rank": 7,
+          "formattedValue": "79:44:57"
+        },
+        {
+          "studentNumber": "2423019",
+          "givenName": "다이치",
+          "familyName": "사토",
+          "profileImageUrl": "images/profile/2423019/3338518131278.gif",
+          "rank": 8,
+          "formattedValue": "185:22:04"
+        },
+        {
+          "studentNumber": "2423009",
+          "givenName": "주원",
+          "familyName": "임",
+          "profileImageUrl": "images/profile/2423009/1398521292688.gif",
+          "rank": 9,
+          "formattedValue": "132:08:39"
+        },
+        {
+          "studentNumber": "2423006",
+          "givenName": "준우",
+          "familyName": "조",
+          "profileImageUrl": "false",
+          "rank": 10,
+          "formattedValue": "291:10:13"
+        },
+        {
+          "studentNumber": "2423017",
+          "givenName": "서진",
+          "familyName": "송",
+          "profileImageUrl": "false",
+          "rank": 11,
+          "formattedValue": "153:50:23"
+        },
+        {
+          "studentNumber": "2423020",
+          "givenName": "아야메",
+          "familyName": "오오이",
+          "profileImageUrl": "images/profile/2423020/2555534648231.gif",
+          "rank": 12,
+          "formattedValue": "64:44:38"
+        },
+        {
+          "studentNumber": "2423002",
+          "givenName": "서준",
+          "familyName": "이",
+          "profileImageUrl": "images/profile/2423002/3182561198963.gif",
+          "rank": 13,
+          "formattedValue": "91:29:50"
+        },
+        {
+          "studentNumber": "2423012",
+          "givenName": "지훈",
+          "familyName": "서",
+          "profileImageUrl": "false",
+          "rank": 14,
+          "formattedValue": "65:07:37"
+        },
+        {
+          "studentNumber": "2423003",
+          "givenName": "도윤",
+          "familyName": "박",
+          "profileImageUrl": "false",
+          "rank": 15,
+          "formattedValue": "154:19:05"
+        },
+        {
+          "studentNumber": "2423013",
+          "givenName": "건우",
+          "familyName": "신",
+          "profileImageUrl": "false",
+          "rank": 16,
+          "formattedValue": "187:18:57"
+        },
+        {
+          "studentNumber": "2423015",
+          "givenName": "유준",
+          "familyName": "황",
+          "profileImageUrl": "false",
+          "rank": 17,
+          "formattedValue": "128:49:23"
+        },
+        {
+          "studentNumber": "2423004",
+          "givenName": "하준",
+          "familyName": "최",
+          "profileImageUrl": "false",
+          "rank": 18,
+          "formattedValue": "158:49:36"
+        },
+        {
+          "studentNumber": "2423010",
+          "givenName": "현우",
+          "familyName": "한",
+          "profileImageUrl": "images/profile/2423010/4740327903226.gif",
+          "rank": 19,
+          "formattedValue": "243:33:36"
+        },
+        {
+          "studentNumber": "2423011",
+          "givenName": "지호",
+          "familyName": "오",
+          "profileImageUrl": "false",
+          "rank": 20,
+          "formattedValue": "248:33:35"
+        }
+      ]
+    }
+  },
+  {
+    "success": true,
+    "message": "랭킹 조회 성공",
+    "data": {
+      "rankingType": "체류_시간",
+      "periodType": "일간",
+      "startDate": "2025-04-06",
+      "rankList": [
+        {
+          "studentNumber": "2423001",
+          "givenName": "민준",
+          "familyName": "김",
+          "profileImageUrl": "false",
+          "rank": 1,
+          "formattedValue": "190:30:52"
+        },
+        {
+          "studentNumber": "2423020",
+          "givenName": "아야메",
+          "familyName": "오오이",
+          "profileImageUrl": "images/profile/2423020/9312993304184.gif",
+          "rank": 2,
+          "formattedValue": "115:18:44"
+        },
+        {
+          "studentNumber": "2423012",
+          "givenName": "지훈",
+          "familyName": "서",
+          "profileImageUrl": "false",
+          "rank": 3,
+          "formattedValue": "106:17:19"
+        },
+        {
+          "studentNumber": "2423004",
+          "givenName": "하준",
+          "familyName": "최",
+          "profileImageUrl": "images/profile/2423004/5537774817151.gif",
+          "rank": 4,
+          "formattedValue": "279:30:56"
+        },
+        {
+          "studentNumber": "2423008",
+          "givenName": "시우",
+          "familyName": "장",
+          "profileImageUrl": "false",
+          "rank": 5,
+          "formattedValue": "85:31:03"
+        },
+        {
+          "studentNumber": "2423002",
+          "givenName": "서준",
+          "familyName": "이",
+          "profileImageUrl": "false",
+          "rank": 6,
+          "formattedValue": "87:30:33"
+        },
+        {
+          "studentNumber": "2423006",
+          "givenName": "준우",
+          "familyName": "조",
+          "profileImageUrl": "false",
+          "rank": 7,
+          "formattedValue": "79:54:54"
+        },
+        {
+          "studentNumber": "2423013",
+          "givenName": "건우",
+          "familyName": "신",
+          "profileImageUrl": "false",
+          "rank": 8,
+          "formattedValue": "275:50:24"
+        },
+        {
+          "studentNumber": "2423007",
+          "givenName": "예준",
+          "familyName": "윤",
+          "profileImageUrl": "false",
+          "rank": 9,
+          "formattedValue": "141:59:11"
+        },
+        {
+          "studentNumber": "2423017",
+          "givenName": "서진",
+          "familyName": "송",
+          "profileImageUrl": "images/profile/2423017/7482654520768.gif",
+          "rank": 10,
+          "formattedValue": "236:47:00"
+        },
+        {
+          "studentNumber": "2423005",
+          "givenName": "지후",
+          "familyName": "정",
+          "profileImageUrl": "images/profile/2423005/8865877875333.gif",
+          "rank": 11,
+          "formattedValue": "201:17:06"
+        },
+        {
+          "studentNumber": "2423019",
+          "givenName": "다이치",
+          "familyName": "사토",
+          "profileImageUrl": "false",
+          "rank": 12,
+          "formattedValue": "115:49:53"
+        },
+        {
+          "studentNumber": "2423009",
+          "givenName": "주원",
+          "familyName": "임",
+          "profileImageUrl": "false",
+          "rank": 13,
+          "formattedValue": "145:23:55"
+        },
+        {
+          "studentNumber": "2423016",
+          "givenName": "승우",
+          "familyName": "안",
+          "profileImageUrl": "images/profile/2423016/9475846337545.gif",
+          "rank": 14,
+          "formattedValue": "180:25:59"
+        },
+        {
+          "studentNumber": "2423015",
+          "givenName": "유준",
+          "familyName": "황",
+          "profileImageUrl": "false",
+          "rank": 15,
+          "formattedValue": "92:44:20"
+        },
+        {
+          "studentNumber": "2423011",
+          "givenName": "지호",
+          "familyName": "오",
+          "profileImageUrl": "images/profile/2423011/8679366475558.gif",
+          "rank": 16,
+          "formattedValue": "170:54:20"
+        },
+        {
+          "studentNumber": "2423014",
+          "givenName": "하람",
+          "familyName": "권",
+          "profileImageUrl": "false",
+          "rank": 17,
+          "formattedValue": "130:09:56"
+        },
+        {
+          "studentNumber": "2423018",
+          "givenName": "연우",
+          "familyName": "류",
+          "profileImageUrl": "false",
+          "rank": 18,
+          "formattedValue": "172:13:19"
+        },
+        {
+          "studentNumber": "2423003",
+          "givenName": "도윤",
+          "familyName": "박",
+          "profileImageUrl": "false",
+          "rank": 19,
+          "formattedValue": "146:38:41"
+        },
+        {
+          "studentNumber": "2423010",
+          "givenName": "현우",
+          "familyName": "한",
+          "profileImageUrl": "false",
+          "rank": 20,
+          "formattedValue": "85:36:39"
+        }
+      ]
+    }
+  },
+  {
+    "success": true,
+    "message": "랭킹 조회 성공",
+    "data": {
+      "rankingType": "체류_시간",
+      "periodType": "일간",
+      "startDate": "2025-04-07",
+      "rankList": [
+        {
+          "studentNumber": "2423011",
+          "givenName": "지호",
+          "familyName": "오",
+          "profileImageUrl": "false",
+          "rank": 1,
+          "formattedValue": "250:16:09"
+        },
+        {
+          "studentNumber": "2423008",
+          "givenName": "시우",
+          "familyName": "장",
+          "profileImageUrl": "false",
+          "rank": 2,
+          "formattedValue": "95:12:30"
+        },
+        {
+          "studentNumber": "2423014",
+          "givenName": "하람",
+          "familyName": "권",
+          "profileImageUrl": "false",
+          "rank": 3,
+          "formattedValue": "272:02:43"
+        },
+        {
+          "studentNumber": "2423002",
+          "givenName": "서준",
+          "familyName": "이",
+          "profileImageUrl": "false",
+          "rank": 4,
+          "formattedValue": "295:40:31"
+        },
+        {
+          "studentNumber": "2423015",
+          "givenName": "유준",
+          "familyName": "황",
+          "profileImageUrl": "false",
+          "rank": 5,
+          "formattedValue": "251:08:42"
+        },
+        {
+          "studentNumber": "2423010",
+          "givenName": "현우",
+          "familyName": "한",
+          "profileImageUrl": "false",
+          "rank": 6,
+          "formattedValue": "173:48:22"
+        },
+        {
+          "studentNumber": "2423017",
+          "givenName": "서진",
+          "familyName": "송",
+          "profileImageUrl": "false",
+          "rank": 7,
+          "formattedValue": "300:34:31"
+        },
+        {
+          "studentNumber": "2423018",
+          "givenName": "연우",
+          "familyName": "류",
+          "profileImageUrl": "false",
+          "rank": 8,
+          "formattedValue": "159:06:07"
+        },
+        {
+          "studentNumber": "2423020",
+          "givenName": "아야메",
+          "familyName": "오오이",
+          "profileImageUrl": "false",
+          "rank": 9,
+          "formattedValue": "256:38:43"
+        },
+        {
+          "studentNumber": "2423012",
+          "givenName": "지훈",
+          "familyName": "서",
+          "profileImageUrl": "false",
+          "rank": 10,
+          "formattedValue": "225:25:46"
+        },
+        {
+          "studentNumber": "2423009",
+          "givenName": "주원",
+          "familyName": "임",
+          "profileImageUrl": "images/profile/2423009/4635975396560.gif",
+          "rank": 11,
+          "formattedValue": "148:15:16"
+        },
+        {
+          "studentNumber": "2423005",
+          "givenName": "지후",
+          "familyName": "정",
+          "profileImageUrl": "false",
+          "rank": 12,
+          "formattedValue": "128:01:12"
+        },
+        {
+          "studentNumber": "2423016",
+          "givenName": "승우",
+          "familyName": "안",
+          "profileImageUrl": "images/profile/2423016/4168734022311.gif",
+          "rank": 13,
+          "formattedValue": "222:12:54"
+        },
+        {
+          "studentNumber": "2423004",
+          "givenName": "하준",
+          "familyName": "최",
+          "profileImageUrl": "false",
+          "rank": 14,
+          "formattedValue": "279:07:39"
+        },
+        {
+          "studentNumber": "2423003",
+          "givenName": "도윤",
+          "familyName": "박",
+          "profileImageUrl": "false",
+          "rank": 15,
+          "formattedValue": "243:35:53"
+        },
+        {
+          "studentNumber": "2423006",
+          "givenName": "준우",
+          "familyName": "조",
+          "profileImageUrl": "false",
+          "rank": 16,
+          "formattedValue": "64:58:59"
+        },
+        {
+          "studentNumber": "2423001",
+          "givenName": "민준",
+          "familyName": "김",
+          "profileImageUrl": "false",
+          "rank": 17,
+          "formattedValue": "144:44:08"
+        },
+        {
+          "studentNumber": "2423019",
+          "givenName": "다이치",
+          "familyName": "사토",
+          "profileImageUrl": "false",
+          "rank": 18,
+          "formattedValue": "273:45:01"
+        },
+        {
+          "studentNumber": "2423007",
+          "givenName": "예준",
+          "familyName": "윤",
+          "profileImageUrl": "false",
+          "rank": 19,
+          "formattedValue": "138:58:21"
+        },
+        {
+          "studentNumber": "2423013",
+          "givenName": "건우",
+          "familyName": "신",
+          "profileImageUrl": "false",
+          "rank": 20,
+          "formattedValue": "202:18:23"
+        }
+      ]
+    }
+  },
+  {
+    "success": true,
+    "message": "랭킹 조회 성공",
+    "data": {
+      "rankingType": "체류_시간",
+      "periodType": "일간",
+      "startDate": "2025-04-08",
+      "rankList": [
+        {
+          "studentNumber": "2423008",
+          "givenName": "시우",
+          "familyName": "장",
+          "profileImageUrl": "false",
+          "rank": 1,
+          "formattedValue": "234:25:00"
+        },
+        {
+          "studentNumber": "2423006",
+          "givenName": "준우",
+          "familyName": "조",
+          "profileImageUrl": "false",
+          "rank": 2,
+          "formattedValue": "291:58:15"
+        },
+        {
+          "studentNumber": "2423018",
+          "givenName": "연우",
+          "familyName": "류",
+          "profileImageUrl": "false",
+          "rank": 3,
+          "formattedValue": "63:54:25"
+        },
+        {
+          "studentNumber": "2423017",
+          "givenName": "서진",
+          "familyName": "송",
+          "profileImageUrl": "images/profile/2423017/5330902737048.gif",
+          "rank": 4,
+          "formattedValue": "138:24:23"
+        },
+        {
+          "studentNumber": "2423007",
+          "givenName": "예준",
+          "familyName": "윤",
+          "profileImageUrl": "false",
+          "rank": 5,
+          "formattedValue": "187:43:44"
+        },
+        {
+          "studentNumber": "2423012",
+          "givenName": "지훈",
+          "familyName": "서",
+          "profileImageUrl": "false",
+          "rank": 6,
+          "formattedValue": "195:27:55"
+        },
+        {
+          "studentNumber": "2423015",
+          "givenName": "유준",
+          "familyName": "황",
+          "profileImageUrl": "false",
+          "rank": 7,
+          "formattedValue": "97:49:29"
+        },
+        {
+          "studentNumber": "2423014",
+          "givenName": "하람",
+          "familyName": "권",
+          "profileImageUrl": "false",
+          "rank": 8,
+          "formattedValue": "258:49:02"
+        },
+        {
+          "studentNumber": "2423019",
+          "givenName": "다이치",
+          "familyName": "사토",
+          "profileImageUrl": "false",
+          "rank": 9,
+          "formattedValue": "226:03:21"
+        },
+        {
+          "studentNumber": "2423011",
+          "givenName": "지호",
+          "familyName": "오",
+          "profileImageUrl": "false",
+          "rank": 10,
+          "formattedValue": "229:46:19"
+        },
+        {
+          "studentNumber": "2423010",
+          "givenName": "현우",
+          "familyName": "한",
+          "profileImageUrl": "false",
+          "rank": 11,
+          "formattedValue": "256:44:20"
+        },
+        {
+          "studentNumber": "2423013",
+          "givenName": "건우",
+          "familyName": "신",
+          "profileImageUrl": "false",
+          "rank": 12,
+          "formattedValue": "299:02:48"
+        },
+        {
+          "studentNumber": "2423005",
+          "givenName": "지후",
+          "familyName": "정",
+          "profileImageUrl": "false",
+          "rank": 13,
+          "formattedValue": "105:57:36"
+        },
+        {
+          "studentNumber": "2423016",
+          "givenName": "승우",
+          "familyName": "안",
+          "profileImageUrl": "false",
+          "rank": 14,
+          "formattedValue": "285:27:27"
+        },
+        {
+          "studentNumber": "2423004",
+          "givenName": "하준",
+          "familyName": "최",
+          "profileImageUrl": "images/profile/2423004/1250881497644.gif",
+          "rank": 15,
+          "formattedValue": "81:11:56"
+        },
+        {
+          "studentNumber": "2423009",
+          "givenName": "주원",
+          "familyName": "임",
+          "profileImageUrl": "false",
+          "rank": 16,
+          "formattedValue": "110:12:17"
+        },
+        {
+          "studentNumber": "2423002",
+          "givenName": "서준",
+          "familyName": "이",
+          "profileImageUrl": "false",
+          "rank": 17,
+          "formattedValue": "271:15:21"
+        },
+        {
+          "studentNumber": "2423001",
+          "givenName": "민준",
+          "familyName": "김",
+          "profileImageUrl": "images/profile/2423001/1994550186429.gif",
+          "rank": 18,
+          "formattedValue": "262:27:55"
+        },
+        {
+          "studentNumber": "2423003",
+          "givenName": "도윤",
+          "familyName": "박",
+          "profileImageUrl": "false",
+          "rank": 19,
+          "formattedValue": "279:06:31"
+        },
+        {
+          "studentNumber": "2423020",
+          "givenName": "아야메",
+          "familyName": "오오이",
+          "profileImageUrl": "false",
+          "rank": 20,
+          "formattedValue": "250:37:18"
+        }
+      ]
+    }
+  },
+  {
+    "success": true,
+    "message": "랭킹 조회 성공",
+    "data": {
+      "rankingType": "체류_시간",
+      "periodType": "일간",
+      "startDate": "2025-04-09",
+      "rankList": [
+        {
+          "studentNumber": "2423013",
+          "givenName": "건우",
+          "familyName": "신",
+          "profileImageUrl": "false",
+          "rank": 1,
+          "formattedValue": "294:39:17"
+        },
+        {
+          "studentNumber": "2423005",
+          "givenName": "지후",
+          "familyName": "정",
+          "profileImageUrl": "false",
+          "rank": 2,
+          "formattedValue": "68:59:53"
+        },
+        {
+          "studentNumber": "2423020",
+          "givenName": "아야메",
+          "familyName": "오오이",
+          "profileImageUrl": "false",
+          "rank": 3,
+          "formattedValue": "155:59:06"
+        },
+        {
+          "studentNumber": "2423007",
+          "givenName": "예준",
+          "familyName": "윤",
+          "profileImageUrl": "false",
+          "rank": 4,
+          "formattedValue": "279:58:55"
+        },
+        {
+          "studentNumber": "2423008",
+          "givenName": "시우",
+          "familyName": "장",
+          "profileImageUrl": "false",
+          "rank": 5,
+          "formattedValue": "124:07:08"
+        },
+        {
+          "studentNumber": "2423019",
+          "givenName": "다이치",
+          "familyName": "사토",
+          "profileImageUrl": "false",
+          "rank": 6,
+          "formattedValue": "253:31:07"
+        },
+        {
+          "studentNumber": "2423010",
+          "givenName": "현우",
+          "familyName": "한",
+          "profileImageUrl": "false",
+          "rank": 7,
+          "formattedValue": "88:13:37"
+        },
+        {
+          "studentNumber": "2423009",
+          "givenName": "주원",
+          "familyName": "임",
+          "profileImageUrl": "false",
+          "rank": 8,
+          "formattedValue": "189:27:06"
+        },
+        {
+          "studentNumber": "2423012",
+          "givenName": "지훈",
+          "familyName": "서",
+          "profileImageUrl": "false",
+          "rank": 9,
+          "formattedValue": "96:55:55"
+        },
+        {
+          "studentNumber": "2423001",
+          "givenName": "민준",
+          "familyName": "김",
+          "profileImageUrl": "false",
+          "rank": 10,
+          "formattedValue": "268:48:34"
+        },
+        {
+          "studentNumber": "2423016",
+          "givenName": "승우",
+          "familyName": "안",
+          "profileImageUrl": "false",
+          "rank": 11,
+          "formattedValue": "256:17:02"
+        },
+        {
+          "studentNumber": "2423003",
+          "givenName": "도윤",
+          "familyName": "박",
+          "profileImageUrl": "false",
+          "rank": 12,
+          "formattedValue": "86:28:40"
+        },
+        {
+          "studentNumber": "2423004",
+          "givenName": "하준",
+          "familyName": "최",
+          "profileImageUrl": "false",
+          "rank": 13,
+          "formattedValue": "75:05:06"
+        },
+        {
+          "studentNumber": "2423014",
+          "givenName": "하람",
+          "familyName": "권",
+          "profileImageUrl": "false",
+          "rank": 14,
+          "formattedValue": "89:03:08"
+        },
+        {
+          "studentNumber": "2423002",
+          "givenName": "서준",
+          "familyName": "이",
+          "profileImageUrl": "false",
+          "rank": 15,
+          "formattedValue": "179:05:28"
+        },
+        {
+          "studentNumber": "2423015",
+          "givenName": "유준",
+          "familyName": "황",
+          "profileImageUrl": "false",
+          "rank": 16,
+          "formattedValue": "140:26:23"
+        },
+        {
+          "studentNumber": "2423006",
+          "givenName": "준우",
+          "familyName": "조",
+          "profileImageUrl": "false",
+          "rank": 17,
+          "formattedValue": "195:52:33"
+        },
+        {
+          "studentNumber": "2423017",
+          "givenName": "서진",
+          "familyName": "송",
+          "profileImageUrl": "false",
+          "rank": 18,
+          "formattedValue": "125:47:12"
+        },
+        {
+          "studentNumber": "2423018",
+          "givenName": "연우",
+          "familyName": "류",
+          "profileImageUrl": "false",
+          "rank": 19,
+          "formattedValue": "212:47:43"
+        },
+        {
+          "studentNumber": "2423011",
+          "givenName": "지호",
+          "familyName": "오",
+          "profileImageUrl": "false",
+          "rank": 20,
+          "formattedValue": "113:43:55"
+        }
+      ]
+    }
+  },
+  {
+    "success": true,
+    "message": "랭킹 조회 성공",
+    "data": {
+      "rankingType": "체류_시간",
+      "periodType": "일간",
+      "startDate": "2025-04-10",
+      "rankList": [
+        {
+          "studentNumber": "2423010",
+          "givenName": "현우",
+          "familyName": "한",
+          "profileImageUrl": "false",
+          "rank": 1,
+          "formattedValue": "248:22:56"
+        },
+        {
+          "studentNumber": "2423003",
+          "givenName": "도윤",
+          "familyName": "박",
+          "profileImageUrl": "false",
+          "rank": 2,
+          "formattedValue": "76:40:40"
+        },
+        {
+          "studentNumber": "2423007",
+          "givenName": "예준",
+          "familyName": "윤",
+          "profileImageUrl": "false",
+          "rank": 3,
+          "formattedValue": "124:55:35"
+        },
+        {
+          "studentNumber": "2423002",
+          "givenName": "서준",
+          "familyName": "이",
+          "profileImageUrl": "false",
+          "rank": 4,
+          "formattedValue": "166:11:10"
+        },
+        {
+          "studentNumber": "2423004",
+          "givenName": "하준",
+          "familyName": "최",
+          "profileImageUrl": "false",
+          "rank": 5,
+          "formattedValue": "263:37:19"
+        },
+        {
+          "studentNumber": "2423015",
+          "givenName": "유준",
+          "familyName": "황",
+          "profileImageUrl": "images/profile/2423015/4524165671426.gif",
+          "rank": 6,
+          "formattedValue": "225:32:15"
+        },
+        {
+          "studentNumber": "2423014",
+          "givenName": "하람",
+          "familyName": "권",
+          "profileImageUrl": "false",
+          "rank": 7,
+          "formattedValue": "300:27:51"
+        },
+        {
+          "studentNumber": "2423006",
+          "givenName": "준우",
+          "familyName": "조",
+          "profileImageUrl": "false",
+          "rank": 8,
+          "formattedValue": "275:36:31"
+        },
+        {
+          "studentNumber": "2423019",
+          "givenName": "다이치",
+          "familyName": "사토",
+          "profileImageUrl": "false",
+          "rank": 9,
+          "formattedValue": "50:54:24"
+        },
+        {
+          "studentNumber": "2423020",
+          "givenName": "아야메",
+          "familyName": "오오이",
+          "profileImageUrl": "images/profile/2423020/5352280509977.gif",
+          "rank": 10,
+          "formattedValue": "204:38:47"
+        },
+        {
+          "studentNumber": "2423012",
+          "givenName": "지훈",
+          "familyName": "서",
+          "profileImageUrl": "false",
+          "rank": 11,
+          "formattedValue": "297:27:17"
+        },
+        {
+          "studentNumber": "2423011",
+          "givenName": "지호",
+          "familyName": "오",
+          "profileImageUrl": "images/profile/2423011/4502313988401.gif",
+          "rank": 12,
+          "formattedValue": "96:18:19"
+        },
+        {
+          "studentNumber": "2423005",
+          "givenName": "지후",
+          "familyName": "정",
+          "profileImageUrl": "images/profile/2423005/1844861913872.gif",
+          "rank": 13,
+          "formattedValue": "150:15:15"
+        },
+        {
+          "studentNumber": "2423001",
+          "givenName": "민준",
+          "familyName": "김",
+          "profileImageUrl": "false",
+          "rank": 14,
+          "formattedValue": "102:27:10"
+        },
+        {
+          "studentNumber": "2423018",
+          "givenName": "연우",
+          "familyName": "류",
+          "profileImageUrl": "images/profile/2423018/3509176239190.gif",
+          "rank": 15,
+          "formattedValue": "82:39:57"
+        },
+        {
+          "studentNumber": "2423008",
+          "givenName": "시우",
+          "familyName": "장",
+          "profileImageUrl": "false",
+          "rank": 16,
+          "formattedValue": "80:32:56"
+        },
+        {
+          "studentNumber": "2423009",
+          "givenName": "주원",
+          "familyName": "임",
+          "profileImageUrl": "false",
+          "rank": 17,
+          "formattedValue": "127:56:34"
+        },
+        {
+          "studentNumber": "2423016",
+          "givenName": "승우",
+          "familyName": "안",
+          "profileImageUrl": "false",
+          "rank": 18,
+          "formattedValue": "90:17:50"
+        },
+        {
+          "studentNumber": "2423017",
+          "givenName": "서진",
+          "familyName": "송",
+          "profileImageUrl": "false",
+          "rank": 19,
+          "formattedValue": "219:19:37"
+        },
+        {
+          "studentNumber": "2423013",
+          "givenName": "건우",
+          "familyName": "신",
+          "profileImageUrl": "false",
+          "rank": 20,
+          "formattedValue": "140:44:55"
+        }
+      ]
+    }
+  }
+]

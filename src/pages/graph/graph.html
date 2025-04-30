@@ -69,11 +69,20 @@
                 <div class="graph_header_title">
                     <img width="24" height="24" src="https://img.icons8.com/material-rounded/48/FFFFFF/crown.png" alt="crown"/>
                     <h4>Class Ranking</h4>
+                    <select name="switching_made" id="mode">
+                        <option value="daily">일간</option>
+                        <option value="weekly">주간</option>
+                        <option value="monthly">월간</option>
+                    </select>
                 </div>
                 <div class="graph_header_data">
                     <button class="prev-day" onclick="changeday(-1)">❮</button>
                     <h6 id="ranking-date">2025년 3월 25일 화요일</h6>
                     <button class="next-day" onclick="changeday(1)">❯</button>
+                    <select name="switching_made" id="mode">
+                        <option value="spent_at_school">재학 시간</option>
+                        <option value="arrival_order">등교 순서</option>
+                    </select>
                 </div>
             </div>
             <div class="graph_main">

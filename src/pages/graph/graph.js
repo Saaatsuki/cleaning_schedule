@@ -182,11 +182,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    const RANKING_URL = "../../../axiom/ranking.json";
+    const RANKING_URL = "../../../axiom/ranking_nikkan.json";
     const rankingContainer = document.querySelector(".class_Ranking");
     const dateHeading = document.getElementById("ranking-date");
 
-    let currentDate = new Date("2025-04-11");
+    let currentDate = new Date("2025-04-01");
 
 
     function formatJapaneseDate(date) {
@@ -204,11 +204,12 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(response => response.json())
             .then(data => {
                 const key = formatKeyDate(date);
-                const rankingData = data.ranking[key];
-
+                const matchedData = data.find(entry => entry.data.startDate === key);
+                const rankingData = matchedData?.data?.rankList || null;
+    
                 // タイトル更新
                 dateHeading.textContent = formatJapaneseDate(date);
-
+    
                 if (!rankingData || !rankingContainer) {
                     console.warn("ランキングデータが存在しません。");
                     rankingContainer.innerHTML = `
@@ -219,23 +220,26 @@ document.addEventListener("DOMContentLoaded", () => {
                     `;
                     return;
                 }
-
-                // 一旦中身をクリア
+    
                 rankingContainer.innerHTML = "";
-
-                // ソート（studyTimeを基準に降順）
+    
+                // ソート（formattedValueを基準に降順）
                 rankingData.sort((a, b) => {
-                    const timeToMinutes = timeStr => {
-                        const match = timeStr.match(/(\d+)시간\s*(\d+)분/);
-                        return parseInt(match[1]) * 60 + parseInt(match[2]);
+                    const toMinutes = timeStr => {
+                        const [h, m, s] = timeStr.split(":").map(Number);
+                        return h * 60 + m + s / 60;
                     };
-                    return timeToMinutes(b.studyTime) - timeToMinutes(a.studyTime);
+                    return toMinutes(b.formattedValue) - toMinutes(a.formattedValue);
                 });
-
+    
                 rankingData.forEach((student, index) => {
-                    const fullName = `${student.familyName} ${student.firstName}`.trim();
-                    const studentImg = student.image || "https://img.icons8.com/emoji/48/student-emoji.png";
-
+                    if (index >= 7) return; 
+                
+                    const fullName = `${student.familyName} ${student.givenName}`.trim();
+                    const studentImg = student.profileImageUrl === "false" || !student.profileImageUrl
+                        ? "https://img.icons8.com/emoji/48/student-emoji.png"
+                        : student.profileImageUrl;
+                
                     const studentHtml = `
                         <div class="class_ranking_mem">
                             <div class="class_rank">
@@ -248,18 +252,21 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <p>${fullName}</p>
                             </div>
                             <div class="rank_time">
-                                <p>${student.studyTime}</p>
+                                <p>${student.formattedValue}</p>
                             </div>
                         </div>
                     `;
-
+                
                     rankingContainer.insertAdjacentHTML("beforeend", studentHtml);
                 });
+                
+                
             })
             .catch(error => {
                 console.error("ランキングデータの取得に失敗しました:", error);
             });
     }
+    
 
     // 日付変更用関数（±1日）
     window.changeday = function (offset) {

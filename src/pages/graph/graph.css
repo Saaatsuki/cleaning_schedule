@@ -83,6 +83,34 @@ h4 , h6 {
 
 }
 
+#mode {
+    margin-left: 10px;
+    padding: 2px 10px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #d2dafd;
+    border: none;
+    border-radius: 5px;
+    background-color: #001757;
+    background-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+  }
+  
+  #mode:hover {
+    background-color: #3b559b;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    transform: scale(1.03);
+  }
+  
+  #mode:focus {
+    outline: none;
+    background-color: #172C66;
+    box-shadow: 0 0 0 3px rgba(98, 147, 255, 0.4);
+  }
+  
+
 .graph_header_data button {
     height: 100%;
     background-color: #8bd3dd;
@@ -165,7 +193,7 @@ h4 , h6 {
     font-weight: 700;
     padding: 2%;
     /* overflow-y: scroll;
-    max-height: 580px;   */
+    max-height: 700px;   */
 }
 
 .class_Ranking p {
@@ -254,10 +282,7 @@ h4 , h6 {
     justify-content: flex-end;
 }
 
-/* .dateX_msg {
-    display: flex;
-    flex-direction: column;
-} */
+
 
 .dateX_msg img {
     width: 150px;
