@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clean Plan</title>
+    <link rel="stylesheet" href="../../components/header.css" />
+    <link rel="stylesheet" href="clean.css" />
+    <link rel="stylesheet" href="../../components/menu.css" />
+    <link rel="stylesheet" href="calender.css" />
+  </head>
+  <body>
+    <main>
+      <div id="search"></div>
+      <div class="box-list"></div>
+    </main>
+
+    <!-- モーダルアラートのHTML -->
+    <div id="modalAlert" class="modal-alert">
+      <p id="alertMessage">選択した日付に対応するボックスはありません。</p>
+      <div class="image">
+        <dotlottie-player
+          src="https://lottie.host/c7c2e3c2-8d84-4515-b70e-310adc867ffb/GdW4WDj1xE.lottie"
+          background="transparent"
+          speed="1"
+          style="width: 100px; height: 100px"
+          loop
+          autoplay
+        ></dotlottie-player>
+      </div>
+      <button id="closeBtn" class="close-btn">닫아버리기</button>
+    </div>
+
+    <!-- member-menu -->
+    <div id="member-menu" class="member-menu"></div>
+
+    <!-- add-member -->
+    <div id="add-member" class="add-member"></div>
+
+    <script src="https://kit.fontawesome.com/5d59a453d5.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"></script>
+    <script src="../../components/header.js"></script>
+    <script src="./components/search.js"></script>
+    <script src="./clean.js"></script>
+  </body>
+</html>
