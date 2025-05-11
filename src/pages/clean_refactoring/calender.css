@@ -1,0 +1,364 @@
+.search-calendar {
+  width: 80px;
+  background: white;
+  padding: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid linear-gradient(135deg, #f5a623, #ffefd5);
+  box-shadow: rgba(86, 86, 104, 0.3) 0px 10px 40px;
+  position: fixed;
+  right: 2%;
+  bottom: 2%;
+  z-index: 1001;
+  transition: all 0.3s ease-in-out;
+}
+
+.search-calendar:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #f5a623;
+}
+
+.search-calendar-img {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-calendar-img img {
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* .search-calendar:hover .search-calendar-img img {
+    transform: rotate(360deg);
+} */
+
+.container_calendar {
+  height: 30rem;
+  width: 100%;
+  background-color: white;
+  border-radius: 25px;
+  overflow: hidden;
+  padding: 20px;
+  font-size: 0.8rem;
+  z-index: 1000;
+  transform: translateY(-100%); /* 初期状態では画面外 */
+  position: relative;
+  transition: transform 2s ease;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+/* カレンダーがアクティブなときに表示される */
+.container_calendar.active {
+  transition: transform 2s ease;
+  transform: translateY(0); /* 上から下に降りてくる */
+}
+
+.calendar-header {
+  background: #f5a623;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 7px;
+  align-items: center;
+  align-content: center;
+  font-weight: 700;
+  color: #ffffff;
+  padding: 10px;
+}
+
+.calendar-body {
+  padding: 10px;
+}
+
+.calendar-week-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-weight: 600;
+  cursor: pointer;
+  color: rgb(104, 104, 104);
+}
+
+.calendar-week-days div:hover {
+  color: #172c66;
+  transform: scale(1.2);
+  transition: all 0.2s ease-in-out;
+}
+
+.calendar-week-days div {
+  display: grid;
+  place-items: center;
+  color: #f5a623;
+  height: 50px;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  color: #172c66;
+}
+
+.calendar-days div {
+  width: 37px;
+  height: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  position: relative;
+  cursor: pointer;
+  animation: to-top 1s forwards;
+}
+
+.month-picker {
+  padding: 5px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.year-picker {
+  display: flex;
+  align-items: center;
+}
+
+.year-change {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  display: grid;
+  align-content: center;
+  place-items: center;
+  margin: 0px 10px;
+  cursor: pointer;
+}
+
+.year-change:hover {
+  background-color: #f5a623;
+  transition: all 0.2s ease-in-out;
+  transform: scale(1.12);
+}
+
+.calendar-footer {
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#year:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: all 0.2 ease-in-out;
+}
+
+.calendar-days div span {
+  position: absolute;
+}
+
+.calendar-days div:hover {
+  transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+  background-color: #f582ae;
+  border-radius: 20%;
+  color: #f8fbff;
+}
+
+.calendar-days div.current-date {
+  color: #f8fbff;
+  background-color: #f5a623;
+  border-radius: 20%;
+}
+
+.month-list {
+  position: relative;
+  left: 0;
+  /* top: -200px;  */
+  bottom: 180px;
+  background-color: #ffe3ee;
+  color: #7e7d7d;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 5px;
+  border-radius: 20px;
+}
+
+@media (max-width: 345px) {
+  .month-list {
+    font-size: 10px;
+  }
+}
+
+.month-list > div {
+  display: grid;
+  place-content: center;
+  margin: 5px 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.month-list > div > div {
+  border-radius: 15px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.month-list > div > div:hover {
+  background-color: #7e7d7d;
+  color: #ffe3ee;
+  transform: scale(0.9);
+  transition: all 0.2s ease-in-out;
+}
+
+.month-list.show {
+  visibility: visible;
+  pointer-events: visible;
+  transition: 0.6s ease-in-out;
+  animation: to-left 0.71s forwards;
+}
+
+.month-list.hideonce {
+  visibility: hidden;
+}
+
+.month-list.hide {
+  animation: to-right 1s forwards;
+  visibility: none;
+  pointer-events: none;
+}
+
+.date-time-formate {
+  height: 4rem;
+  width: 100%;
+  font-family: Dubai Light, Century Gothic;
+  position: relative;
+  display: flex;
+  bottom: -30px;
+  justify-content: center;
+  align-items: center;
+  color: #172c66;
+}
+
+.day-text-formate {
+  font-family: Microsoft JhengHei UI;
+  font-size: 1rem;
+  padding-right: 5%;
+  border-right: 3px solid #f5a623;
+}
+
+.date-time-value {
+  display: block;
+  position: relative;
+  text-align: center;
+  padding-left: 5%;
+}
+
+.time-formate {
+  font-size: 1rem;
+}
+
+.time-formate.hideTime {
+  animation: hidetime 1.5s forwards;
+}
+
+.day-text-formate.hidetime {
+  animation: hidetime 1.5s forwards;
+}
+
+.date-formate.hideTime {
+  animation: hidetime 1.5s forwards;
+}
+
+.day-text-formate.showtime {
+  animation: showtime 1s forwards;
+}
+
+.time-formate.showtime {
+  animation: showtime 1s forwards;
+}
+
+.date-formate.showtime {
+  animation: showtime 1s forwards;
+}
+
+@keyframes to-top {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(100%);
+    opacity: 1;
+  }
+}
+
+@keyframes to-left {
+  0% {
+    transform: translatex(230%);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translatex(0);
+    opacity: 1;
+  }
+}
+
+@keyframes to-right {
+  10% {
+    transform: translatex(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translatex(-150%);
+    opacity: 1;
+  }
+}
+
+@keyframes showtime {
+  0% {
+    transform: translatex(250%);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translatex(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes hidetime {
+  0% {
+    transform: translatex(0%);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translatex(-370%);
+    opacity: 1;
+  }
+}
+
+.search-calendar.active {
+  display: none;
+}
+
+.container_calendar {
+  display: none;
+}
+
+.container_calendar.active {
+  display: block;
+}
+
+.no-data-message {
+  margin-top: 5%;
+  background-color: white;
+  padding: 3%;
+  border-radius: 15px;
+  font-size: 1rem;
+  text-align: center;
+  color: #172c66;
+}

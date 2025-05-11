@@ -1,0 +1,815 @@
+* {
+  box-sizing: border-box !important;
+  max-width: 100%;
+}
+
+body {
+  width: 100vw;
+}
+
+main {
+  width: 100%;
+  height: 89%;
+  padding: 3%;
+  margin-top: header(height) + 20px;
+}
+
+input::placeholder {
+  padding-left: 10px;
+  color: rgba(23, 44, 102, 0.3);
+  font-size: 100%;
+}
+
+/* 検索ボックス全体のスタイル */
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #172c66;
+  padding: 10px;
+  border-radius: 25px;
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/* 入力フィールドのスタイル */
+.search-container input {
+  border: none;
+  outline: none;
+  background-color: white;
+  padding: 10px;
+  font-size: 16px;
+  width: 85%;
+  transition: all 1s ease-in-out;
+  color: #172c66;
+  border-radius: 15px;
+  box-shadow: inset 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* ボタンのスタイル */
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.icon img {
+  width: 30px;
+  aspect-ratio: 1/1;
+}
+
+.icon button:hover {
+  transform: scale(1.1) rotate(5deg);
+  opacity: 0.8;
+}
+
+/* カレンダーボタンのアニメーション */
+.calender-btn button:hover {
+  animation: soft-glow 1s infinite alternate;
+}
+
+/* 検索ボタンのアニメーション */
+.serch-btn button:hover {
+  animation: glow 1s infinite alternate;
+}
+
+/* 検索ボタンのアニメーション */
+.serch-btn button:hover {
+  animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    filter: drop-shadow(0 0 5px rgb(214, 153, 199));
+  }
+  to {
+    filter: drop-shadow(0 0 10px rgb(241, 215, 228));
+  }
+}
+
+.calendar_serch {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.calendar-container {
+  padding: 5%;
+  width: 100%;
+  max-width: 800px;
+  background-color: #ffffff;
+  border: 3px solid #172c66;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.5s ease;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: white !important;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #172c66;
+}
+
+.calendar-header button {
+  background-color: #8bd3dd;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.calendar-header button:hover {
+  background-color: #a3f0fa; /* ホバー時にボタンの色を変化 */
+  transform: scale(1.05);
+}
+
+.calendar-header button:hover {
+  background-color: #a8ecf5; /* ホバー時にボタンの色を変化 */
+  transform: scale(0.97);
+}
+
+/* カレンダーの日付グリッド */
+.calendar-grid {
+  width: 100%;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  text-align: center;
+  margin: 0 20px;
+}
+
+.week-day {
+  background-color: #172c66 !important;
+  color: white;
+  font-weight: 700;
+}
+
+.calendar-grid div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.calendar-grid div:hover {
+  background-color: #e8cb1f;
+  transform: scale(1.05);
+}
+
+.calendar-grid div:active {
+  background-color: #f3d737;
+  transform: scale(0.97);
+}
+
+/* カレンダーの日付詳細 */
+.calendar-detail {
+  margin-top: 20px;
+  background-color: #f8f8f8;
+  padding: 10px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.calendar-detail h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.calendar-detail p {
+  font-size: 1rem;
+  color: #172c66;
+}
+
+.calendar_serch {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.4s ease-in-out;
+}
+
+.box-list {
+  padding-bottom: 30px !important;
+}
+
+/* ボックスデザイン */
+.box {
+  position: relative;
+  margin-top: 20px;
+  background-color: #172c66;
+  transition: background-color 2s ease;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+  z-index: auto;
+}
+
+.box:hover {
+  transition: all 2s ease;
+  background-color: #1f3a86;
+}
+
+.box h5 {
+  font-size: 16px;
+}
+
+.box h6 {
+  font-size: 14px;
+}
+
+.date {
+  color: white;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.area-lists {
+  width: 100%;
+}
+
+.area-sub {
+  margin-top: 20px;
+}
+
+.area-menu {
+  display: flex;
+}
+
+.all-sw {
+  display: flex;
+  justify-content: space-between;
+
+  color: #172c66;
+  font-size: medium;
+  margin-bottom: 10px;
+  height: 30px;
+}
+
+/* エリアデザイン */
+.area {
+  background-color: #e8cb1f;
+}
+
+.mem-coun {
+  background-color: #f582ae;
+}
+
+.me-class {
+  background-color: #8bd3dd;
+}
+
+.me-edit {
+  background-color: #f5a623;
+  perspective: 1000px; /* 3D効果を与える */
+  transition: transform 0.6s;
+}
+
+.me-edit img {
+  height: 13px;
+}
+
+.me-edit .card {
+  width: 40px; /* カードサイズ */
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  transform-style: preserve-3d; /* 3D変換 */
+  transition: transform 0.6s; /* 回転アニメーション */
+}
+
+.me-edit .front,
+.me-edit .back {
+  position: absolute;
+  height: 100%;
+  backface-visibility: hidden; /* 裏面を隠す */
+}
+
+.me-edit .front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.me-edit .back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(180deg); /* 裏面を180度回転させる */
+}
+
+/* カードがホバーされた時の回転 */
+.me-edit:hover .card {
+  transform: rotateY(180deg);
+}
+
+/* エフェクト */
+.me-edit:hover {
+  filter: drop-shadow(3px 3px 3px #cc891d);
+  transform: scale(1.02);
+}
+
+.me-edit:active {
+  filter: drop-shadow(3px 3px 3px #cc891d);
+  transform: scale(0.97);
+}
+
+.me-box {
+  box-sizing: content-box;
+  padding: 0px 10px;
+  border-radius: 10px;
+  margin-right: 10px;
+  transition: filter 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+}
+
+.members {
+  background-color: white;
+  height: 118px;
+  width: 100%;
+  border-radius: 7px;
+  padding: 2px 5px;
+  display: flex;
+  align-items: center;
+  color: #172c66;
+  gap: 11px;
+  overflow-x: auto; /* 横スクロールを有効にする */
+  flex-wrap: nowrap; /* 要素を改行せず横並びにする */
+  box-shadow: inset 3px 3px 3px 3px rgba(0, 0, 0, 0.2);
+  z-index: 4001;
+}
+
+.member,
+.add-member {
+  /* width: 100PX; */
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  position: relative;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.member h6 {
+  margin-top: 5%;
+}
+
+.members::-webkit-scrollbar {
+  display: none;
+}
+
+.mem-o {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.mem-img {
+  display: flex;
+  height: 72px;
+  width: 72px;
+  /* position: relative; */
+}
+
+.mem-img img {
+  transition: filter 0.3s ease-in-out; /* フィルターにアニメーションをつける */
+  border-radius: 50%;
+  height: 72px;
+  width: 72px;
+  display: block; /* 余計な隙間をなくす */
+}
+
+.mem-img:hover img {
+  filter: drop-shadow(3px 3px 3px gray);
+}
+
+.mem-o img {
+  border: 3px solid #8bd3dd;
+}
+
+.mem-x {
+  color: #aba6a6 !important;
+}
+
+h6 {
+  font-size: medium;
+  font-weight: 900;
+}
+
+.clean-coun {
+  z-index: 10;
+  position: absolute;
+  top: 0; /* 左上に配置 */
+  left: 0;
+  background-color: #8bd3dd; /* 通知数の背景色（半透明の赤） */
+  color: #172c66; /* 文字色 */
+  padding: 5px; /* 通知数の余白 */
+  font-size: 13px; /* フォントサイズ */
+  border-radius: 50%; /* 丸い形にする */
+  width: 23px; /* 通知数の円の幅 */
+  height: 23px; /* 通知数の円の高さ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clean-coun p {
+  font-weight: 1000;
+}
+
+/* モーダルアラートのスタイル */
+.modal-alert {
+  z-index: 6000;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border: 3px solid #172c66;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+  display: none;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-alert p {
+  font-size: 14px;
+  color: #172c66;
+}
+
+.modal-alert .close-btn {
+  background-color: #f582ae;
+  border: none;
+  color: white;
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.modal-alert .close-btn:hover {
+  background-color: #f57291;
+}
+
+.modal-alert .image {
+  height: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 吹き出しメニュー */
+.member-menu {
+  background-color: white;
+  width: 300px;
+  /* display: none; */
+  position: fixed; /* 画面に固定 */
+  top: 50%; /* 上から50% */
+  left: 50%; /* 左から50% */
+  transform: translate(-50%, -50%) scale(0.8);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 6000;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.member-menu.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* メニュー内の項目 */
+.member-menu p {
+  cursor: pointer;
+  font-size: 15px;
+  padding: 5px 0;
+  transition: background-color 0.2s ease, padding-left 0.2s ease;
+}
+
+/* メニュー項目にマウスオーバー時 */
+.mem-menu p:hover {
+  background-color: #f0f0f0;
+  padding-left: 10px;
+}
+
+/* メニュー内の項目が非表示の状態 */
+.member-menu p.hidden {
+  display: none;
+}
+
+/* クリック時にメニューが消えるアニメーション */
+.member-menu p {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mem-menu {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  justify-content: center;
+  align-items: center;
+}
+
+.mem-menu img {
+  width: 30px;
+}
+
+.mem-menu_img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.member-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.member-info img {
+  margin-top: 15px;
+  width: 80px;
+  aspect-ratio: 1/1;
+  border-radius: 50px;
+}
+
+.member-info p {
+  padding: 1% 4%;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  color: #172c66;
+  font-weight: 500;
+}
+
+/* 吹き出しメニュー */
+.add_menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  width: 300px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 6000;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* 吹き出しメニューが表示される際のスタイル */
+.add_menu.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1); /* 中央に表示 */
+}
+
+.add-img {
+  display: flex;
+  justify-content: center;
+}
+
+.menu_batu {
+  display: flex;
+  justify-content: flex-end;
+  margin: 5px;
+}
+
+.menu_batu img {
+  cursor: pointer;
+  filter: brightness(0) saturate(100%) invert(20%) sepia(50%) saturate(509%) hue-rotate(137deg) brightness(98%)
+    contrast(93%); /* 柔らかい色合いのXボタン */
+  transition: transform 0.2s ease;
+}
+
+.add-title {
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: #172c66;
+  margin-bottom: 12px;
+}
+
+/* 日付と講義室 */
+.add-data,
+.add_cleanArea {
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  color: #172c66;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+/* ホバー時のアニメーション */
+.add-data:hover,
+.add_cleanArea:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* 入力欄 */
+.schoolNumber {
+  display: flex;
+  align-items: center;
+  background: #f9f9f9;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.schoolNumber img {
+  width: 24px;
+  margin-right: 8px;
+}
+
+.schoolNumber input {
+  flex: 1;
+  border: none;
+  font-size: 14px;
+  background: transparent;
+  outline: none;
+}
+
+.schoolNumber input:focus {
+  border-bottom: 2px solid #8bd3dd;
+}
+
+.add-img img {
+  margin-top: 10px;
+  height: 75px;
+  background-color: #e8cb1f;
+  border-radius: 50px;
+  height: 75px;
+  aspect-ratio: 1/1;
+}
+
+/* ボタン */
+.add-btn {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 15px;
+  gap: 7px;
+}
+
+.add-btn_cancel,
+.add-btn_OK {
+  height: 100%;
+  width: 100%;
+}
+
+.add-btn_cancel button,
+.add-btn_OK button {
+  height: 100%;
+  width: 100%;
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-btn_cancel button {
+  background: #e0e0e0;
+  color: #333;
+  margin-right: 8px;
+}
+
+.add-btn_OK button {
+  background: #8bd3dd;
+  color: white;
+}
+
+.add-btn_OK button:hover {
+  background: #a9f2fc;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.add-btn_cancel button:hover {
+  background: #eeeeee;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.add-btn_OK button:active {
+  background: #a9f2fc;
+  transform: translateY(2px);
+  box-shadow: 2 4px 6px rgba(0, 0, 0, 0);
+}
+
+.add-btn_cancel button:active {
+  background: #eeeeee;
+  transform: translateY(2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0);
+}
+
+/* 吹き出しの三角形部分
+.add_menu:before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #ffffff;
+} */
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes glow_img {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+    transform: scale(1.1);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+    transform: scale(1);
+  }
+}
+
+.glow-animation {
+  animation: glow_img 1.5s infinite alternate;
+}
