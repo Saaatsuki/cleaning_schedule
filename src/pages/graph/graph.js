@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-    const RANKING_URL = "../../../axiom/ranking_nikkan.json";
+    const RANKING_URL = "../../../axiom/daily.json";
     const rankingContainer = document.querySelector(".class_Ranking");
     const dateHeading = document.getElementById("ranking-date");
 
